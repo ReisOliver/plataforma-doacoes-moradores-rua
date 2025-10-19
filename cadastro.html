@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cadastre-se como voluntário ou doador da Rua Solidária">
+    <title>Cadastro - Rua Solidária</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Rua Solidária" width="150" height="60">
+            </a>
+            <nav class="navegacao" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="doacoes.html">Fazer Doação</a></li>
+                    <li><a href="cadastro.html" aria-current="page">Cadastrar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <header class="cabecalho-pagina">
+            <div class="container">
+                <h1>Junte-se à Nossa Causa</h1>
+                <p>Preencha o formulário abaixo para se cadastrar como voluntário ou doador</p>
+            </div>
+        </header>
+
+        <section class="formulario-cadastro" aria-labelledby="form-titulo">
+            <div class="container">
+                <h2 id="form-titulo">Formulário de Cadastro</h2>
+                
+                <form id="cadastroForm" class="formulario" novalidate>
+                    <!-- Grupo: Dados Pessoais -->
+                    <fieldset class="grupo-formulario">
+                        <legend>Dados Pessoais</legend>
+                        
+                        <div class="campo-grupo">
+                            <label for="nomeCompleto" class="rotulo">
+                                Nome Completo *
+                            </label>
+                            <input 
+                                type="text" 
+                                id="nomeCompleto" 
+                                name="nomeCompleto" 
+                                required 
+                                minlength="3"
+                                maxlength="100"
+                                placeholder="Digite seu nome completo"
+                                aria-describedby="nome-help"
+                            >
+                            <small id="nome-help" class="texto-ajuda">
+                                Digite seu nome completo como consta no documento
+                            </small>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="email" class="rotulo">
+                                E-mail *
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required
+                                placeholder="seu@email.com"
+                                aria-describedby="email-help"
+                            >
+                            <small id="email-help" class="texto-ajuda">
+                                Utilizaremos este e-mail para contato
+                            </small>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="cpf" class="rotulo">
+                                CPF *
+                            </label>
+                            <input 
+                                type="text" 
+                                id="cpf" 
+                                name="cpf" 
+                                required
+                                pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                                placeholder="000.000.000-00"
+                                maxlength="14"
+                                aria-describedby="cpf-help"
+                            >
+                            <small id="cpf-help" class="texto-ajuda">
+                                Digite apenas números, a formatação será automática
+                            </small>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="telefone" class="rotulo">
+                                Telefone *
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="telefone" 
+                                name="telefone" 
+                                required
+                                placeholder="(11) 99999-9999"
+                                maxlength="15"
+                                aria-describedby="telefone-help"
+                            >
+                            <small id="telefone-help" class="texto-ajuda">
+                                Inclua DDD e número com 9 dígitos
+                            </small>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="dataNascimento" class="rotulo">
+                                Data de Nascimento *
+                            </label>
+                            <input 
+                                type="date" 
+                                id="dataNascimento" 
+                                name="dataNascimento" 
+                                required
+                                max="2006-12-31"
+                                aria-describedby="data-help"
+                            >
+                            <small id="data-help" class="texto-ajuda">
+                                É necessário ter mais de 18 anos para voluntariado
+                            </small>
+                        </div>
+                    </fieldset>
+
+                    <!-- Grupo: Endereço -->
+                    <fieldset class="grupo-formulario">
+                        <legend>Endereço</legend>
+                        
+                        <div class="campo-grupo">
+                            <label for="endereco" class="rotulo">
+                                Endereço Completo *
+                            </label>
+                            <input 
+                                type="text" 
+                                id="endereco" 
+                                name="endereco" 
+                                required
+                                placeholder="Rua, número, complemento"
+                                aria-describedby="endereco-help"
+                            >
+                            <small id="endereco-help" class="texto-ajuda">
+                                Digite o endereço completo para correspondência
+                            </small>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="cep" class="rotulo">
+                                CEP *
+                            </label>
+                            <input 
+                                type="text" 
+                                id="cep" 
+                                name="cep" 
+                                required
+                                pattern="\d{5}-\d{3}"
+                                placeholder="00000-000"
+                                maxlength="9"
+                                aria-describedby="cep-help"
+                            >
+                            <small id="cep-help" class="texto-ajuda">
+                                Digite apenas números
+                            </small>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="cidade" class="rotulo">
+                                Cidade *
+                            </label>
+                            <input 
+                                type="text" 
+                                id="cidade" 
+                                name="cidade" 
+                                required
+                                placeholder="Nome da cidade"
+                            >
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="estado" class="rotulo">
+                                Estado *
+                            </label>
+                            <select id="estado" name="estado" required>
+                                <option value="">Selecione seu estado</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <!-- Grupo: Tipo de Participação -->
+                    <fieldset class="grupo-formulario">
+                        <legend>Como deseja participar?</legend>
+                        
+                        <div class="campo-grupo">
+                            <div class="grupo-radio">
+                                <label class="rotulo-radio">
+                                    <input 
+                                        type="radio" 
+                                        name="tipoParticipacao" 
+                                        value="voluntario" 
+                                        required
+                                    >
+                                    <span class="radio-personalizado"></span>
+                                    Voluntário
+                                </label>
+                                <label class="rotulo-radio">
+                                    <input 
+                                        type="radio" 
+                                        name="tipoParticipacao" 
+                                        value="doador"
+                                    >
+                                    <span class="radio-personalizado"></span>
+                                    Doador
+                                </label>
+                                <label class="rotulo-radio">
+                                    <input 
+                                        type="radio" 
+                                        name="tipoParticipacao" 
+                                        value="ambos"
+                                    >
+                                    <span class="radio-personalizado"></span>
+                                    Ambos
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="areasInteresse" class="rotulo">
+                                Áreas de Interesse (múltipla escolha)
+                            </label>
+                            <select id="areasInteresse" name="areasInteresse" multiple size="4">
+                                <option value="educacao">Educação</option>
+                                <option value="saude">Saúde</option>
+                                <option value="meio-ambiente">Meio Ambiente</option>
+                                <option value="assistencia-social">Assistência Social</option>
+                                <option value="distribuicao-alimentos">Distribuição de Alimentos</option>
+                                <option value="capacitacao-profissional">Capacitação Profissional</option>
+                            </select>
+                            <small class="texto-ajuda">
+                                Mantenha Ctrl pressionado para selecionar múltiplas opções
+                            </small>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="disponibilidade" class="rotulo">
+                                Disponibilidade Semanal (horas)
+                            </label>
+                            <input 
+                                type="range" 
+                                id="disponibilidade" 
+                                name="disponibilidade" 
+                                min="0" 
+                                max="40" 
+                                step="5"
+                                value="10"
+                                aria-describedby="disponibilidade-valor"
+                            >
+                            <output id="disponibilidade-valor">10 horas</output>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="experiencia" class="rotulo">
+                                Experiência Anterior (opcional)
+                            </label>
+                            <textarea 
+                                id="experiencia" 
+                                name="experiencia" 
+                                rows="4"
+                                placeholder="Conte sobre experiências anteriores com trabalho voluntário..."
+                            ></textarea>
+                        </div>
+                    </fieldset>
+
+                    <!-- Grupo: Termos e Condições -->
+                    <fieldset class="grupo-formulario">
+                        <legend>Termos e Condições</legend>
+                        
+                        <div class="campo-grupo">
+                            <label class="rotulo-checkbox">
+                                <input 
+                                    type="checkbox" 
+                                    name="termos" 
+                                    required
+                                    aria-describedby="termos-help"
+                                >
+                                <span class="checkbox-personalizado"></span>
+                                Li e concordo com os 
+                                <a href="#" target="_blank">termos de uso</a> 
+                                e 
+                                <a href="#" target="_blank">política de privacidade</a> *
+                            </label>
+                            <small id="termos-help" class="texto-ajuda">
+                                É necessário concordar com os termos para prosseguir
+                            </small>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label class="rotulo-checkbox">
+                                <input 
+                                    type="checkbox" 
+                                    name="newsletter"
+                                >
+                                <span class="checkbox-personalizado"></span>
+                                Desejo receber newsletter com novidades e oportunidades
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- Botões de ação -->
+                    <div class="botoes-acao">
+                        <button type="submit" class="botao-primario">
+                            Enviar Cadastro
+                        </button>
+                        <button type="reset" class="botao-secundario">
+                            Limpar Formulário
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2024 Rua Solidária. Transformando vidas, uma doação de cada vez.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Faça doações de dinheiro, alimentos, roupas ou ofereça oportunidades de trabalho">
+    <title>Fazer Doação - Rua Solidária</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Rua Solidária" width="150" height="60">
+            </a>
+            <nav class="navegacao" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="doacoes.html" aria-current="page">Fazer Doação</a></li>
+                    <li><a href="cadastro.html">Cadastrar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <header class="cabecalho-pagina">
+            <div class="container">
+                <h1>Escolha Como Ajudar</h1>
+                <p>Selecione o tipo de doação que deseja fazer</p>
+            </div>
+        </header>
+
+        <!-- Navegação entre tipos de doação -->
+        <nav class="navegacao-doacoes" aria-label="Tipos de doação">
+            <div class="container">
+                <ul>
+                    <li><a href="#doacao-financeira" class="botao-tipo-doacao ativo">💰 Doação em Dinheiro</a></li>
+                    <li><a href="#doacao-alimentos" class="botao-tipo-doacao">🍎 Alimentos</a></li>
+                    <li><a href="#doacao-roupas" class="botao-tipo-doacao">👕 Roupas</a></li>
+                    <li><a href="#oportunidade-trabalho" class="botao-tipo-doacao">💼 Oportunidades</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Doação Financeira -->
+        <section id="doacao-financeira" class="tipo-doacao ativo" aria-labelledby="financeira-titulo">
+            <div class="container">
+                <h2 id="financeira-titulo">Doação Financeira</h2>
+                <p>Seu dinheiro será utilizado para:</p>
+                <ul class="beneficios-lista">
+                    <li>🔵 Refeições diárias</li>
+                    <li>🔵 Kits de higiene pessoal</li>
+                    <li>🔵 Medicamentos básicos</li>
+                    <li>🔵 Transporte para entrevistas</li>
+                </ul>
+
+                <form class="formulario-doacao" id="formDoacaoFinanceira">
+                    <fieldset>
+                        <legend>Valor da Doação</legend>
+                        <div class="opcoes-valor">
+                            <label class="opcao-valor">
+                                <input type="radio" name="valor" value="25" required>
+                                <span class="botao-valor">R$ 25</span>
+                                <small>Alimenta 5 pessoas</small>
+                            </label>
+                            <label class="opcao-valor">
+                                <input type="radio" name="valor" value="50">
+                                <span class="botao-valor">R$ 50</span>
+                                <small>Kits higiene para 10</small>
+                            </label>
+                            <label class="opcao-valor">
+                                <input type="radio" name="valor" value="100">
+                                <span class="botao-valor">R$ 100</span>
+                                <small>Ajuda com documentação</small>
+                            </label>
+                            <label class="opcao-valor">
+                                <input type="radio" name="valor" value="outro">
+                                <span class="botao-valor">Outro valor</span>
+                            </label>
+                        </div>
+
+                        <div class="campo-grupo valor-custom hidden">
+                            <label for="valorCustom">Digite o valor (R$)</label>
+                            <input type="number" id="valorCustom" name="valorCustom" min="1" step="0.01" placeholder="Ex: 75,50">
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Forma de Pagamento</legend>
+                        <div class="opcoes-pagamento">
+                            <label class="opcao-pagamento">
+                                <input type="radio" name="pagamento" value="pix" required>
+                                <span class="icone-pagamento">📱</span>
+                                PIX
+                            </label>
+                            <label class="opcao-pagamento">
+                                <input type="radio" name="pagamento" value="cartao">
+                                <span class="icone-pagamento">💳</span>
+                                Cartão de Crédito
+                            </label>
+                            <label class="opcao-pagamento">
+                                <input type="radio" name="pagamento" value="boleto">
+                                <span class="icone-pagamento">📄</span>
+                                Boleto
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="botao-primario grande">Confirmar Doação</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Doação de Alimentos -->
+        <section id="doacao-alimentos" class="tipo-doacao" aria-labelledby="alimentos-titulo">
+            <div class="container">
+                <h2 id="alimentos-titulo">Doação de Alimentos</h2>
+                <p>Itens mais necessários atualmente:</p>
+
+                <form class="formulario-doacao" id="formDoacaoAlimentos">
+                    <fieldset>
+                        <legend>Selecione os Itens</legend>
+                        
+                        <div class="categoria-alimentos">
+                            <h4>Não Perecíveis</h4>
+                            <div class="itens-alimentos">
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="alimentos[]" value="arroz">
+                                    <span class="checkmark"></span>
+                                    Arroz (5kg)
+                                </label>
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="alimentos[]" value="feijao">
+                                    <span class="checkmark"></span>
+                                    Feijão (1kg)
+                                </label>
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="alimentos[]" value="oleo">
+                                    <span class="checkmark"></span>
+                                    Óleo (1L)
+                                </label>
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="alimentos[]" value="acucar">
+                                    <span class="checkmark"></span>
+                                    Açúcar (1kg)
+                                </label>
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="alimentos[]" value="cafe">
+                                    <span class="checkmark"></span>
+                                    Café (500g)
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="categoria-alimentos">
+                            <h4>Higiene Pessoal</h4>
+                            <div class="itens-alimentos">
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="alimentos[]" value="sabonete">
+                                    <span class="checkmark"></span>
+                                    Sabonete
+                                </label>
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="alimentos[]" value="pasta-dente">
+                                    <span class="checkmark"></span>
+                                    Pasta de Dente
+                                </label>
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="alimentos[]" value="escova">
+                                    <span class="checkmark"></span>
+                                    Escova de Dentes
+                                </label>
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="alimentos[]" value="shampoo">
+                                    <span class="checkmark"></span>
+                                    Shampoo
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Entrega</legend>
+                        <div class="campo-grupo">
+                            <label for="dataEntrega">Data para Entrega</label>
+                            <input type="date" id="dataEntrega" name="dataEntrega" required min="2024-01-01">
+                        </div>
+                        
+                        <div class="campo-grupo">
+                            <label for="localEntrega">Local de Entrega</label>
+                            <select id="localEntrega" name="localEntrega" required>
+                                <option value="">Selecione o local</option>
+                                <option value="centro">Centro de Doações - Centro</option>
+                                <option value="zona-norte">Posto Zona Norte</option>
+                                <option value="zona-sul">Posto Zona Sul</option>
+                                <option value="zona-leste">Posto Zona Leste</option>
+                                <option value="zona-oeste">Posto Zona Oeste</option>
+                            </select>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="observacoes">Observações (opcional)</label>
+                            <textarea id="observacoes" name="observacoes" placeholder="Alguma informação adicional..."></textarea>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="botao-primario grande">Confirmar Doação</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Doação de Roupas -->
+        <section id="doacao-roupas" class="tipo-doacao" aria-labelledby="roupas-titulo">
+            <div class="container">
+                <h2 id="roupas-titulo">Doação de Roupas</h2>
+                <p>Roupas em bom estado são sempre bem-vindas</p>
+
+                <form class="formulario-doacao" id="formDoacaoRoupas">
+                    <fieldset>
+                        <legend>Tipos de Roupas</legend>
+                        
+                        <div class="categoria-roupas">
+                            <h4>Roupas Masculinas</h4>
+                            <div class="itens-roupas">
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="roupas[]" value="camiseta-m">
+                                    <span class="checkmark"></span>
+                                    Camisetas (P/M/G)
+                                </label>
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="roupas[]" value="calca-m">
+                                    <span class="checkmark"></span>
+                                    Calças Jeans
+                                </label>
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="roupas[]" value="bermuda-m">
+                                    <span class="checkmark"></span>
+                                    Bermudas
+                                </label>
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="roupas[]" value="casaco-m">
+                                    <span class="checkmark"></span>
+                                    Casacos
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="categoria-roupas">
+                            <h4>Roupas Femininas</h4>
+                            <div class="itens-roupas">
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="roupas[]" value="blusa-f">
+                                    <span class="checkmark"></span>
+                                    Blusas
+                                </label>
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="roupas[]" value="calca-f">
+                                    <span class="checkmark"></span>
+                                    Calças
+                                </label>
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="roupas[]" value="vestido">
+                                    <span class="checkmark"></span>
+                                    Vestidos
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="categoria-roupas">
+                            <h4>Calçados</h4>
+                            <div class="itens-roupas">
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="roupas[]" value="tenis">
+                                    <span class="checkmark"></span>
+                                    Tênis ( vários números)
+                                </label>
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="roupas[]" value="sapato">
+                                    <span class="checkmark"></span>
+                                    Sapatos
+                                </label>
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="roupas[]" value="chinelo">
+                                    <span class="checkmark"></span>
+                                    Chinelos
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="categoria-roupas">
+                            <h4>Acessórios</h4>
+                            <div class="itens-roupas">
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="roupas[]" value="meias">
+                                    <span class="checkmark"></span>
+                                    Meias (novas)
+                                </label>
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="roupas[]" value="luvas">
+                                    <span class="checkmark"></span>
+                                    Luvas
+                                </label>
+                                <label class="item-doacao">
+                                    <input type="checkbox" name="roupas[]" value="touca">
+                                    <span class="checkmark"></span>
+                                    Toucas
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Condição das Roupas</legend>
+                        <div class="campo-grupo">
+                            <label class="rotulo-radio">
+                                <input type="radio" name="condicao" value="nova" required>
+                                <span class="radio-personalizado"></span>
+                                Roupa Nova (com etiqueta)
+                            </label>
+                            <label class="rotulo-radio">
+                                <input type="radio" name="condicao" value="seminova">
+                                <span class="radio-personalizado"></span>
+                                Roupa Seminova (excelente estado)
+                            </label>
+                            <label class="rotulo-radio">
+                                <input type="radio" name="condicao" value="usada">
+                                <span class="radio-personalizado"></span>
+                                Roupa Usada (boa condição)
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Entrega</legend>
+                        <div class="campo-grupo">
+                            <label for="dataEntregaRoupas">Data para Entrega</label>
+                            <input type="date" id="dataEntregaRoupas" name="dataEntregaRoupas" required>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="botao-primario grande">Confirmar Doação</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Oportunidades de Trabalho -->
+        <section id="oportunidade-trabalho" class="tipo-doacao" aria-labelledby="trabalho-titulo">
+            <div class="container">
+                <h2 id="trabalho-titulo">Oferecer Oportunidade de Trabalho</h2>
+                <p>Ajude na reinserção no mercado de trabalho</p>
+
+                <form class="formulario-doacao" id="formOportunidadeTrabalho">
+                    <fieldset>
+                        <legend>Informações da Vaga</legend>
+                        
+                        <div class="campo-grupo">
+                            <label for="cargo">Cargo/Oportunidade *</label>
+                            <input type="text" id="cargo" name="cargo" required placeholder="Ex: Auxiliar de Serviços Gerais">
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="tipoVaga">Tipo de Vaga *</label>
+                            <select id="tipoVaga" name="tipoVaga" required>
+                                <option value="">Selecione...</option>
+                                <option value="efetivo">Efetivo</option>
+                                <option value="temporario">Temporário</option>
+                                <option value="meio-periodo">Meio Período</option>
+                                <option value="freelance">Freelance</option>
+                                <option value="estagio">Estágio</option>
+                            </select>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="salario">Salário/Remuneração (opcional)</label>
+                            <input type="text" id="salario" name="salario" placeholder="Ex: R$ 1.500,00">
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="jornada">Jornada de Trabalho</label>
+                            <input type="text" id="jornada" name="jornada" placeholder="Ex: 8h às 17h">
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="requisitos">Requisitos Básicos</label>
+                            <textarea id="requisitos" name="requisitos" rows="4" placeholder="Descreva os requisitos mínimos..."></textarea>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="beneficios">Benefícios Oferecidos</label>
+                            <textarea id="beneficios" name="beneficios" rows="3" placeholder="VT, VR, seguro saúde..."></textarea>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Informações de Contato</legend>
+                        <div class="campo-grupo">
+                            <label for="empresa">Empresa/Organização *</label>
+                            <input type="text" id="empresa" name="empresa" required>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="contato">Telefone para Contato *</label>
+                            <input type="tel" id="contato" name="contato" required>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="local">Local de Trabalho</label>
+                            <input type="text" id="local" name="local" placeholder="Endereço ou região">
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="botao-primario grande">Oferecer Oportunidade</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2024 Rua Solidária. Oportunidades que transformam vidas.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
