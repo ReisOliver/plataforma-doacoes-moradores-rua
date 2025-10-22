@@ -3,118 +3,1499 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cadastre-se como voluntário ou doador da Rua Solidária">
-    <title>Cadastro - Rua Solidária</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Cadastre-se como voluntário ou doador da Rua Solidária e transforme vidas através do seu apoio">
+    <meta name="keywords" content="cadastro voluntário, cadastro doador, trabalho voluntário, ajudar moradores de rua, Rua Solidária">
+    <meta name="author" content="Rua Solidária">
+    <title>Cadastro - Rua Solidária | Seja Voluntário ou Doador e Transforme Vidas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset e configurações básicas */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2E86AB;
+            --primary-dark: #1A5A7A;
+            --secondary: #F9C74F;
+            --accent: #F94144;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --gray: #6C757D;
+            --success: #43AA8B;
+            --warning: #F8961E;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f7fa;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Acessibilidade */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            text-decoration: none;
+            border-radius: 0 0 4px 0;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Cabeçalho */
+        .cabecalho {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .cabecalho .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .logo img {
+            margin-right: 10px;
+        }
+
+        .logo-texto {
+            color: var(--primary);
+        }
+
+        .navegacao ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .navegacao li {
+            margin-left: 25px;
+        }
+
+        .navegacao a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .navegacao a:hover {
+            color: var(--primary);
+        }
+
+        .navegacao a[aria-current="page"] {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .navegacao a[aria-current="page"]::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            position: relative;
+        }
+
+        .hamburger {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--dark);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: var(--transition);
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 2px;
+            background-color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .hamburger::before {
+            top: -8px;
+        }
+
+        .hamburger::after {
+            top: 8px;
+        }
+
+        /* Cabeçalho da Página */
+        .cabecalho-pagina {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 80px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cadastro-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .cabecalho-pagina h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .destaque {
+            color: var(--secondary);
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cadastro-stats {
+            display: flex;
+            gap: 30px;
+        }
+
+        .cadastro-stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .header-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .beneficio-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .beneficio-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .beneficio-icone {
+            font-size: 1.5rem;
+        }
+
+        .header-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .header-wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+
+        .header-wave .shape-fill {
+            fill: #f5f7fa;
+        }
+
+        /* Banner de Benefícios */
+        .banner-beneficios {
+            background: linear-gradient(90deg, var(--secondary) 0%, #FFD166 100%);
+            padding: 20px 0;
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .beneficios-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .beneficios-titulo {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .beneficios-texto {
+            margin: 0 20px;
+            flex: 1;
+        }
+
+        .beneficios-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .beneficios-link:hover {
+            color: var(--primary);
+        }
+
+        /* Navegação Rápida */
+        .navegacao-rapida {
+            background-color: white;
+            padding: 30px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .navegacao-titulo {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        .progresso-cadastro {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .progresso-passos {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .progresso-passos::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: #e9ecef;
+            z-index: 1;
+        }
+
+        .progresso-bar {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            height: 4px;
+            background-color: var(--primary);
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .passo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 3;
+        }
+
+        .passo-numero {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .passo.ativo .passo-numero {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .passo-texto {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Formulário */
+        .formulario-cadastro {
+            padding: 60px 0;
+        }
+
+        .formulario-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .formulario-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .formulario-descricao {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .formulario {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .grupo-formulario-estilizado {
+            border: none;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .legend-estilizado {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0;
+            width: auto;
+        }
+
+        .legend-icone {
+            font-size: 1.8rem;
+        }
+
+        .legend-badge {
+            background-color: var(--accent);
+            color: white;
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-left: auto;
+        }
+
+        .campos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .campo-grupo-estilizado {
+            margin-bottom: 25px;
+        }
+
+        .rotulo-estilizado {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .rotulo-icone {
+            font-size: 1.2rem;
+        }
+
+        .rotulo-optional {
+            font-weight: 400;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .input-estilizado,
+        .select-estilizado,
+        .textarea-estilizado {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: white;
+        }
+
+        .input-estilizado:focus,
+        .select-estilizado:focus,
+        .textarea-estilizado:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(46, 134, 171, 0.2);
+        }
+
+        .input-com-icone,
+        .input-com-acao {
+            position: relative;
+        }
+
+        .input-suffix {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+        }
+
+        .botao-acao {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .botao-acao:hover {
+            background: var(--primary-dark);
+        }
+
+        .campo-feedback {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .texto-ajuda {
+            color: var(--gray);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .ajuda-icone {
+            font-size: 0.9rem;
+        }
+
+        .campo-status {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .campo-valido .campo-status {
+            background-color: var(--success);
+            color: white;
+        }
+
+        .campo-invalido .campo-status {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        /* Opções de perfil */
+        .opcoes-perfil-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .opcao-perfil-card {
+            display: block;
+            cursor: pointer;
+        }
+
+        .perfil-card {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            transition: var(--transition);
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .opcao-perfil-card input:checked + .perfil-card {
+            border-color: var(--primary);
+            background-color: rgba(46, 134, 171, 0.05);
+        }
+
+        .perfil-icone {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .perfil-titulo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .perfil-descricao {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .perfil-beneficios {
+            list-style: none;
+            margin-top: auto;
+        }
+
+        .perfil-beneficios li {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .perfil-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--secondary);
+            color: var(--dark);
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* Campos dinâmicos */
+        .campos-dinamicos {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .tags-interesse {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .tag-option {
+            cursor: pointer;
+        }
+
+        .tag-card {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #e9ecef;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .tag-option input:checked + .tag-card {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .range-container {
+            margin-top: 10px;
+        }
+
+        .range-estilizado {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #e9ecef;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .range-estilizado::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+        }
+
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .range-output {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Termos */
+        .termos-container {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .termos-content h4 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .termos-texto {
+            margin-bottom: 20px;
+        }
+
+        .termos-texto ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .termos-texto li {
+            margin-bottom: 8px;
+        }
+
+        .termo-option {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        .termo-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-left: 10px;
+        }
+
+        .termo-icone {
+            font-size: 1.2rem;
+        }
+
+        .termo-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .termo-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Resumo */
+        .resumo-cadastro {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .resumo-titulo {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .resumo-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .resumo-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* Botões */
+        .grupo-acoes,
+        .grupo-acoes-final {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .botao-primario,
+        .botao-secundario {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .botao-primario {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .botao-primario:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .botao-secundario {
+            background-color: #e9ecef;
+            color: var(--dark);
+        }
+
+        .botao-secundario:hover {
+            background-color: #dee2e6;
+        }
+
+        .botao-primario.grande {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+        }
+
+        .botao-icone {
+            font-size: 1.2rem;
+        }
+
+        .botao-loader {
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Seção de Vantagens */
+        .vantagens-cadastro {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .vantagens-cadastro h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .vantagens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .vantagem-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            transition: var(--transition);
+        }
+
+        .vantagem-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .vantagem-icone {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .vantagem-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* FAQ */
+        .faq-cadastro {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .faq-cadastro h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .faq-pergunta {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+        }
+
+        .faq-pergunta::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-pergunta::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .faq-item[open] .faq-pergunta::after {
+            content: '-';
+        }
+
+        .faq-resposta {
+            padding: 0 20px 20px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        /* Rodapé */
+        .rodape {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .rodape-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .rodape-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .rodape-logo img {
+            margin-bottom: 10px;
+        }
+
+        .rodape-slogan {
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .rodape-contato h3 {
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .rodape-contato address p {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rodape-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .rodape-coluna h3 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .rodape-coluna ul {
+            list-style: none;
+        }
+
+        .rodape-coluna li {
+            margin-bottom: 10px;
+        }
+
+        .rodape-coluna a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .rodape-coluna a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .rodape-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Botão WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .whatsapp-float:hover {
+            width: 180px;
+            border-radius: 30px;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        .whatsapp-icon {
+            font-size: 1.8rem;
+        }
+
+        .whatsapp-text {
+            font-weight: 600;
+            white-space: nowrap;
+            display: none;
+        }
+
+        .whatsapp-float:hover .whatsapp-text {
+            display: block;
+        }
+
+        /* Estados */
+        .hidden {
+            display: none !important;
+        }
+
+        .campo-valido .input-estilizado,
+        .campo-valido .select-estilizado,
+        .campo-valido .textarea-estilizado {
+            border-color: var(--success);
+        }
+
+        .campo-invalido .input-estilizado,
+        .campo-invalido .select-estilizado,
+        .campo-invalido .textarea-estilizado {
+            border-color: var(--accent);
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .cabecalho-pagina .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-content {
+                margin-bottom: 40px;
+            }
+
+            .header-visual {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .beneficios-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .rodape-content {
+                grid-template-columns: 1fr;
+            }
+
+            .rodape-info {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .navegacao {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-10px);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+            }
+
+            .navegacao.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .navegacao ul {
+                flex-direction: column;
+            }
+
+            .navegacao li {
+                margin: 0 0 15px 0;
+            }
+
+            .navegacao a {
+                display: block;
+                padding: 10px 0;
+            }
+
+            .cabecalho-pagina h1 {
+                font-size: 2.2rem;
+            }
+
+            .cadastro-stats {
+                justify-content: center;
+            }
+
+            .campos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .opcoes-perfil-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .grupo-acoes,
+            .grupo-acoes-final {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .botao-primario,
+            .botao-secundario {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .rodape-info {
+                flex-direction: column;
+            }
+
+            .rodape-links {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .cabecalho-pagina {
+                padding: 60px 0 100px;
+            }
+
+            .cabecalho-pagina h1 {
+                font-size: 1.8rem;
+            }
+
+            .cadastro-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .header-visual {
+                flex-direction: column;
+            }
+
+            .progresso-passos {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .progresso-passos::before {
+                display: none;
+            }
+
+            .progresso-bar {
+                display: none;
+            }
+
+            .passo {
+                flex-direction: row;
+                gap: 15px;
+            }
+
+            .passo-numero {
+                margin-bottom: 0;
+            }
+
+            .formulario-header h2 {
+                font-size: 2rem;
+            }
+
+            .vantagens-cadastro h2,
+            .faq-cadastro h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Skip link para acessibilidade -->
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
     <header class="cabecalho">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="Rua Solidária" width="150" height="60">
+                <!-- Imagem placeholder - substitua pelo logo real -->
+                <div style="width:150px;height:60px;background:var(--primary);display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;">LOGO</div>
+                <span class="logo-texto">Rua Solidária</span>
             </a>
-            <nav class="navegacao" aria-label="Navegação principal">
+            
+            <!-- Menu mobile -->
+            <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navegacao-principal">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav class="navegacao" id="navegacao-principal" aria-label="Navegação principal">
                 <ul>
                     <li><a href="index.html">Início</a></li>
                     <li><a href="doacoes.html">Fazer Doação</a></li>
                     <li><a href="cadastro.html" aria-current="page">Cadastrar</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <header class="cabecalho-pagina">
+    <main id="conteudo-principal">
+        <!-- Cabeçalho da Página Melhorado -->
+        <header class="cabecalho-pagina cadastro-header">
             <div class="container">
-                <h1>Junte-se à Nossa Causa</h1>
-                <p>Preencha o formulário abaixo para se cadastrar como voluntário ou doador</p>
+                <div class="header-content">
+                    <h1>Junte-se à Nossa <span class="destaque">Missão</span></h1>
+                    <p class="page-subtitle">Seja parte da transformação. Sua contribuição, como voluntário ou doador, restaura dignidade e constrói futuros</p>
+                    
+                    <div class="cadastro-stats">
+                        <div class="cadastro-stat">
+                            <span class="stat-number">2.847</span>
+                            <span class="stat-label">Voluntários Ativos</span>
+                        </div>
+                        <div class="cadastro-stat">
+                            <span class="stat-number">15.692</span>
+                            <span class="stat-label">Doadores Cadastrados</span>
+                        </div>
+                        <div class="cadastro-stat">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Satisfação</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="header-visual">
+                    <div class="beneficio-card">
+                        <span class="beneficio-icone">🤝</span>
+                        <span class="beneficio-texto">Faça parte da mudança</span>
+                    </div>
+                    <div class="beneficio-card">
+                        <span class="beneficio-icone">💼</span>
+                        <span class="beneficio-texto">Desenvolva habilidades</span>
+                    </div>
+                    <div class="beneficio-card">
+                        <span class="beneficio-icone">🏆</span>
+                        <span class="beneficio-texto">Certificado voluntário</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Elemento decorativo -->
+            <div class="header-wave" aria-hidden="true">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                </svg>
             </div>
         </header>
 
+        <!-- Banner de Benefícios -->
+        <div class="banner-beneficios" role="complementary" aria-labelledby="beneficios-titulo">
+            <div class="container">
+                <div class="beneficios-content">
+                    <span id="beneficios-titulo" class="beneficios-titulo">🎁 Benefícios Exclusivos</span>
+                    <p class="beneficios-texto">Voluntários recebem certificado, desenvolvimento profissional e fazem parte de uma comunidade transformadora</p>
+                    <a href="#vantagens" class="beneficios-link">Conheça todas as vantagens ↓</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navegação Rápida -->
+        <nav class="navegacao-rapida" aria-label="Navegação rápida do formulário">
+            <div class="container">
+                <h2 class="navegacao-titulo">Complete seu Cadastro</h2>
+                <div class="progresso-cadastro">
+                    <div class="progresso-passos">
+                        <div class="progresso-bar" style="width: 25%;"></div>
+                        <div class="passo ativo" data-passo="1">
+                            <span class="passo-numero">1</span>
+                            <span class="passo-texto">Dados Pessoais</span>
+                        </div>
+                        <div class="passo" data-passo="2">
+                            <span class="passo-numero">2</span>
+                            <span class="passo-texto">Endereço</span>
+                        </div>
+                        <div class="passo" data-passo="3">
+                            <span class="passo-numero">3</span>
+                            <span class="passo-texto">Participação</span>
+                        </div>
+                        <div class="passo" data-passo="4">
+                            <span class="passo-numero">4</span>
+                            <span class="passo-texto">Termos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
         <section class="formulario-cadastro" aria-labelledby="form-titulo">
             <div class="container">
-                <h2 id="form-titulo">Formulário de Cadastro</h2>
+                <div class="formulario-header">
+                    <h2 id="form-titulo">Formulário de <span class="destaque">Cadastro</span></h2>
+                    <p class="formulario-descricao">Preencha os dados abaixo para se juntar à nossa rede de transformação</p>
+                </div>
                 
                 <form id="cadastroForm" class="formulario" novalidate>
-                    <!-- Grupo: Dados Pessoais -->
-                    <fieldset class="grupo-formulario">
-                        <legend>Dados Pessoais</legend>
+                    <!-- Grupo: Dados Pessoais MELHORADO -->
+                    <fieldset class="grupo-formulario-estilizado" data-grupo="1">
+                        <legend class="legend-estilizado">
+                            <span class="legend-icone">👤</span>
+                            Dados Pessoais
+                            <span class="legend-badge">Obrigatório</span>
+                        </legend>
                         
-                        <div class="campo-grupo">
-                            <label for="nomeCompleto" class="rotulo">
-                                Nome Completo *
-                            </label>
-                            <input 
-                                type="text" 
-                                id="nomeCompleto" 
-                                name="nomeCompleto" 
-                                required 
-                                minlength="3"
-                                maxlength="100"
-                                placeholder="Digite seu nome completo"
-                                aria-describedby="nome-help"
-                            >
-                            <small id="nome-help" class="texto-ajuda">
-                                Digite seu nome completo como consta no documento
-                            </small>
+                        <div class="campos-grid">
+                            <div class="campo-grupo-estilizado">
+                                <label for="nomeCompleto" class="rotulo-estilizado">
+                                    <span class="rotulo-icone">📝</span>
+                                    Nome Completo *
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="nomeCompleto" 
+                                    name="nomeCompleto" 
+                                    required 
+                                    minlength="3"
+                                    maxlength="100"
+                                    placeholder="Digite seu nome completo"
+                                    aria-describedby="nome-help"
+                                    class="input-estilizado"
+                                >
+                                <div class="campo-feedback">
+                                    <small id="nome-help" class="texto-ajuda">
+                                        <span class="ajuda-icone">💡</span>
+                                        Digite seu nome completo como consta no documento
+                                    </small>
+                                    <span class="campo-status"></span>
+                                </div>
+                            </div>
+
+                            <div class="campo-grupo-estilizado">
+                                <label for="email" class="rotulo-estilizado">
+                                    <span class="rotulo-icone">📧</span>
+                                    E-mail *
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    required
+                                    placeholder="seu@email.com"
+                                    aria-describedby="email-help"
+                                    class="input-estilizado"
+                                >
+                                <div class="campo-feedback">
+                                    <small id="email-help" class="texto-ajuda">
+                                        <span class="ajuda-icone">💡</span>
+                                        Utilizaremos para contato e confirmação
+                                    </small>
+                                    <span class="campo-status"></span>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="campo-grupo">
-                            <label for="email" class="rotulo">
-                                E-mail *
-                            </label>
-                            <input 
-                                type="email" 
-                                id="email" 
-                                name="email" 
-                                required
-                                placeholder="seu@email.com"
-                                aria-describedby="email-help"
-                            >
-                            <small id="email-help" class="texto-ajuda">
-                                Utilizaremos este e-mail para contato
-                            </small>
+                        <div class="campos-grid">
+                            <div class="campo-grupo-estilizado">
+                                <label for="cpf" class="rotulo-estilizado">
+                                    <span class="rotulo-icone">🔢</span>
+                                    CPF *
+                                </label>
+                                <div class="input-com-icone">
+                                    <input 
+                                        type="text" 
+                                        id="cpf" 
+                                        name="cpf" 
+                                        required
+                                        pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                                        placeholder="000.000.000-00"
+                                        maxlength="14"
+                                        aria-describedby="cpf-help"
+                                        class="input-estilizado"
+                                    >
+                                    <span class="input-suffix">📋</span>
+                                </div>
+                                <div class="campo-feedback">
+                                    <small id="cpf-help" class="texto-ajuda">
+                                        <span class="ajuda-icone">💡</span>
+                                        A formatação é automática
+                                    </small>
+                                    <span class="campo-status"></span>
+                                </div>
+                            </div>
+
+                            <div class="campo-grupo-estilizado">
+                                <label for="telefone" class="rotulo-estilizado">
+                                    <span class="rotulo-icone">📞</span>
+                                    Telefone *
+                                </label>
+                                <input 
+                                    type="tel" 
+                                    id="telefone" 
+                                    name="telefone" 
+                                    required
+                                    placeholder="(11) 99999-9999"
+                                    maxlength="15"
+                                    aria-describedby="telefone-help"
+                                    class="input-estilizado"
+                                >
+                                <div class="campo-feedback">
+                                    <small id="telefone-help" class="texto-ajuda">
+                                        <span class="ajuda-icone">💡</span>
+                                        Inclua DDD e número com 9 dígitos
+                                    </small>
+                                    <span class="campo-status"></span>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="campo-grupo">
-                            <label for="cpf" class="rotulo">
-                                CPF *
-                            </label>
-                            <input 
-                                type="text" 
-                                id="cpf" 
-                                name="cpf" 
-                                required
-                                pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-                                placeholder="000.000.000-00"
-                                maxlength="14"
-                                aria-describedby="cpf-help"
-                            >
-                            <small id="cpf-help" class="texto-ajuda">
-                                Digite apenas números, a formatação será automática
-                            </small>
-                        </div>
-
-                        <div class="campo-grupo">
-                            <label for="telefone" class="rotulo">
-                                Telefone *
-                            </label>
-                            <input 
-                                type="tel" 
-                                id="telefone" 
-                                name="telefone" 
-                                required
-                                placeholder="(11) 99999-9999"
-                                maxlength="15"
-                                aria-describedby="telefone-help"
-                            >
-                            <small id="telefone-help" class="texto-ajuda">
-                                Inclua DDD e número com 9 dígitos
-                            </small>
-                        </div>
-
-                        <div class="campo-grupo">
-                            <label for="dataNascimento" class="rotulo">
+                        <div class="campo-grupo-estilizado">
+                            <label for="dataNascimento" class="rotulo-estilizado">
+                                <span class="rotulo-icone">🎂</span>
                                 Data de Nascimento *
                             </label>
                             <input 
@@ -124,19 +1505,35 @@
                                 required
                                 max="2006-12-31"
                                 aria-describedby="data-help"
+                                class="input-estilizado"
                             >
-                            <small id="data-help" class="texto-ajuda">
-                                É necessário ter mais de 18 anos para voluntariado
-                            </small>
+                            <div class="campo-feedback">
+                                <small id="data-help" class="texto-ajuda">
+                                    <span class="ajuda-icone">⚠️</span>
+                                    É necessário ter mais de 18 anos para voluntariado
+                                </small>
+                                <span class="campo-status"></span>
+                            </div>
+                        </div>
+
+                        <div class="grupo-acoes">
+                            <button type="button" class="botao-secundario botao-proximo" data-proximo="2">
+                                Próximo → Endereço
+                            </button>
                         </div>
                     </fieldset>
 
-                    <!-- Grupo: Endereço -->
-                    <fieldset class="grupo-formulario">
-                        <legend>Endereço</legend>
+                    <!-- Grupo: Endereço MELHORADO -->
+                    <fieldset class="grupo-formulario-estilizado hidden" data-grupo="2">
+                        <legend class="legend-estilizado">
+                            <span class="legend-icone">🏠</span>
+                            Endereço
+                            <span class="legend-badge">Obrigatório</span>
+                        </legend>
                         
-                        <div class="campo-grupo">
-                            <label for="endereco" class="rotulo">
+                        <div class="campo-grupo-estilizado">
+                            <label for="endereco" class="rotulo-estilizado">
+                                <span class="rotulo-icone">📍</span>
                                 Endereço Completo *
                             </label>
                             <input 
@@ -144,51 +1541,73 @@
                                 id="endereco" 
                                 name="endereco" 
                                 required
-                                placeholder="Rua, número, complemento"
+                                placeholder="Rua, número, complemento, bairro"
                                 aria-describedby="endereco-help"
+                                class="input-estilizado"
                             >
-                            <small id="endereco-help" class="texto-ajuda">
-                                Digite o endereço completo para correspondência
-                            </small>
+                            <div class="campo-feedback">
+                                <small id="endereco-help" class="texto-ajuda">
+                                    <span class="ajuda-icone">💡</span>
+                                    Para correspondência e eventos locais
+                                </small>
+                                <span class="campo-status"></span>
+                            </div>
                         </div>
 
-                        <div class="campo-grupo">
-                            <label for="cep" class="rotulo">
-                                CEP *
-                            </label>
-                            <input 
-                                type="text" 
-                                id="cep" 
-                                name="cep" 
-                                required
-                                pattern="\d{5}-\d{3}"
-                                placeholder="00000-000"
-                                maxlength="9"
-                                aria-describedby="cep-help"
-                            >
-                            <small id="cep-help" class="texto-ajuda">
-                                Digite apenas números
-                            </small>
+                        <div class="campos-grid">
+                            <div class="campo-grupo-estilizado">
+                                <label for="cep" class="rotulo-estilizado">
+                                    <span class="rotulo-icone">📮</span>
+                                    CEP *
+                                </label>
+                                <div class="input-com-acao">
+                                    <input 
+                                        type="text" 
+                                        id="cep" 
+                                        name="cep" 
+                                        required
+                                        pattern="\d{5}-\d{3}"
+                                        placeholder="00000-000"
+                                        maxlength="9"
+                                        aria-describedby="cep-help"
+                                        class="input-estilizado"
+                                    >
+                                    <button type="button" class="botao-acao" id="buscarCep" aria-label="Buscar endereço pelo CEP">
+                                        🔍
+                                    </button>
+                                </div>
+                                <div class="campo-feedback">
+                                    <small id="cep-help" class="texto-ajuda">
+                                        <span class="ajuda-icone">💡</span>
+                                        Digite apenas números
+                                    </small>
+                                    <span class="campo-status"></span>
+                                </div>
+                            </div>
+
+                            <div class="campo-grupo-estilizado">
+                                <label for="cidade" class="rotulo-estilizado">
+                                    <span class="rotulo-icone">🏙️</span>
+                                    Cidade *
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="cidade" 
+                                    name="cidade" 
+                                    required
+                                    placeholder="Nome da cidade"
+                                    class="input-estilizado"
+                                >
+                                <span class="campo-status"></span>
+                            </div>
                         </div>
 
-                        <div class="campo-grupo">
-                            <label for="cidade" class="rotulo">
-                                Cidade *
-                            </label>
-                            <input 
-                                type="text" 
-                                id="cidade" 
-                                name="cidade" 
-                                required
-                                placeholder="Nome da cidade"
-                            >
-                        </div>
-
-                        <div class="campo-grupo">
-                            <label for="estado" class="rotulo">
+                        <div class="campo-grupo-estilizado">
+                            <label for="estado" class="rotulo-estilizado">
+                                <span class="rotulo-icone">🗺️</span>
                                 Estado *
                             </label>
-                            <select id="estado" name="estado" required>
+                            <select id="estado" name="estado" required class="select-estilizado">
                                 <option value="">Selecione seu estado</option>
                                 <option value="AC">Acre</option>
                                 <option value="AL">Alagoas</option>
@@ -218,148 +1637,691 @@
                                 <option value="SE">Sergipe</option>
                                 <option value="TO">Tocantins</option>
                             </select>
+                            <span class="campo-status"></span>
+                        </div>
+
+                        <div class="grupo-acoes">
+                            <button type="button" class="botao-secundario botao-anterior" data-anterior="1">
+                                ← Anterior
+                            </button>
+                            <button type="button" class="botao-secundario botao-proximo" data-proximo="3">
+                                Próximo → Participação
+                            </button>
                         </div>
                     </fieldset>
 
-                    <!-- Grupo: Tipo de Participação -->
-                    <fieldset class="grupo-formulario">
-                        <legend>Como deseja participar?</legend>
+                    <!-- Grupo: Tipo de Participação MELHORADO -->
+                    <fieldset class="grupo-formulario-estilizado hidden" data-grupo="3">
+                        <legend class="legend-estilizado">
+                            <span class="legend-icone">🎯</span>
+                            Como Deseja Participar?
+                            <span class="legend-badge">Obrigatório</span>
+                        </legend>
                         
-                        <div class="campo-grupo">
-                            <div class="grupo-radio">
-                                <label class="rotulo-radio">
-                                    <input 
-                                        type="radio" 
-                                        name="tipoParticipacao" 
-                                        value="voluntario" 
-                                        required
-                                    >
-                                    <span class="radio-personalizado"></span>
-                                    Voluntário
+                        <div class="campo-grupo-estilizado">
+                            <label class="rotulo-estilizado">
+                                <span class="rotulo-icone">🤔</span>
+                                Selecione seu Perfil *
+                            </label>
+                            <div class="opcoes-perfil-grid">
+                                <label class="opcao-perfil-card">
+                                    <input type="radio" name="tipoParticipacao" value="voluntario" required class="sr-only">
+                                    <div class="perfil-card">
+                                        <span class="perfil-icone">👥</span>
+                                        <span class="perfil-titulo">Voluntário</span>
+                                        <span class="perfil-descricao">Dedique seu tempo e habilidades</span>
+                                        <ul class="perfil-beneficios">
+                                            <li>✅ Certificado de participação</li>
+                                            <li>✅ Desenvolvimento profissional</li>
+                                            <li>✅ Rede de contatos</li>
+                                            <li>✅ Experiência prática</li>
+                                        </ul>
+                                        <span class="perfil-badge recomendado">Mais Escolhido</span>
+                                    </div>
                                 </label>
-                                <label class="rotulo-radio">
-                                    <input 
-                                        type="radio" 
-                                        name="tipoParticipacao" 
-                                        value="doador"
-                                    >
-                                    <span class="radio-personalizado"></span>
-                                    Doador
+                                
+                                <label class="opcao-perfil-card">
+                                    <input type="radio" name="tipoParticipacao" value="doador" class="sr-only">
+                                    <div class="perfil-card">
+                                        <span class="perfil-icone">💝</span>
+                                        <span class="perfil-titulo">Doador</span>
+                                        <span class="perfil-descricao">Apoie com recursos financeiros</span>
+                                        <ul class="perfil-beneficios">
+                                            <li>✅ Recibo para dedução fiscal</li>
+                                            <li>✅ Relatórios de impacto</li>
+                                            <li>✅ Transparência total</li>
+                                            <li>✅ Atualizações regulares</li>
+                                        </ul>
+                                    </div>
                                 </label>
-                                <label class="rotulo-radio">
-                                    <input 
-                                        type="radio" 
-                                        name="tipoParticipacao" 
-                                        value="ambos"
-                                    >
-                                    <span class="radio-personalizado"></span>
-                                    Ambos
+                                
+                                <label class="opcao-perfil-card">
+                                    <input type="radio" name="tipoParticipacao" value="ambos" class="sr-only">
+                                    <div class="perfil-card">
+                                        <span class="perfil-icone">🌟</span>
+                                        <span class="perfil-titulo">Ambos</span>
+                                        <span class="perfil-descricao">Tempo + recursos</span>
+                                        <ul class="perfil-beneficios">
+                                            <li>✅ Todos os benefícios</li>
+                                            <li>✅ Impacto ampliado</li>
+                                            <li>✅ Participação integral</li>
+                                            <li>✅ Vantagens exclusivas</li>
+                                        </ul>
+                                    </div>
                                 </label>
                             </div>
                         </div>
 
-                        <div class="campo-grupo">
-                            <label for="areasInteresse" class="rotulo">
-                                Áreas de Interesse (múltipla escolha)
-                            </label>
-                            <select id="areasInteresse" name="areasInteresse" multiple size="4">
-                                <option value="educacao">Educação</option>
-                                <option value="saude">Saúde</option>
-                                <option value="meio-ambiente">Meio Ambiente</option>
-                                <option value="assistencia-social">Assistência Social</option>
-                                <option value="distribuicao-alimentos">Distribuição de Alimentos</option>
-                                <option value="capacitacao-profissional">Capacitação Profissional</option>
-                            </select>
-                            <small class="texto-ajuda">
-                                Mantenha Ctrl pressionado para selecionar múltiplas opções
-                            </small>
+                        <div class="campos-dinamicos hidden" id="campos-voluntario">
+                            <div class="campo-grupo-estilizado">
+                                <label for="areasInteresse" class="rotulo-estilizado">
+                                    <span class="rotulo-icone">🎨</span>
+                                    Áreas de Interesse
+                                    <span class="rotulo-optional">(Opcional)</span>
+                                </label>
+                                <div class="tags-interesse">
+                                    <label class="tag-option">
+                                        <input type="checkbox" name="areasInteresse[]" value="educacao">
+                                        <span class="tag-card">🎓 Educação</span>
+                                    </label>
+                                    <label class="tag-option">
+                                        <input type="checkbox" name="areasInteresse[]" value="saude">
+                                        <span class="tag-card">🏥 Saúde</span>
+                                    </label>
+                                    <label class="tag-option">
+                                        <input type="checkbox" name="areasInteresse[]" value="meio-ambiente">
+                                        <span class="tag-card">🌱 Meio Ambiente</span>
+                                    </label>
+                                    <label class="tag-option">
+                                        <input type="checkbox" name="areasInteresse[]" value="assistencia-social">
+                                        <span class="tag-card">🤝 Assistência Social</span>
+                                    </label>
+                                    <label class="tag-option">
+                                        <input type="checkbox" name="areasInteresse[]" value="distribuicao-alimentos">
+                                        <span class="tag-card">📦 Distribuição</span>
+                                    </label>
+                                    <label class="tag-option">
+                                        <input type="checkbox" name="areasInteresse[]" value="capacitacao-profissional">
+                                        <span class="tag-card">💼 Capacitação</span>
+                                    </label>
+                                </div>
+                                <small class="texto-ajuda">
+                                    <span class="ajuda-icone">💡</span>
+                                    Selecione as áreas que mais combinam com você
+                                </small>
+                            </div>
+
+                            <div class="campo-grupo-estilizado">
+                                <label for="disponibilidade" class="rotulo-estilizado">
+                                    <span class="rotulo-icone">⏰</span>
+                                    Disponibilidade Semanal
+                                    <span class="rotulo-optional">(Opcional)</span>
+                                </label>
+                                <div class="range-container">
+                                    <input 
+                                        type="range" 
+                                        id="disponibilidade" 
+                                        name="disponibilidade" 
+                                        min="0" 
+                                        max="40" 
+                                        step="5"
+                                        value="10"
+                                        aria-describedby="disponibilidade-valor"
+                                        class="range-estilizado"
+                                    >
+                                    <div class="range-labels">
+                                        <span>0h</span>
+                                        <output id="disponibilidade-valor" class="range-output">10 horas</output>
+                                        <span>40h</span>
+                                    </div>
+                                </div>
+                                <small class="texto-ajuda">
+                                    <span class="ajuda-icone">💡</span>
+                                    Ajuste conforme sua disponibilidade real
+                                </small>
+                            </div>
+
+                            <div class="campo-grupo-estilizado">
+                                <label for="experiencia" class="rotulo-estilizado">
+                                    <span class="rotulo-icone">📚</span>
+                                    Experiência Anterior
+                                    <span class="rotulo-optional">(Opcional)</span>
+                                </label>
+                                <textarea 
+                                    id="experiencia" 
+                                    name="experiencia" 
+                                    rows="4"
+                                    placeholder="Conte sobre experiências anteriores com trabalho voluntário, habilidades especiais, ou porque deseja começar agora..."
+                                    class="textarea-estilizado"
+                                ></textarea>
+                                <small class="texto-ajuda">
+                                    <span class="ajuda-icone">💡</span>
+                                    Sua experiência nos ajuda a encontrar a melhor oportunidade
+                                </small>
+                            </div>
                         </div>
 
-                        <div class="campo-grupo">
-                            <label for="disponibilidade" class="rotulo">
-                                Disponibilidade Semanal (horas)
-                            </label>
-                            <input 
-                                type="range" 
-                                id="disponibilidade" 
-                                name="disponibilidade" 
-                                min="0" 
-                                max="40" 
-                                step="5"
-                                value="10"
-                                aria-describedby="disponibilidade-valor"
-                            >
-                            <output id="disponibilidade-valor">10 horas</output>
-                        </div>
-
-                        <div class="campo-grupo">
-                            <label for="experiencia" class="rotulo">
-                                Experiência Anterior (opcional)
-                            </label>
-                            <textarea 
-                                id="experiencia" 
-                                name="experiencia" 
-                                rows="4"
-                                placeholder="Conte sobre experiências anteriores com trabalho voluntário..."
-                            ></textarea>
+                        <div class="grupo-acoes">
+                            <button type="button" class="botao-secundario botao-anterior" data-anterior="2">
+                                ← Anterior
+                            </button>
+                            <button type="button" class="botao-secundario botao-proximo" data-proximo="4">
+                                Próximo → Termos
+                            </button>
                         </div>
                     </fieldset>
 
-                    <!-- Grupo: Termos e Condições -->
-                    <fieldset class="grupo-formulario">
-                        <legend>Termos e Condições</legend>
+                    <!-- Grupo: Termos e Condições MELHORADO -->
+                    <fieldset class="grupo-formulario-estilizado hidden" data-grupo="4">
+                        <legend class="legend-estilizado">
+                            <span class="legend-icone">📄</span>
+                            Termos e Condições
+                            <span class="legend-badge">Obrigatório</span>
+                        </legend>
                         
-                        <div class="campo-grupo">
-                            <label class="rotulo-checkbox">
-                                <input 
-                                    type="checkbox" 
-                                    name="termos" 
-                                    required
-                                    aria-describedby="termos-help"
-                                >
-                                <span class="checkbox-personalizado"></span>
-                                Li e concordo com os 
-                                <a href="#" target="_blank">termos de uso</a> 
-                                e 
-                                <a href="#" target="_blank">política de privacidade</a> *
-                            </label>
-                            <small id="termos-help" class="texto-ajuda">
-                                É necessário concordar com os termos para prosseguir
-                            </small>
+                        <div class="termos-container">
+                            <div class="termos-content">
+                                <h4>Política de Privacidade e Termos de Uso</h4>
+                                <div class="termos-texto">
+                                    <p>Seus dados são protegidos pela Lei Geral de Proteção de Dados (LGPD) e utilizados exclusivamente para:</p>
+                                    <ul>
+                                        <li>✅ Comunicação sobre atividades e oportunidades</li>
+                                        <li>✅ Prestação de contas e transparência</li>
+                                        <li>✅ Melhoria dos nossos serviços</li>
+                                        <li>✅ Personalização da sua experiência</li>
+                                    </ul>
+                                    <p>Você pode solicitar a exclusão de seus dados a qualquer momento através do email <strong>privacidade@ruasolidaria.org</strong>.</p>
+                                </div>
+                            </div>
+
+                            <div class="campo-grupo-estilizado">
+                                <label class="termo-option">
+                                    <input type="checkbox" name="termos" required aria-describedby="termos-help">
+                                    <span class="termo-card">
+                                        <span class="termo-icone">✅</span>
+                                        <span class="termo-texto">
+                                            Li e concordo com os 
+                                            <a href="#" target="_blank" class="termo-link">termos de uso</a> 
+                                            e 
+                                            <a href="#" target="_blank" class="termo-link">política de privacidade</a> *
+                                        </span>
+                                    </span>
+                                </label>
+                                <div class="campo-feedback">
+                                    <small id="termos-help" class="texto-ajuda">
+                                        <span class="ajuda-icone">⚠️</span>
+                                        É necessário concordar com os termos para prosseguir
+                                    </small>
+                                    <span class="campo-status"></span>
+                                </div>
+                            </div>
+
+                            <div class="campo-grupo-estilizado">
+                                <label class="termo-option">
+                                    <input type="checkbox" name="newsletter">
+                                    <span class="termo-card">
+                                        <span class="termo-icone">📧</span>
+                                        <span class="termo-texto">
+                                            Desejo receber newsletter com novidades, oportunidades 
+                                            e relatórios de impacto
+                                        </span>
+                                    </span>
+                                </label>
+                                <small class="texto-ajuda">
+                                    <span class="ajuda-icone">💡</span>
+                                    Fique por dentro de tudo que acontece
+                                </small>
+                            </div>
                         </div>
 
-                        <div class="campo-grupo">
-                            <label class="rotulo-checkbox">
-                                <input 
-                                    type="checkbox" 
-                                    name="newsletter"
-                                >
-                                <span class="checkbox-personalizado"></span>
-                                Desejo receber newsletter com novidades e oportunidades
-                            </label>
+                        <div class="resumo-cadastro hidden">
+                            <h4 class="resumo-titulo">Resumo do Cadastro</h4>
+                            <div class="resumo-content">
+                                <div class="resumo-item">
+                                    <span>Perfil:</span>
+                                    <strong id="resumo-perfil">-</strong>
+                                </div>
+                                <div class="resumo-item">
+                                    <span>Disponibilidade:</span>
+                                    <strong id="resumo-disponibilidade">-</strong>
+                                </div>
+                                <div class="resumo-item">
+                                    <span>Áreas de interesse:</span>
+                                    <strong id="resumo-areas">-</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grupo-acoes-final">
+                            <button type="button" class="botao-secundario botao-anterior" data-anterior="3">
+                                ← Anterior
+                            </button>
+                            <button type="submit" class="botao-primario grande botao-submit">
+                                <span class="botao-icone">🎉</span>
+                                Finalizar Cadastro
+                                <span class="botao-loader hidden"></span>
+                            </button>
                         </div>
                     </fieldset>
-
-                    <!-- Botões de ação -->
-                    <div class="botoes-acao">
-                        <button type="submit" class="botao-primario">
-                            Enviar Cadastro
-                        </button>
-                        <button type="reset" class="botao-secundario">
-                            Limpar Formulário
-                        </button>
-                    </div>
                 </form>
+            </div>
+        </section>
+
+        <!-- Seção de Vantagens -->
+        <section class="vantagens-cadastro" id="vantagens" aria-labelledby="vantagens-titulo">
+            <div class="container">
+                <h2 id="vantagens-titulo">Vantagens de se <span class="destaque">Cadastrar</span></h2>
+                <div class="vantagens-grid">
+                    <article class="vantagem-card">
+                        <span class="vantagem-icone">📊</span>
+                        <h3>Transparência Total</h3>
+                        <p>Acompanhe em tempo real o impacto das suas contribuições através de relatórios detalhados</p>
+                    </article>
+                    
+                    <article class="vantagem-card">
+                        <span class="vantagem-icone">🏆</span>
+                        <h3>Certificado Válido</h3>
+                        <p>Voluntários recebem certificado reconhecido que enriquece o currículo</p>
+                    </article>
+                    
+                    <article class="vantagem-card">
+                        <span class="vantagem-icone">📱</span>
+                        <h3>App Exclusivo</h3>
+                        <p>Acesso ao aplicativo com oportunidades personalizadas e comunidade</p>
+                    </article>
+                    
+                    <article class="vantagem-card">
+                        <span class="vantagem-icone">💼</span>
+                        <h3>Networking</h3>
+                        <p>Conecte-se com outros voluntários e profissionais engajados</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ do Cadastro -->
+        <section class="faq-cadastro" aria-labelledby="faq-cadastro-titulo">
+            <div class="container">
+                <h2 id="faq-cadastro-titulo">Dúvidas Frequentes</h2>
+                <div class="faq-grid">
+                    <details class="faq-item">
+                        <summary class="faq-pergunta">
+                            Posso ser voluntário mesmo com pouca disponibilidade?
+                        </summary>
+                        <div class="faq-resposta">
+                            <p>Sim! Temos oportunidades para todos os perfis de disponibilidade. Desde ações pontuais de 2 horas até compromissos regulares. O importante é a vontade de ajudar.</p>
+                        </div>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary class="faq-pergunta">
+                            Há algum custo para ser voluntário?
+                        </summary>
+                        <div class="faq-resposta">
+                            <p>Não! Todas as oportunidades de voluntariado são gratuitas. Fornecemos todo o suporte e materiais necessários para as atividades.</p>
+                        </div>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary class="faq-pergunta">
+                            Como funciona o certificado de voluntário?
+                        </summary>
+                        <div class="faq-resposta">
+                            <p>Emitimos certificados digitais para voluntários com mais de 20 horas de atividades. O documento é válido para horas complementares e enriquecimento curricular.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="rodape">
         <div class="container">
-            <p>&copy; 2024 Rua Solidária. Transformando vidas, uma doação de cada vez.</p>
+            <div class="rodape-content">
+                <div class="rodape-info">
+                    <div class="rodape-logo">
+                        <!-- Imagem placeholder - substitua pelo logo real -->
+                        <div style="width:120px;height:50px;background:white;display:flex;align-items:center;justify-content:center;color:var(--primary);font-weight:bold;margin-bottom:10px;">LOGO</div>
+                        <p class="rodape-slogan">Juntos transformamos vidas.</p>
+                    </div>
+                    
+                    <div class="rodape-contato">
+                        <h3>Dúvidas sobre Cadastro?</h3>
+                        <address>
+                            <p><i class="fas fa-envelope"></i> cadastro@ruasolidaria.org</p>
+                            <p><i class="fas fa-phone"></i> (11) 99999-9998</p>
+                            <p><i class="fas fa-clock"></i> Seg à Sex: 9h às 18h</p>
+                        </address>
+                    </div>
+                </div>
+                
+                <div class="rodape-links">
+                    <div class="rodape-coluna">
+                        <h3>Cadastro</h3>
+                        <ul>
+                            <li><a href="#vantagens">Vantagens</a></li>
+                            <li><a href="#faq-cadastro-titulo">Dúvidas</a></li>
+                            <li><a href="#">Voluntariado</a></li>
+                            <li><a href="#">Seja Doador</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="rodape-coluna">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="#">Termos de Uso</a></li>
+                            <li><a href="#">Privacidade</a></li>
+                            <li><a href="#">LGPD</a></li>
+                            <li><a href="#">Certificações</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rodape-bottom">
+                <p>&copy; 2024 Rua Solidária. OSCIP certificada - Transformando vidas através da solidariedade.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <!-- Botão flutuante do WhatsApp -->
+    <a href="https://wa.me/5511988234959?text=Olá! Gostaria de tirar dúvidas sobre o cadastro." 
+       class="whatsapp-float" aria-label="Tirar dúvidas sobre cadastro no WhatsApp" target="_blank">
+        <span class="whatsapp-icon"><i class="fab fa-whatsapp"></i></span>
+        <span class="whatsapp-text">Dúvidas?</span>
+    </a>
+
+    <script>
+        // Menu Mobile
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navegacao = document.querySelector('.navegacao');
+
+        menuToggle.addEventListener('click', () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            navegacao.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.navegacao a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                navegacao.classList.remove('active');
+            });
+        });
+
+        // Navegação entre etapas do formulário
+        const gruposFormulario = document.querySelectorAll('.grupo-formulario-estilizado');
+        const botoesProximo = document.querySelectorAll('.botao-proximo');
+        const botoesAnterior = document.querySelectorAll('.botao-anterior');
+        const progressoBar = document.querySelector('.progresso-bar');
+        const passos = document.querySelectorAll('.passo');
+
+        let etapaAtual = 1;
+
+        function atualizarProgresso(novaEtapa) {
+            etapaAtual = novaEtapa;
+            
+            // Atualizar barra de progresso
+            const porcentagem = ((etapaAtual - 1) / (gruposFormulario.length - 1)) * 100;
+            progressoBar.style.width = `${porcentagem}%`;
+            
+            // Atualizar passos
+            passos.forEach((passo, index) => {
+                if (index + 1 <= etapaAtual) {
+                    passo.classList.add('ativo');
+                } else {
+                    passo.classList.remove('ativo');
+                }
+            });
+            
+            // Mostrar/ocultar grupos
+            gruposFormulario.forEach(grupo => {
+                const grupoNumero = parseInt(grupo.getAttribute('data-grupo'));
+                if (grupoNumero === etapaAtual) {
+                    grupo.classList.remove('hidden');
+                } else {
+                    grupo.classList.add('hidden');
+                }
+            });
+            
+            // Rolar para o topo do formulário
+            document.querySelector('.formulario-cadastro').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+
+        botoesProximo.forEach(botao => {
+            botao.addEventListener('click', () => {
+                const proximaEtapa = parseInt(botao.getAttribute('data-proximo'));
+                if (validarEtapa(etapaAtual)) {
+                    atualizarProgresso(proximaEtapa);
+                }
+            });
+        });
+
+        botoesAnterior.forEach(botao => {
+            botao.addEventListener('click', () => {
+                const etapaAnterior = parseInt(botao.getAttribute('data-anterior'));
+                atualizarProgresso(etapaAnterior);
+            });
+        });
+
+        // Validação de campos
+        function validarEtapa(etapa) {
+            const grupo = document.querySelector(`[data-grupo="${etapa}"]`);
+            const camposObrigatorios = grupo.querySelectorAll('input[required], select[required]');
+            let valido = true;
+            
+            camposObrigatorios.forEach(campo => {
+                const campoGrupo = campo.closest('.campo-grupo-estilizado');
+                
+                if (!campo.checkValidity()) {
+                    campoGrupo.classList.add('campo-invalido');
+                    campoGrupo.classList.remove('campo-valido');
+                    valido = false;
+                } else {
+                    campoGrupo.classList.add('campo-valido');
+                    campoGrupo.classList.remove('campo-invalido');
+                }
+            });
+            
+            return valido;
+        }
+
+        // Formatação de CPF
+        const cpfInput = document.getElementById('cpf');
+        cpfInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length > 3 && value.length <= 6) {
+                value = value.replace(/(\d{3})(\d+)/, '$1.$2');
+            } else if (value.length > 6 && value.length <= 9) {
+                value = value.replace(/(\d{3})(\d{3})(\d+)/, '$1.$2.$3');
+            } else if (value.length > 9) {
+                value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            }
+            
+            e.target.value = value;
+        });
+
+        // Formatação de telefone
+        const telefoneInput = document.getElementById('telefone');
+        telefoneInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length > 2 && value.length <= 6) {
+                value = value.replace(/(\d{2})(\d+)/, '($1) $2');
+            } else if (value.length > 6 && value.length <= 10) {
+                value = value.replace(/(\d{2})(\d{4})(\d+)/, '($1) $2-$3');
+            } else if (value.length > 10) {
+                value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            }
+            
+            e.target.value = value;
+        });
+
+        // Formatação de CEP
+        const cepInput = document.getElementById('cep');
+        cepInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length > 5) {
+                value = value.replace(/(\d{5})(\d+)/, '$1-$2');
+            }
+            
+            e.target.value = value;
+        });
+
+        // Buscar CEP
+        const buscarCepBtn = document.getElementById('buscarCep');
+        buscarCepBtn.addEventListener('click', function() {
+            const cep = cepInput.value.replace(/\D/g, '');
+            
+            if (cep.length !== 8) {
+                alert('CEP inválido. Digite um CEP com 8 dígitos.');
+                return;
+            }
+            
+            // Simulação de busca de CEP
+            buscarCepBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            
+            setTimeout(() => {
+                // Em uma implementação real, você faria uma requisição para uma API de CEP
+                // Aqui estamos apenas simulando uma resposta
+                document.getElementById('endereco').value = 'Rua das Flores, 123 - Centro';
+                document.getElementById('cidade').value = 'São Paulo';
+                document.getElementById('estado').value = 'SP';
+                
+                buscarCepBtn.innerHTML = '🔍';
+                
+                // Validar campos preenchidos
+                const campos = ['endereco', 'cidade', 'estado'];
+                campos.forEach(id => {
+                    const campo = document.getElementById(id);
+                    const campoGrupo = campo.closest('.campo-grupo-estilizado');
+                    campoGrupo.classList.add('campo-valido');
+                });
+            }, 1500);
+        });
+
+        // Mostrar/ocultar campos de voluntário
+        const opcoesParticipacao = document.querySelectorAll('input[name="tipoParticipacao"]');
+        const camposVoluntario = document.getElementById('campos-voluntario');
+        const resumoCadastro = document.querySelector('.resumo-cadastro');
+        
+        opcoesParticipacao.forEach(opcao => {
+            opcao.addEventListener('change', function() {
+                if (this.value === 'voluntario' || this.value === 'ambos') {
+                    camposVoluntario.classList.remove('hidden');
+                    resumoCadastro.classList.remove('hidden');
+                    atualizarResumo();
+                } else {
+                    camposVoluntario.classList.add('hidden');
+                    resumoCadastro.classList.add('hidden');
+                }
+            });
+        });
+
+        // Atualizar valor do range de disponibilidade
+        const disponibilidadeInput = document.getElementById('disponibilidade');
+        const disponibilidadeOutput = document.getElementById('disponibilidade-valor');
+        
+        disponibilidadeInput.addEventListener('input', function() {
+            disponibilidadeOutput.textContent = `${this.value} horas`;
+            atualizarResumo();
+        });
+
+        // Atualizar resumo do cadastro
+        function atualizarResumo() {
+            const perfilSelecionado = document.querySelector('input[name="tipoParticipacao"]:checked');
+            const disponibilidade = document.getElementById('disponibilidade').value;
+            const areasInteresse = document.querySelectorAll('input[name="areasInteresse[]"]:checked');
+            
+            if (perfilSelecionado) {
+                let perfilTexto = '';
+                switch(perfilSelecionado.value) {
+                    case 'voluntario': perfilTexto = 'Voluntário'; break;
+                    case 'doador': perfilTexto = 'Doador'; break;
+                    case 'ambos': perfilTexto = 'Voluntário e Doador'; break;
+                }
+                document.getElementById('resumo-perfil').textContent = perfilTexto;
+            }
+            
+            document.getElementById('resumo-disponibilidade').textContent = `${disponibilidade} horas/semana`;
+            
+            if (areasInteresse.length > 0) {
+                const areasTexto = Array.from(areasInteresse).map(area => {
+                    return area.nextElementSibling.textContent;
+                }).join(', ');
+                document.getElementById('resumo-areas').textContent = areasTexto;
+            } else {
+                document.getElementById('resumo-areas').textContent = 'Nenhuma selecionada';
+            }
+        }
+
+        // Adicionar event listeners para atualizar o resumo
+        document.querySelectorAll('input[name="areasInteresse[]"]').forEach(checkbox => {
+            checkbox.addEventListener('change', atualizarResumo);
+        });
+
+        // Envio do formulário
+        const formulario = document.getElementById('cadastroForm');
+        const botaoSubmit = document.querySelector('.botao-submit');
+        const botaoLoader = document.querySelector('.botao-loader');
+        
+        formulario.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validarEtapa(4)) {
+                // Simular envio do formulário
+                botaoSubmit.disabled = true;
+                botaoLoader.classList.remove('hidden');
+                
+                setTimeout(() => {
+                    // Em uma implementação real, você enviaria os dados para o servidor
+                    alert('Cadastro realizado com sucesso! Em breve entraremos em contato.');
+                    
+                    botaoSubmit.disabled = false;
+                    botaoLoader.classList.add('hidden');
+                    
+                    // Redirecionar ou limpar formulário
+                    formulario.reset();
+                    atualizarProgresso(1);
+                }, 2000);
+            }
+        });
+
+        // Validação em tempo real
+        document.querySelectorAll('input, select, textarea').forEach(campo => {
+            campo.addEventListener('blur', function() {
+                const campoGrupo = this.closest('.campo-grupo-estilizado');
+                
+                if (this.checkValidity()) {
+                    campoGrupo.classList.add('campo-valido');
+                    campoGrupo.classList.remove('campo-invalido');
+                } else {
+                    campoGrupo.classList.add('campo-invalido');
+                    campoGrupo.classList.remove('campo-valido');
+                }
+            });
+        });
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            // Garantir que apenas a primeira etapa esteja visível
+            atualizarProgresso(1);
+            
+            // Adicionar ícones Font Awesome dinamicamente
+            const style = document.createElement('style');
+            style.textContent = `
+                .fa, .fas, .far, .fab {
+                    font-family: 'Font Awesome 6 Free' !important;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
 </body>
 </html>

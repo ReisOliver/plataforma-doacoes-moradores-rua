@@ -3,430 +3,2599 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Faça doações de dinheiro, alimentos, roupas ou ofereça oportunidades de trabalho">
-    <title>Fazer Doação - Rua Solidária</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Faça doações de dinheiro, alimentos, roupas ou ofereça oportunidades de trabalho para moradores em situação de rua">
+    <meta name="keywords" content="doação financeira, doação alimentos, doação roupas, oportunidades trabalho, ajudar moradores rua">
+    <meta name="author" content="Rua Solidária">
+    <title>Fazer Doação - Rua Solidária | Ajude com Dinheiro, Alimentos, Roupas ou Oportunidades</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset e configurações básicas */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2E86AB;
+            --primary-dark: #1A5A7A;
+            --secondary: #F9C74F;
+            --accent: #F94144;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --gray: #6C757D;
+            --success: #43AA8B;
+            --warning: #F8961E;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f7fa;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Acessibilidade */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            text-decoration: none;
+            border-radius: 0 0 4px 0;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Cabeçalho */
+        .cabecalho {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .cabecalho .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .logo img {
+            margin-right: 10px;
+        }
+
+        .logo-texto {
+            color: var(--primary);
+        }
+
+        .navegacao ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .navegacao li {
+            margin-left: 25px;
+        }
+
+        .navegacao a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .navegacao a:hover {
+            color: var(--primary);
+        }
+
+        .navegacao a[aria-current="page"] {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .navegacao a[aria-current="page"]::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            position: relative;
+        }
+
+        .hamburger {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--dark);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: var(--transition);
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 2px;
+            background-color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .hamburger::before {
+            top: -8px;
+        }
+
+        .hamburger::after {
+            top: 8px;
+        }
+
+        /* Cabeçalho da Página */
+        .cabecalho-pagina {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 80px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .doacao-header .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        .cabecalho-pagina h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .destaque {
+            color: var(--secondary);
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .doacao-stats {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .doacao-stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .header-badge {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .header-badge:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .badge-icon {
+            font-size: 1.5rem;
+        }
+
+        .header-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .header-wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+
+        .header-wave .shape-fill {
+            fill: #f5f7fa;
+        }
+
+        /* Banner de Transparência */
+        .banner-transparencia {
+            background: linear-gradient(90deg, var(--secondary) 0%, #FFD166 100%);
+            padding: 20px 0;
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .transparencia-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .transparencia-titulo {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .transparencia-texto {
+            margin: 0 20px;
+            flex: 1;
+        }
+
+        .transparencia-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .transparencia-link:hover {
+            color: var(--primary);
+        }
+
+        /* Navegação entre tipos de doação */
+        .navegacao-doacoes {
+            background-color: white;
+            padding: 40px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .navegacao-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .navegacao-titulo {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .navegacao-descricao {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .navegacao-lista {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            list-style: none;
+        }
+
+        .botao-tipo-doacao {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            text-decoration: none;
+            color: var(--dark);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .botao-tipo-doacao:hover,
+        .botao-tipo-doacao.ativo {
+            border-color: var(--primary);
+            background-color: rgba(46, 134, 171, 0.05);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .tipo-icone {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .tipo-titulo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .tipo-descricao {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .tipo-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.7rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .tipo-badge.popular {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+
+        .tipo-badge.urgente {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Progresso de Meta */
+        .meta-doacao {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+
+        .meta-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .meta-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .meta-titulo {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .meta-texto {
+            color: var(--gray);
+        }
+
+        .meta-progresso {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .progresso-bar {
+            width: 100%;
+            height: 12px;
+            background-color: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progresso-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 10px;
+            position: relative;
+            transition: width 1s ease;
+        }
+
+        .progresso-texto {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .meta-valores {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+
+        .meta-atual {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Tipos de Doação */
+        .tipo-doacao {
+            display: none;
+            padding: 60px 0;
+        }
+
+        .tipo-doacao.ativo {
+            display: block;
+        }
+
+        .doacao-header-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .doacao-header-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .doacao-subtitulo {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .doacao-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+        }
+
+        .beneficios-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .beneficios-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .beneficios-titulo {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            color: var(--dark);
+        }
+
+        .beneficios-lista {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .beneficio-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f1f3f4;
+        }
+
+        .beneficio-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .beneficio-icone {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .beneficio-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .beneficio-content strong {
+            font-size: 1rem;
+        }
+
+        .beneficio-desc {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .transparencia-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .transparencia-icone {
+            font-size: 1.2rem;
+        }
+
+        .transparencia-texto {
+            font-size: 0.9rem;
+        }
+
+        /* Formulários */
+        .formulario-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .fieldset-estilizado {
+            border: none;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .fieldset-estilizado:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .legend-estilizado {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0;
+            width: auto;
+        }
+
+        .legend-icone {
+            font-size: 1.5rem;
+        }
+
+        /* Opções de valor */
+        .opcoes-valor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .opcao-valor-card {
+            cursor: pointer;
+        }
+
+        .valor-card {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px 15px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .opcao-valor-card input:checked + .valor-card {
+            border-color: var(--primary);
+            background-color: rgba(46, 134, 171, 0.05);
+        }
+
+        .valor-card.personalizado {
+            border-style: dashed;
+        }
+
+        .valor-preco {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .valor-impacto {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .valor-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--secondary);
+            color: var(--dark);
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .valor-custom-container {
+            margin-top: 20px;
+        }
+
+        .input-com-icone {
+            position: relative;
+        }
+
+        .input-prefix {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 600;
+            color: var(--gray);
+        }
+
+        .input-estilizado,
+        .select-estilizado,
+        .textarea-estilizado {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: white;
+        }
+
+        .input-estilizado:focus,
+        .select-estilizado:focus,
+        .textarea-estilizado:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(46, 134, 171, 0.2);
+        }
+
+        .input-estilizado.with-prefix {
+            padding-left: 40px;
+        }
+
+        .texto-ajuda {
+            color: var(--gray);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Opções de pagamento */
+        .opcoes-pagamento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .opcao-pagamento-card {
+            cursor: pointer;
+        }
+
+        .pagamento-card {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px 15px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .opcao-pagamento-card input:checked + .pagamento-card {
+            border-color: var(--primary);
+            background-color: rgba(46, 134, 171, 0.05);
+        }
+
+        .pagamento-icone {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .pagamento-titulo {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .pagamento-desc {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .pagamento-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--success);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* Resumo */
+        .resumo-doacao {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .resumo-titulo {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+
+        .resumo-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .resumo-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .resumo-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #dee2e6;
+            font-size: 1.1rem;
+        }
+
+        .resumo-total-valor {
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        /* Botões */
+        .formulario-acoes {
+            text-align: center;
+        }
+
+        .botao-primario {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 15px 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+        }
+
+        .botao-primario:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .botao-primario.grande {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+        }
+
+        .botao-icone {
+            font-size: 1.2rem;
+        }
+
+        .botao-loader {
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .garantias {
+            margin-top: 20px;
+        }
+
+        .garantia-texto {
+            font-size: 0.9rem;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .garantia-icone {
+            font-size: 1.2rem;
+        }
+
+        /* Alerta Urgente */
+        .alerta-urgente {
+            background: linear-gradient(90deg, #FFF3CD 0%, #FFEEBA 100%);
+            border: 1px solid #FFEAA7;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .alerta-icone {
+            font-size: 1.5rem;
+        }
+
+        .alerta-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .alerta-content strong {
+            color: #856404;
+        }
+
+        /* Categorias de Alimentos */
+        .categorias-alimentos {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .categoria-alimentos {
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .categoria-titulo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .categoria-icone {
+            font-size: 1.5rem;
+        }
+
+        .itens-alimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .item-doacao-card {
+            cursor: pointer;
+        }
+
+        .item-card {
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px 10px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .item-doacao-card input:checked + .item-card {
+            border-color: var(--primary);
+            background-color: rgba(46, 134, 171, 0.05);
+        }
+
+        .item-icone {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .item-nome {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .item-status {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.6rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .resumo-itens {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .resumo-itens-titulo {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .itens-selecionados-lista {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .item-selecionado {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 20px;
+            padding: 5px 12px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .item-remover {
+            background: none;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Benefícios Empresa */
+        .beneficios-empresa {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .beneficio-empresa-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .beneficio-empresa-card .beneficio-icone {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .beneficio-empresa-card h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .beneficio-empresa-card ul {
+            text-align: left;
+            list-style: none;
+        }
+
+        .beneficio-empresa-card li {
+            margin-bottom: 10px;
+            padding-left: 0;
+        }
+
+        /* FAQ */
+        .faq-doacoes {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .faq-doacoes h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .faq-pergunta {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+        }
+
+        .faq-pergunta::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-pergunta::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .faq-item[open] .faq-pergunta::after {
+            content: '-';
+        }
+
+        .faq-resposta {
+            padding: 0 20px 20px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        /* Rodapé */
+        .rodape {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .rodape-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .rodape-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .rodape-logo img {
+            margin-bottom: 10px;
+        }
+
+        .rodape-slogan {
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .rodape-contato h3 {
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .rodape-contato address p {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rodape-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .rodape-coluna h3 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .rodape-coluna ul {
+            list-style: none;
+        }
+
+        .rodape-coluna li {
+            margin-bottom: 10px;
+        }
+
+        .rodape-coluna a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .rodape-coluna a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .rodape-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Botão WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .whatsapp-float:hover {
+            width: 180px;
+            border-radius: 30px;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        .whatsapp-icon {
+            font-size: 1.8rem;
+        }
+
+        .whatsapp-text {
+            font-weight: 600;
+            white-space: nowrap;
+            display: none;
+        }
+
+        .whatsapp-float:hover .whatsapp-text {
+            display: block;
+        }
+
+        /* Estados */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .doacao-content {
+                grid-template-columns: 1fr;
+            }
+
+            .beneficios-sidebar {
+                position: static;
+                margin-bottom: 30px;
+            }
+
+            .rodape-content {
+                grid-template-columns: 1fr;
+            }
+
+            .rodape-info {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .navegacao {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                transform: translateY(-10px);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+            }
+
+            .navegacao.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .navegacao ul {
+                flex-direction: column;
+            }
+
+            .navegacao li {
+                margin: 0 0 15px 0;
+            }
+
+            .navegacao a {
+                display: block;
+                padding: 10px 0;
+            }
+
+            .cabecalho-pagina h1 {
+                font-size: 2.2rem;
+            }
+
+            .doacao-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .meta-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .meta-progresso {
+                width: 100%;
+            }
+
+            .navegacao-lista {
+                grid-template-columns: 1fr;
+            }
+
+            .opcoes-valor-grid,
+            .opcoes-pagamento-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .itens-alimentos-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+
+            .rodape-info {
+                flex-direction: column;
+            }
+
+            .rodape-links {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .cabecalho-pagina {
+                padding: 60px 0 100px;
+            }
+
+            .cabecalho-pagina h1 {
+                font-size: 1.8rem;
+            }
+
+            .transparencia-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .navegacao-titulo {
+                font-size: 1.8rem;
+            }
+
+            .opcoes-valor-grid,
+            .opcoes-pagamento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .doacao-header-section h2 {
+                font-size: 2rem;
+            }
+
+            .faq-doacoes h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Skip link para acessibilidade -->
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
     <header class="cabecalho">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="Rua Solidária" width="150" height="60">
+                <!-- Imagem placeholder - substitua pelo logo real -->
+                <div style="width:150px;height:60px;background:var(--primary);display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;">LOGO</div>
+                <span class="logo-texto">Rua Solidária</span>
             </a>
-            <nav class="navegacao" aria-label="Navegação principal">
+            
+            <!-- Menu mobile -->
+            <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navegacao-principal">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav class="navegacao" id="navegacao-principal" aria-label="Navegação principal">
                 <ul>
                     <li><a href="index.html">Início</a></li>
                     <li><a href="doacoes.html" aria-current="page">Fazer Doação</a></li>
                     <li><a href="cadastro.html">Cadastrar</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <header class="cabecalho-pagina">
+    <main id="conteudo-principal">
+        <!-- Cabeçalho da Página Melhorado -->
+        <header class="cabecalho-pagina doacao-header">
             <div class="container">
-                <h1>Escolha Como Ajudar</h1>
-                <p>Selecione o tipo de doação que deseja fazer</p>
+                <div class="header-content">
+                    <h1>Escolha Como <span class="destaque">Transformar</span> Vidas</h1>
+                    <p class="page-subtitle">Sua doação, seja qual for o tipo, restaura dignidade e abre portas para um futuro melhor</p>
+                    
+                    <div class="doacao-stats">
+                        <div class="doacao-stat">
+                            <span class="stat-number">R$ 287.450</span>
+                            <span class="stat-label">Arrecadados este ano</span>
+                        </div>
+                        <div class="doacao-stat">
+                            <span class="stat-number">1.247</span>
+                            <span class="stat-label">Doações realizadas</span>
+                        </div>
+                        <div class="doacao-stat">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Diretamente aplicados</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="header-badge">
+                    <span class="badge-icon">🏆</span>
+                    <span class="badge-text">Organização Certificada - Transparência 100%</span>
+                </div>
+            </div>
+            
+            <!-- Elemento decorativo -->
+            <div class="header-wave" aria-hidden="true">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                </svg>
             </div>
         </header>
 
-        <!-- Navegação entre tipos de doação -->
-        <nav class="navegacao-doacoes" aria-label="Tipos de doação">
+        <!-- Banner de Transparência -->
+        <div class="banner-transparencia" role="complementary" aria-labelledby="transparencia-titulo">
             <div class="container">
-                <ul>
-                    <li><a href="#doacao-financeira" class="botao-tipo-doacao ativo">💰 Doação em Dinheiro</a></li>
-                    <li><a href="#doacao-alimentos" class="botao-tipo-doacao">🍎 Alimentos</a></li>
-                    <li><a href="#doacao-roupas" class="botao-tipo-doacao">👕 Roupas</a></li>
-                    <li><a href="#oportunidade-trabalho" class="botao-tipo-doacao">💼 Oportunidades</a></li>
+                <div class="transparencia-content">
+                    <span id="transparencia-titulo" class="transparencia-titulo">🔍 Transparência Total</span>
+                    <p class="transparencia-texto">Publicamos relatórios detalhados mostrando exatamente como cada doação é utilizada</p>
+                    <a href="#" class="transparencia-link">Ver Prestação de Contas →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navegação entre tipos de doação MELHORADA -->
+        <nav class="navegacao-doacoes" aria-label="Tipos de doação disponíveis">
+            <div class="container">
+                <div class="navegacao-header">
+                    <h2 class="navegacao-titulo">Selecione o Tipo de Doação</h2>
+                    <p class="navegacao-descricao">Escolha a forma de ajuda que faz mais sentido para você</p>
+                </div>
+                
+                <ul class="navegacao-lista">
+                    <li class="navegacao-item">
+                        <a href="#doacao-financeira" class="botao-tipo-doacao ativo" data-tipo="financeira">
+                            <span class="tipo-icone">💰</span>
+                            <span class="tipo-titulo">Doação Financeira</span>
+                            <span class="tipo-descricao">Recursos diretos e flexíveis</span>
+                            <span class="tipo-badge popular">Mais Escolhido</span>
+                        </a>
+                    </li>
+                    <li class="navegacao-item">
+                        <a href="#doacao-alimentos" class="botao-tipo-doacao" data-tipo="alimentos">
+                            <span class="tipo-icone">🍎</span>
+                            <span class="tipo-titulo">Doação de Alimentos</span>
+                            <span class="tipo-descricao">Itens essenciais não perecíveis</span>
+                        </a>
+                    </li>
+                    <li class="navegacao-item">
+                        <a href="#doacao-roupas" class="botao-tipo-doacao" data-tipo="roupas">
+                            <span class="tipo-icone">👕</span>
+                            <span class="tipo-titulo">Doação de Roupas</span>
+                            <span class="tipo-descricao">Vestuário e proteção</span>
+                            <span class="tipo-badge urgente">Urgente</span>
+                        </a>
+                    </li>
+                    <li class="navegacao-item">
+                        <a href="#oportunidade-trabalho" class="botao-tipo-doacao" data-tipo="trabalho">
+                            <span class="tipo-icone">💼</span>
+                            <span class="tipo-titulo">Oportunidades</span>
+                            <span class="tipo-descricao">Vagas de trabalho</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
 
-        <!-- Doação Financeira -->
+        <!-- Progresso de Meta -->
+        <div class="meta-doacao" role="status" aria-labelledby="meta-titulo">
+            <div class="container">
+                <div class="meta-content">
+                    <div class="meta-info">
+                        <span id="meta-titulo" class="meta-titulo">🎯 Meta do Mês</span>
+                        <span class="meta-texto">R$ 50.000 para kits de inverno</span>
+                    </div>
+                    <div class="meta-progresso">
+                        <div class="progresso-bar">
+                            <div class="progresso-fill" style="width: 65%">
+                                <span class="progresso-texto">65%</span>
+                            </div>
+                        </div>
+                        <div class="meta-valores">
+                            <span class="meta-atual">R$ 32.500</span>
+                            <span class="meta-total">R$ 50.000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Doação Financeira MELHORADA -->
         <section id="doacao-financeira" class="tipo-doacao ativo" aria-labelledby="financeira-titulo">
             <div class="container">
-                <h2 id="financeira-titulo">Doação Financeira</h2>
-                <p>Seu dinheiro será utilizado para:</p>
-                <ul class="beneficios-lista">
-                    <li>🔵 Refeições diárias</li>
-                    <li>🔵 Kits de higiene pessoal</li>
-                    <li>🔵 Medicamentos básicos</li>
-                    <li>🔵 Transporte para entrevistas</li>
-                </ul>
+                <div class="doacao-header-section">
+                    <h2 id="financeira-titulo">Doação <span class="destaque">Financeira</span></h2>
+                    <p class="doacao-subtitulo">Recursos diretos que nos dão flexibilidade para atender necessidades urgentes</p>
+                </div>
 
-                <form class="formulario-doacao" id="formDoacaoFinanceira">
-                    <fieldset>
-                        <legend>Valor da Doação</legend>
-                        <div class="opcoes-valor">
-                            <label class="opcao-valor">
-                                <input type="radio" name="valor" value="25" required>
-                                <span class="botao-valor">R$ 25</span>
-                                <small>Alimenta 5 pessoas</small>
-                            </label>
-                            <label class="opcao-valor">
-                                <input type="radio" name="valor" value="50">
-                                <span class="botao-valor">R$ 50</span>
-                                <small>Kits higiene para 10</small>
-                            </label>
-                            <label class="opcao-valor">
-                                <input type="radio" name="valor" value="100">
-                                <span class="botao-valor">R$ 100</span>
-                                <small>Ajuda com documentação</small>
-                            </label>
-                            <label class="opcao-valor">
-                                <input type="radio" name="valor" value="outro">
-                                <span class="botao-valor">Outro valor</span>
-                            </label>
+                <div class="doacao-content">
+                    <div class="beneficios-sidebar">
+                        <div class="beneficios-card">
+                            <h3 class="beneficios-titulo">Seu dinheiro será utilizado para:</h3>
+                            <ul class="beneficios-lista">
+                                <li class="beneficio-item">
+                                    <span class="beneficio-icone">🍽️</span>
+                                    <div class="beneficio-content">
+                                        <strong>Refeições diárias</strong>
+                                        <span class="beneficio-desc">Café da manhã, almoço e jantar</span>
+                                    </div>
+                                </li>
+                                <li class="beneficio-item">
+                                    <span class="beneficio-icone">🚿</span>
+                                    <div class="beneficio-content">
+                                        <strong>Kits de higiene pessoal</strong>
+                                        <span class="beneficio-desc">Sabonete, pasta, escova, shampoo</span>
+                                    </div>
+                                </li>
+                                <li class="beneficio-item">
+                                    <span class="beneficio-icone">💊</span>
+                                    <div class="beneficio-content">
+                                        <strong>Medicamentos básicos</strong>
+                                        <span class="beneficio-desc">Primeiros socorros e cuidados</span>
+                                    </div>
+                                </li>
+                                <li class="beneficio-item">
+                                    <span class="beneficio-icone">🚌</span>
+                                    <div class="beneficio-content">
+                                        <strong>Transporte para entrevistas</strong>
+                                        <span class="beneficio-desc">Passagens e deslocamentos</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            
+                            <div class="transparencia-info">
+                                <span class="transparencia-icone">📊</span>
+                                <span class="transparencia-texto">Relatório detalhado enviado por email</span>
+                            </div>
                         </div>
+                    </div>
 
-                        <div class="campo-grupo valor-custom hidden">
-                            <label for="valorCustom">Digite o valor (R$)</label>
-                            <input type="number" id="valorCustom" name="valorCustom" min="1" step="0.01" placeholder="Ex: 75,50">
-                        </div>
-                    </fieldset>
+                    <div class="formulario-container">
+                        <form class="formulario-doacao" id="formDoacaoFinanceira" novalidate>
+                            <fieldset class="fieldset-estilizado">
+                                <legend class="legend-estilizado">
+                                    <span class="legend-icone">💎</span>
+                                    Valor da Doação
+                                </legend>
+                                
+                                <div class="opcoes-valor-grid">
+                                    <label class="opcao-valor-card">
+                                        <input type="radio" name="valor" value="25" required class="sr-only">
+                                        <div class="valor-card">
+                                            <span class="valor-preco">R$ 25</span>
+                                            <span class="valor-impacto">Alimenta 5 pessoas</span>
+                                            <span class="valor-badge">Popular</span>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="opcao-valor-card">
+                                        <input type="radio" name="valor" value="50" class="sr-only">
+                                        <div class="valor-card">
+                                            <span class="valor-preco">R$ 50</span>
+                                            <span class="valor-impacto">Kits higiene para 10</span>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="opcao-valor-card">
+                                        <input type="radio" name="valor" value="100" class="sr-only">
+                                        <div class="valor-card">
+                                            <span class="valor-preco">R$ 100</span>
+                                            <span class="valor-impacto">Ajuda com documentação</span>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="opcao-valor-card">
+                                        <input type="radio" name="valor" value="outro" class="sr-only">
+                                        <div class="valor-card personalizado">
+                                            <span class="valor-preco">Outro valor</span>
+                                            <span class="valor-impacto">Escolha o valor</span>
+                                        </div>
+                                    </label>
+                                </div>
 
-                    <fieldset>
-                        <legend>Forma de Pagamento</legend>
-                        <div class="opcoes-pagamento">
-                            <label class="opcao-pagamento">
-                                <input type="radio" name="pagamento" value="pix" required>
-                                <span class="icone-pagamento">📱</span>
-                                PIX
-                            </label>
-                            <label class="opcao-pagamento">
-                                <input type="radio" name="pagamento" value="cartao">
-                                <span class="icone-pagamento">💳</span>
-                                Cartão de Crédito
-                            </label>
-                            <label class="opcao-pagamento">
-                                <input type="radio" name="pagamento" value="boleto">
-                                <span class="icone-pagamento">📄</span>
-                                Boleto
-                            </label>
-                        </div>
-                    </fieldset>
+                                <div class="campo-grupo valor-custom-container hidden">
+                                    <label for="valorCustom" class="rotulo-estilizado">
+                                        <span class="rotulo-icone">💰</span>
+                                        Digite o valor desejado
+                                    </label>
+                                    <div class="input-com-icone">
+                                        <span class="input-prefix">R$</span>
+                                        <input type="number" id="valorCustom" name="valorCustom" min="1" step="0.01" 
+                                               placeholder="0,00" class="input-estilizado with-prefix">
+                                    </div>
+                                    <small class="texto-ajuda">Valor mínimo: R$ 1,00</small>
+                                </div>
+                            </fieldset>
 
-                    <button type="submit" class="botao-primario grande">Confirmar Doação</button>
-                </form>
+                            <fieldset class="fieldset-estilizado">
+                                <legend class="legend-estilizado">
+                                    <span class="legend-icone">💳</span>
+                                    Forma de Pagamento
+                                </legend>
+                                
+                                <div class="opcoes-pagamento-grid">
+                                    <label class="opcao-pagamento-card">
+                                        <input type="radio" name="pagamento" value="pix" required class="sr-only">
+                                        <div class="pagamento-card">
+                                            <span class="pagamento-icone">📱</span>
+                                            <span class="pagamento-titulo">PIX</span>
+                                            <span class="pagamento-desc">Instantâneo e sem taxas</span>
+                                            <span class="pagamento-badge recomendado">Recomendado</span>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="opcao-pagamento-card">
+                                        <input type="radio" name="pagamento" value="cartao" class="sr-only">
+                                        <div class="pagamento-card">
+                                            <span class="pagamento-icone">💳</span>
+                                            <span class="pagamento-titulo">Cartão</span>
+                                            <span class="pagamento-desc">Crédito ou débito</span>
+                                        </div>
+                                    </label>
+                                    
+                                    <label class="opcao-pagamento-card">
+                                        <input type="radio" name="pagamento" value="boleto" class="sr-only">
+                                        <div class="pagamento-card">
+                                            <span class="pagamento-icone">📄</span>
+                                            <span class="pagamento-titulo">Boleto</span>
+                                            <span class="pagamento-desc">Até 3 dias úteis</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </fieldset>
+
+                            <div class="resumo-doacao hidden">
+                                <h3 class="resumo-titulo">Resumo da Doação</h3>
+                                <div class="resumo-content">
+                                    <div class="resumo-item">
+                                        <span>Valor:</span>
+                                        <strong class="resumo-valor">R$ 0,00</strong>
+                                    </div>
+                                    <div class="resumo-item">
+                                        <span>Forma de pagamento:</span>
+                                        <strong class="resumo-pagamento">-</strong>
+                                    </div>
+                                    <div class="resumo-total">
+                                        <span>Total a pagar:</span>
+                                        <strong class="resumo-total-valor">R$ 0,00</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formulario-acoes">
+                                <button type="submit" class="botao-primario grande botao-submit">
+                                    <span class="botao-icone">💝</span>
+                                    Confirmar Doação
+                                    <span class="botao-loader hidden"></span>
+                                </button>
+                                
+                                <div class="garantias">
+                                    <p class="garantia-texto">
+                                        <span class="garantia-icone">🔒</span>
+                                        Ambiente 100% seguro • Dados protegidos • Certificado SSL
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Doação de Alimentos -->
+        <!-- Doação de Alimentos MELHORADA -->
         <section id="doacao-alimentos" class="tipo-doacao" aria-labelledby="alimentos-titulo">
             <div class="container">
-                <h2 id="alimentos-titulo">Doação de Alimentos</h2>
-                <p>Itens mais necessários atualmente:</p>
+                <div class="doacao-header-section">
+                    <h2 id="alimentos-titulo">Doação de <span class="destaque">Alimentos</span></h2>
+                    <p class="doacao-subtitulo">Itens não perecíveis que garantem nutrição básica e dignidade</p>
+                </div>
 
-                <form class="formulario-doacao" id="formDoacaoAlimentos">
-                    <fieldset>
-                        <legend>Selecione os Itens</legend>
-                        
-                        <div class="categoria-alimentos">
-                            <h4>Não Perecíveis</h4>
-                            <div class="itens-alimentos">
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="alimentos[]" value="arroz">
-                                    <span class="checkmark"></span>
-                                    Arroz (5kg)
-                                </label>
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="alimentos[]" value="feijao">
-                                    <span class="checkmark"></span>
-                                    Feijão (1kg)
-                                </label>
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="alimentos[]" value="oleo">
-                                    <span class="checkmark"></span>
-                                    Óleo (1L)
-                                </label>
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="alimentos[]" value="acucar">
-                                    <span class="checkmark"></span>
-                                    Açúcar (1kg)
-                                </label>
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="alimentos[]" value="cafe">
-                                    <span class="checkmark"></span>
-                                    Café (500g)
-                                </label>
+                <div class="alerta-urgente">
+                    <span class="alerta-icone">🚨</span>
+                    <div class="alerta-content">
+                        <strong>Itens Mais Necessários Agora:</strong>
+                        <span>Leite em pó, óleo, feijão e alimentos infantis</span>
+                    </div>
+                </div>
+
+                <div class="doacao-content">
+                    <div class="beneficios-sidebar">
+                        <div class="beneficios-card">
+                            <h3 class="beneficios-titulo">Informações Importantes</h3>
+                            <ul class="info-lista">
+                                <li class="info-item">
+                                    <span class="info-icone">📦</span>
+                                    <span>Aceitamos alimentos não perecíveis</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-icone">⏰</span>
+                                    <span>Validade mínima: 3 meses</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-icone">📍</span>
+                                    <span>Retiramos em sua residência</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-icone">📞</span>
+                                    <span>Entraremos em contato para combinar</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="formulario-container">
+                        <form class="formulario-doacao" id="formDoacaoAlimentos" novalidate>
+                            <fieldset class="fieldset-estilizado">
+                                <legend class="legend-estilizado">
+                                    <span class="legend-icone">🛒</span>
+                                    Selecione os Itens para Doação
+                                </legend>
+                                
+                                <div class="categorias-alimentos">
+                                    <div class="categoria-alimentos">
+                                        <h4 class="categoria-titulo">
+                                            <span class="categoria-icone">🍚</span>
+                                            Alimentos Não Perecíveis
+                                        </h4>
+                                        <div class="itens-alimentos-grid">
+                                            <label class="item-doacao-card">
+                                                <input type="checkbox" name="alimentos[]" value="arroz" class="sr-only">
+                                                <div class="item-card">
+                                                    <span class="item-icone">🍚</span>
+                                                    <span class="item-nome">Arroz (5kg)</span>
+                                                    <span class="item-status urgente">Urgente</span>
+                                                </div>
+                                            </label>
+                                            
+                                            <label class="item-doacao-card">
+                                                <input type="checkbox" name="alimentos[]" value="feijao" class="sr-only">
+                                                <div class="item-card">
+                                                    <span class="item-icone">🥣</span>
+                                                    <span class="item-nome">Feijão (1kg)</span>
+                                                    <span class="item-status urgente">Urgente</span>
+                                                </div>
+                                            </label>
+                                            
+                                            <label class="item-doacao-card">
+                                                <input type="checkbox" name="alimentos[]" value="oleo" class="sr-only">
+                                                <div class="item-card">
+                                                    <span class="item-icone">🫒</span>
+                                                    <span class="item-nome">Óleo (1L)</span>
+                                                </div>
+                                            </label>
+                                            
+                                            <label class="item-doacao-card">
+                                                <input type="checkbox" name="alimentos[]" value="acucar" class="sr-only">
+                                                <div class="item-card">
+                                                    <span class="item-icone">🍬</span>
+                                                    <span class="item-nome">Açúcar (1kg)</span>
+                                                </div>
+                                            </label>
+                                            
+                                            <label class="item-doacao-card">
+                                                <input type="checkbox" name="alimentos[]" value="cafe" class="sr-only">
+                                                <div class="item-card">
+                                                    <span class="item-icone">☕</span>
+                                                    <span class="item-nome">Café (500g)</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="categoria-alimentos">
+                                        <h4 class="categoria-titulo">
+                                            <span class="categoria-icone">🚿</span>
+                                            Higiene Pessoal
+                                        </h4>
+                                        <div class="itens-alimentos-grid">
+                                            <label class="item-doacao-card">
+                                                <input type="checkbox" name="alimentos[]" value="sabonete" class="sr-only">
+                                                <div class="item-card">
+                                                    <span class="item-icone">🧼</span>
+                                                    <span class="item-nome">Sabonete</span>
+                                                </div>
+                                            </label>
+                                            
+                                            <label class="item-doacao-card">
+                                                <input type="checkbox" name="alimentos[]" value="pasta-dente" class="sr-only">
+                                                <div class="item-card">
+                                                    <span class="item-icone">🦷</span>
+                                                    <span class="item-nome">Pasta de Dente</span>
+                                                </div>
+                                            </label>
+                                            
+                                            <label class="item-doacao-card">
+                                                <input type="checkbox" name="alimentos[]" value="escova" class="sr-only">
+                                                <div class="item-card">
+                                                    <span class="item-icone">✨</span>
+                                                    <span class="item-nome">Escova de Dentes</span>
+                                                </div>
+                                            </label>
+                                            
+                                            <label class="item-doacao-card">
+                                                <input type="checkbox" name="alimentos[]" value="shampoo" class="sr-only">
+                                                <div class="item-card">
+                                                    <span class="item-icone">🧴</span>
+                                                    <span class="item-nome">Shampoo</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="resumo-itens hidden">
+                                    <h4 class="resumo-itens-titulo">Itens Selecionados:</h4>
+                                    <div class="itens-selecionados-lista"></div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="fieldset-estilizado">
+                                <legend class="legend-estilizado">
+                                    <span class="legend-icone">🚚</span>
+                                    Informações de Entrega
+                                </legend>
+                                
+                                <div class="campos-grid">
+                                    <div class="campo-grupo">
+                                        <label for="dataEntrega" class="rotulo-estilizado">
+                                            <span class="rotulo-icone">📅</span>
+                                            Data preferida para entrega
+                                        </label>
+                                        <input type="date" id="dataEntrega" name="dataEntrega" required 
+                                               min="2024-01-01" class="input-estilizado">
+                                        <small class="texto-ajuda">Agendamos conforme sua disponibilidade</small>
+                                    </div>
+                                    
+                                    <div class="campo-grupo">
+                                        <label for="localEntrega" class="rotulo-estilizado">
+                                            <span class="rotulo-icone">📍</span>
+                                            Local de Entrega
+                                        </label>
+                                        <select id="localEntrega" name="localEntrega" required class="select-estilizado">
+                                            <option value="">Selecione o local mais próximo</option>
+                                            <option value="centro">Centro de Doações - Centro</option>
+                                            <option value="zona-norte">Posto Zona Norte</option>
+                                            <option value="zona-sul">Posto Zona Sul</option>
+                                            <option value="zona-leste">Posto Zona Leste</option>
+                                            <option value="zona-oeste">Posto Zona Oeste</option>
+                                            <option value="domicilio">Prefiro agendar retirada em casa</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="campo-grupo">
+                                    <label for="observacoes" class="rotulo-estilizado">
+                                        <span class="rotulo-icone">📝</span>
+                                        Observações adicionais
+                                    </label>
+                                    <textarea id="observacoes" name="observacoes" 
+                                              placeholder="Alguma informação importante sobre os itens, horário preferido, etc..."
+                                              class="textarea-estilizado"></textarea>
+                                </div>
+                            </fieldset>
+
+                            <div class="formulario-acoes">
+                                <button type="submit" class="botao-primario grande">
+                                    <span class="botao-icone">📦</span>
+                                    Confirmar Doação de Alimentos
+                                </button>
                             </div>
-                        </div>
-
-                        <div class="categoria-alimentos">
-                            <h4>Higiene Pessoal</h4>
-                            <div class="itens-alimentos">
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="alimentos[]" value="sabonete">
-                                    <span class="checkmark"></span>
-                                    Sabonete
-                                </label>
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="alimentos[]" value="pasta-dente">
-                                    <span class="checkmark"></span>
-                                    Pasta de Dente
-                                </label>
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="alimentos[]" value="escova">
-                                    <span class="checkmark"></span>
-                                    Escova de Dentes
-                                </label>
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="alimentos[]" value="shampoo">
-                                    <span class="checkmark"></span>
-                                    Shampoo
-                                </label>
-                            </div>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Entrega</legend>
-                        <div class="campo-grupo">
-                            <label for="dataEntrega">Data para Entrega</label>
-                            <input type="date" id="dataEntrega" name="dataEntrega" required min="2024-01-01">
-                        </div>
-                        
-                        <div class="campo-grupo">
-                            <label for="localEntrega">Local de Entrega</label>
-                            <select id="localEntrega" name="localEntrega" required>
-                                <option value="">Selecione o local</option>
-                                <option value="centro">Centro de Doações - Centro</option>
-                                <option value="zona-norte">Posto Zona Norte</option>
-                                <option value="zona-sul">Posto Zona Sul</option>
-                                <option value="zona-leste">Posto Zona Leste</option>
-                                <option value="zona-oeste">Posto Zona Oeste</option>
-                            </select>
-                        </div>
-
-                        <div class="campo-grupo">
-                            <label for="observacoes">Observações (opcional)</label>
-                            <textarea id="observacoes" name="observacoes" placeholder="Alguma informação adicional..."></textarea>
-                        </div>
-                    </fieldset>
-
-                    <button type="submit" class="botao-primario grande">Confirmar Doação</button>
-                </form>
+                        </form>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Doação de Roupas -->
+        <!-- Doação de Roupas MELHORADA -->
         <section id="doacao-roupas" class="tipo-doacao" aria-labelledby="roupas-titulo">
             <div class="container">
-                <h2 id="roupas-titulo">Doação de Roupas</h2>
-                <p>Roupas em bom estado são sempre bem-vindas</p>
+                <div class="doacao-header-section">
+                    <h2 id="roupas-titulo">Doação de <span class="destaque">Roupas</span></h2>
+                    <p class="doacao-subtitulo">Vestuário em bom estado que oferece proteção e dignidade</p>
+                </div>
 
-                <form class="formulario-doacao" id="formDoacaoRoupas">
-                    <fieldset>
-                        <legend>Tipos de Roupas</legend>
-                        
-                        <div class="categoria-roupas">
-                            <h4>Roupas Masculinas</h4>
-                            <div class="itens-roupas">
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="roupas[]" value="camiseta-m">
-                                    <span class="checkmark"></span>
-                                    Camisetas (P/M/G)
-                                </label>
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="roupas[]" value="calca-m">
-                                    <span class="checkmark"></span>
-                                    Calças Jeans
-                                </label>
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="roupas[]" value="bermuda-m">
-                                    <span class="checkmark"></span>
-                                    Bermudas
-                                </label>
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="roupas[]" value="casaco-m">
-                                    <span class="checkmark"></span>
-                                    Casacos
-                                </label>
+                <div class="alerta-urgente">
+                    <span class="alerta-icone">🧥</span>
+                    <div class="alerta-content">
+                        <strong>Prioridade no Momento:</strong>
+                        <span>Casacos, cobertores, roupas de frio e calçados fechados</span>
+                    </div>
+                </div>
+
+                <!-- Conteúdo da seção de roupas -->
+                <div class="doacao-content">
+                    <div class="beneficios-sidebar">
+                        <div class="beneficios-card">
+                            <h3 class="beneficios-titulo">Informações Importantes</h3>
+                            <ul class="info-lista">
+                                <li class="info-item">
+                                    <span class="info-icone">🧼</span>
+                                    <span>Roupas limpas e em bom estado</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-icone">👔</span>
+                                    <span>Aceitamos roupas para todas as idades</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-icone">📍</span>
+                                    <span>Retiramos em sua residência</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-icone">📞</span>
+                                    <span>Entraremos em contato para combinar</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="formulario-container">
+                        <form class="formulario-doacao" id="formDoacaoRoupas" novalidate>
+                            <fieldset class="fieldset-estilizado">
+                                <legend class="legend-estilizado">
+                                    <span class="legend-icone">👕</span>
+                                    Selecione os Tipos de Roupa
+                                </legend>
+                                
+                                <div class="categorias-alimentos">
+                                    <div class="categoria-alimentos">
+                                        <h4 class="categoria-titulo">
+                                            <span class="categoria-icone">🧥</span>
+                                            Roupas de Frio
+                                        </h4>
+                                        <div class="itens-alimentos-grid">
+                                            <label class="item-doacao-card">
+                                                <input type="checkbox" name="roupas[]" value="casaco" class="sr-only">
+                                                <div class="item-card">
+                                                    <span class="item-icone">🧥</span>
+                                                    <span class="item-nome">Casacos</span>
+                                                    <span class="item-status urgente">Urgente</span>
+                                                </div>
+                                            </label>
+                                            
+                                            <label class="item-doacao-card">
+                                                <input type="checkbox" name="roupas[]" value="cobertor" class="sr-only">
+                                                <div class="item-card">
+                                                    <span class="item-icone">🛌</span>
+                                                    <span class="item-nome">Cobertores</span>
+                                                    <span class="item-status urgente">Urgente</span>
+                                                </div>
+                                            </label>
+                                            
+                                            <label class="item-doacao-card">
+                                                <input type="checkbox" name="roupas[]" value="blusa" class="sr-only">
+                                                <div class="item-card">
+                                                    <span class="item-icone">👚</span>
+                                                    <span class="item-nome">Blusas</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="categoria-alimentos">
+                                        <h4 class="categoria-titulo">
+                                            <span class="categoria-icone">👖</span>
+                                            Roupas Gerais
+                                        </h4>
+                                        <div class="itens-alimentos-grid">
+                                            <label class="item-doacao-card">
+                                                <input type="checkbox" name="roupas[]" value="calca" class="sr-only">
+                                                <div class="item-card">
+                                                    <span class="item-icone">👖</span>
+                                                    <span class="item-nome">Calças</span>
+                                                </div>
+                                            </label>
+                                            
+                                            <label class="item-doacao-card">
+                                                <input type="checkbox" name="roupas[]" value="camiseta" class="sr-only">
+                                                <div class="item-card">
+                                                    <span class="item-icone">👕</span>
+                                                    <span class="item-nome">Camisetas</span>
+                                                </div>
+                                            </label>
+                                            
+                                            <label class="item-doacao-card">
+                                                <input type="checkbox" name="roupas[]" value="calcado" class="sr-only">
+                                                <div class="item-card">
+                                                    <span class="item-icone">👟</span>
+                                                    <span class="item-nome">Calçados</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="resumo-itens hidden">
+                                    <h4 class="resumo-itens-titulo">Itens Selecionados:</h4>
+                                    <div class="itens-selecionados-lista"></div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="fieldset-estilizado">
+                                <legend class="legend-estilizado">
+                                    <span class="legend-icone">🚚</span>
+                                    Informações de Entrega
+                                </legend>
+                                
+                                <div class="campos-grid">
+                                    <div class="campo-grupo">
+                                        <label for="dataEntregaRoupas" class="rotulo-estilizado">
+                                            <span class="rotulo-icone">📅</span>
+                                            Data preferida para entrega
+                                        </label>
+                                        <input type="date" id="dataEntregaRoupas" name="dataEntrega" required 
+                                               min="2024-01-01" class="input-estilizado">
+                                        <small class="texto-ajuda">Agendamos conforme sua disponibilidade</small>
+                                    </div>
+                                    
+                                    <div class="campo-grupo">
+                                        <label for="localEntregaRoupas" class="rotulo-estilizado">
+                                            <span class="rotulo-icone">📍</span>
+                                            Local de Entrega
+                                        </label>
+                                        <select id="localEntregaRoupas" name="localEntrega" required class="select-estilizado">
+                                            <option value="">Selecione o local mais próximo</option>
+                                            <option value="centro">Centro de Doações - Centro</option>
+                                            <option value="zona-norte">Posto Zona Norte</option>
+                                            <option value="zona-sul">Posto Zona Sul</option>
+                                            <option value="zona-leste">Posto Zona Leste</option>
+                                            <option value="zona-oeste">Posto Zona Oeste</option>
+                                            <option value="domicilio">Prefiro agendar retirada em casa</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="campo-grupo">
+                                    <label for="observacoesRoupas" class="rotulo-estilizado">
+                                        <span class="rotulo-icone">📝</span>
+                                        Observações adicionais
+                                    </label>
+                                    <textarea id="observacoesRoupas" name="observacoes" 
+                                              placeholder="Informações sobre as roupas, tamanhos, quantidade aproximada, etc..."
+                                              class="textarea-estilizado"></textarea>
+                                </div>
+                            </fieldset>
+
+                            <div class="formulario-acoes">
+                                <button type="submit" class="botao-primario grande">
+                                    <span class="botao-icone">👕</span>
+                                    Confirmar Doação de Roupas
+                                </button>
                             </div>
-                        </div>
-
-                        <div class="categoria-roupas">
-                            <h4>Roupas Femininas</h4>
-                            <div class="itens-roupas">
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="roupas[]" value="blusa-f">
-                                    <span class="checkmark"></span>
-                                    Blusas
-                                </label>
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="roupas[]" value="calca-f">
-                                    <span class="checkmark"></span>
-                                    Calças
-                                </label>
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="roupas[]" value="vestido">
-                                    <span class="checkmark"></span>
-                                    Vestidos
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="categoria-roupas">
-                            <h4>Calçados</h4>
-                            <div class="itens-roupas">
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="roupas[]" value="tenis">
-                                    <span class="checkmark"></span>
-                                    Tênis ( vários números)
-                                </label>
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="roupas[]" value="sapato">
-                                    <span class="checkmark"></span>
-                                    Sapatos
-                                </label>
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="roupas[]" value="chinelo">
-                                    <span class="checkmark"></span>
-                                    Chinelos
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="categoria-roupas">
-                            <h4>Acessórios</h4>
-                            <div class="itens-roupas">
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="roupas[]" value="meias">
-                                    <span class="checkmark"></span>
-                                    Meias (novas)
-                                </label>
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="roupas[]" value="luvas">
-                                    <span class="checkmark"></span>
-                                    Luvas
-                                </label>
-                                <label class="item-doacao">
-                                    <input type="checkbox" name="roupas[]" value="touca">
-                                    <span class="checkmark"></span>
-                                    Toucas
-                                </label>
-                            </div>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Condição das Roupas</legend>
-                        <div class="campo-grupo">
-                            <label class="rotulo-radio">
-                                <input type="radio" name="condicao" value="nova" required>
-                                <span class="radio-personalizado"></span>
-                                Roupa Nova (com etiqueta)
-                            </label>
-                            <label class="rotulo-radio">
-                                <input type="radio" name="condicao" value="seminova">
-                                <span class="radio-personalizado"></span>
-                                Roupa Seminova (excelente estado)
-                            </label>
-                            <label class="rotulo-radio">
-                                <input type="radio" name="condicao" value="usada">
-                                <span class="radio-personalizado"></span>
-                                Roupa Usada (boa condição)
-                            </label>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Entrega</legend>
-                        <div class="campo-grupo">
-                            <label for="dataEntregaRoupas">Data para Entrega</label>
-                            <input type="date" id="dataEntregaRoupas" name="dataEntregaRoupas" required>
-                        </div>
-                    </fieldset>
-
-                    <button type="submit" class="botao-primario grande">Confirmar Doação</button>
-                </form>
+                        </form>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Oportunidades de Trabalho -->
+        <!-- Oportunidades de Trabalho MELHORADA -->
         <section id="oportunidade-trabalho" class="tipo-doacao" aria-labelledby="trabalho-titulo">
             <div class="container">
-                <h2 id="trabalho-titulo">Oferecer Oportunidade de Trabalho</h2>
-                <p>Ajude na reinserção no mercado de trabalho</p>
+                <div class="doacao-header-section">
+                    <h2 id="trabalho-titulo">Oferecer <span class="destaque">Oportunidade</span> de Trabalho</h2>
+                    <p class="doacao-subtitulo">Ajude na reinserção no mercado com dignidade e propósito</p>
+                </div>
 
-                <form class="formulario-doacao" id="formOportunidadeTrabalho">
-                    <fieldset>
-                        <legend>Informações da Vaga</legend>
-                        
-                        <div class="campo-grupo">
-                            <label for="cargo">Cargo/Oportunidade *</label>
-                            <input type="text" id="cargo" name="cargo" required placeholder="Ex: Auxiliar de Serviços Gerais">
+                <div class="beneficios-empresa">
+                    <div class="beneficio-empresa-card">
+                        <span class="beneficio-icone">🏆</span>
+                        <h3>Vantagens para sua Empresa</h3>
+                        <ul>
+                            <li>✅ Dedução fiscal de até 2% do IRPJ</li>
+                            <li>✅ Fortalecimento da marca empregadora</li>
+                            <li>✅ Engajamento da equipe</li>
+                            <li>✅ Impacto social mensurável</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Conteúdo da seção de oportunidades -->
+                <div class="doacao-content">
+                    <div class="beneficios-sidebar">
+                        <div class="beneficios-card">
+                            <h3 class="beneficios-titulo">Como Funciona</h3>
+                            <ul class="info-lista">
+                                <li class="info-item">
+                                    <span class="info-icone">🤝</span>
+                                    <span>Conectamos você a candidatos qualificados</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-icone">📋</span>
+                                    <span>Avaliamos o perfil e necessidades</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-icone">💼</span>
+                                    <span>Oferecemos suporte durante o processo</span>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-icone">📞</span>
+                                    <span>Entraremos em contato em até 24h</span>
+                                </li>
+                            </ul>
                         </div>
+                    </div>
 
-                        <div class="campo-grupo">
-                            <label for="tipoVaga">Tipo de Vaga *</label>
-                            <select id="tipoVaga" name="tipoVaga" required>
-                                <option value="">Selecione...</option>
-                                <option value="efetivo">Efetivo</option>
-                                <option value="temporario">Temporário</option>
-                                <option value="meio-periodo">Meio Período</option>
-                                <option value="freelance">Freelance</option>
-                                <option value="estagio">Estágio</option>
-                            </select>
+                    <div class="formulario-container">
+                        <form class="formulario-doacao" id="formOportunidadeTrabalho" novalidate>
+                            <fieldset class="fieldset-estilizado">
+                                <legend class="legend-estilizado">
+                                    <span class="legend-icone">💼</span>
+                                    Informações da Vaga
+                                </legend>
+                                
+                                <div class="campos-grid">
+                                    <div class="campo-grupo">
+                                        <label for="cargo" class="rotulo-estilizado">
+                                            <span class="rotulo-icone">👔</span>
+                                            Cargo Ofertado
+                                        </label>
+                                        <input type="text" id="cargo" name="cargo" required 
+                                               placeholder="Ex: Auxiliar Administrativo" class="input-estilizado">
+                                    </div>
+                                    
+                                    <div class="campo-grupo">
+                                        <label for="tipoVaga" class="rotulo-estilizado">
+                                            <span class="rotulo-icone">⏰</span>
+                                            Tipo de Vaga
+                                        </label>
+                                        <select id="tipoVaga" name="tipoVaga" required class="select-estilizado">
+                                            <option value="">Selecione o tipo</option>
+                                            <option value="clt">CLT</option>
+                                            <option value="pj">Pessoa Jurídica</option>
+                                            <option value="estagio">Estágio</option>
+                                            <option value="aprendiz">Jovem Aprendiz</option>
+                                            <option value="temporario">Temporário</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="campo-grupo">
+                                    <label for="descricaoVaga" class="rotulo-estilizado">
+                                        <span class="rotulo-icone">📝</span>
+                                        Descrição da Vaga
+                                    </label>
+                                    <textarea id="descricaoVaga" name="descricaoVaga" 
+                                              placeholder="Descreva as atividades, requisitos, benefícios..."
+                                              class="textarea-estilizado" rows="4"></textarea>
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="fieldset-estilizado">
+                                <legend class="legend-estilizado">
+                                    <span class="legend-icone">🏢</span>
+                                    Informações da Empresa
+                                </legend>
+                                
+                                <div class="campos-grid">
+                                    <div class="campo-grupo">
+                                        <label for="nomeEmpresa" class="rotulo-estilizado">
+                                            <span class="rotulo-icone">🏢</span>
+                                            Nome da Empresa
+                                        </label>
+                                        <input type="text" id="nomeEmpresa" name="nomeEmpresa" required 
+                                               class="input-estilizado">
+                                    </div>
+                                    
+                                    <div class="campo-grupo">
+                                        <label for="contatoEmpresa" class="rotulo-estilizado">
+                                            <span class="rotulo-icone">📞</span>
+                                            Telefone para Contato
+                                        </label>
+                                        <input type="tel" id="contatoEmpresa" name="contatoEmpresa" required 
+                                               placeholder="(11) 99999-9999" class="input-estilizado">
+                                    </div>
+                                </div>
+
+                                <div class="campo-grupo">
+                                    <label for="emailEmpresa" class="rotulo-estilizado">
+                                        <span class="rotulo-icone">📧</span>
+                                        E-mail para Contato
+                                    </label>
+                                    <input type="email" id="emailEmpresa" name="emailEmpresa" required 
+                                           placeholder="contato@empresa.com" class="input-estilizado">
+                                </div>
+                            </fieldset>
+
+                            <div class="formulario-acoes">
+                                <button type="submit" class="botao-primario grande">
+                                    <span class="botao-icone">💼</span>
+                                    Oferecer Oportunidade
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ de Doações -->
+        <section class="faq-doacoes" aria-labelledby="faq-doacoes-titulo">
+            <div class="container">
+                <h2 id="faq-doacoes-titulo">Dúvidas Frequentes sobre Doações</h2>
+                <div class="faq-grid">
+                    <details class="faq-item">
+                        <summary class="faq-pergunta">
+                            Como é feita a distribuição das doações?
+                        </summary>
+                        <div class="faq-resposta">
+                            <p>Trabalhamos com uma rede de organizações parceiras e equipes próprias que fazem a distribuição direta nas ruas, abrigos e centros de acolhimento. Todas as distribuições são documentadas com fotos e relatórios.</p>
                         </div>
-
-                        <div class="campo-grupo">
-                            <label for="salario">Salário/Remuneração (opcional)</label>
-                            <input type="text" id="salario" name="salario" placeholder="Ex: R$ 1.500,00">
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary class="faq-pergunta">
+                            Posso receber um recibo para dedução no imposto de renda?
+                        </summary>
+                        <div class="faq-resposta">
+                            <p>Sim! Para doações financeiras acima de R$ 50,00 emitimos recibo válido para dedução no IRPF (até 6% do imposto devido) e para empresas no IRPJ (até 2% do lucro operacional).</p>
                         </div>
-
-                        <div class="campo-grupo">
-                            <label for="jornada">Jornada de Trabalho</label>
-                            <input type="text" id="jornada" name="jornada" placeholder="Ex: 8h às 17h">
-                        </div>
-
-                        <div class="campo-grupo">
-                            <label for="requisitos">Requisitos Básicos</label>
-                            <textarea id="requisitos" name="requisitos" rows="4" placeholder="Descreva os requisitos mínimos..."></textarea>
-                        </div>
-
-                        <div class="campo-grupo">
-                            <label for="beneficios">Benefícios Oferecidos</label>
-                            <textarea id="beneficios" name="beneficios" rows="3" placeholder="VT, VR, seguro saúde..."></textarea>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Informações de Contato</legend>
-                        <div class="campo-grupo">
-                            <label for="empresa">Empresa/Organização *</label>
-                            <input type="text" id="empresa" name="empresa" required>
-                        </div>
-
-                        <div class="campo-grupo">
-                            <label for="contato">Telefone para Contato *</label>
-                            <input type="tel" id="contato" name="contato" required>
-                        </div>
-
-                        <div class="campo-grupo">
-                            <label for="email">E-mail *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-
-                        <div class="campo-grupo">
-                            <label for="local">Local de Trabalho</label>
-                            <input type="text" id="local" name="local" placeholder="Endereço ou região">
-                        </div>
-                    </fieldset>
-
-                    <button type="submit" class="botao-primario grande">Oferecer Oportunidade</button>
-                </form>
+                    </details>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="rodape">
         <div class="container">
-            <p>&copy; 2024 Rua Solidária. Oportunidades que transformam vidas.</p>
+            <div class="rodape-content">
+                <div class="rodape-info">
+                    <div class="rodape-logo">
+                        <!-- Imagem placeholder - substitua pelo logo real -->
+                        <div style="width:120px;height:50px;background:white;display:flex;align-items:center;justify-content:center;color:var(--primary);font-weight:bold;margin-bottom:10px;">LOGO</div>
+                        <p class="rodape-slogan">Transformando vidas, uma doação de cada vez.</p>
+                    </div>
+                    
+                    <div class="rodape-contato">
+                        <h3>Dúvidas sobre Doações?</h3>
+                        <address>
+                            <p><i class="fas fa-envelope"></i> doacoes@ruasolidaria.org</p>
+                            <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
+                            <p><i class="fas fa-clock"></i> Seg à Sex: 8h às 18h</p>
+                        </address>
+                    </div>
+                </div>
+                
+                <div class="rodape-links">
+                    <div class="rodape-coluna">
+                        <h3>Tipos de Doação</h3>
+                        <ul>
+                            <li><a href="#doacao-financeira">Doação Financeira</a></li>
+                            <li><a href="#doacao-alimentos">Doação de Alimentos</a></li>
+                            <li><a href="#doacao-roupas">Doação de Roupas</a></li>
+                            <li><a href="#oportunidade-trabalho">Oportunidades</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="rodape-coluna">
+                        <h3>Transparência</h3>
+                        <ul>
+                            <li><a href="#">Relatórios Financeiros</a></li>
+                            <li><a href="#">Prestação de Contas</a></li>
+                            <li><a href="#">Certificações</a></li>
+                            <li><a href="#">Política de Privacidade</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rodape-bottom">
+                <p>&copy; 2024 Rua Solidária. CNPJ: 12.345.678/0001-90 • OSCIP certificada</p>
+            </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <!-- Botão flutuante do WhatsApp -->
+    <a href="https://wa.me/5511988234959?text=Olá! Gostaria de tirar dúvidas sobre doações." 
+       class="whatsapp-float" aria-label="Tirar dúvidas sobre doações no WhatsApp" target="_blank">
+        <span class="whatsapp-icon"><i class="fab fa-whatsapp"></i></span>
+        <span class="whatsapp-text">Dúvidas?</span>
+    </a>
+
+    <script>
+        // Menu Mobile
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navegacao = document.querySelector('.navegacao');
+
+        menuToggle.addEventListener('click', () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            navegacao.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.navegacao a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                navegacao.classList.remove('active');
+            });
+        });
+
+        // Navegação entre tipos de doação
+        const botoesTipoDoacao = document.querySelectorAll('.botao-tipo-doacao');
+        const tiposDoacao = document.querySelectorAll('.tipo-doacao');
+
+        botoesTipoDoacao.forEach(botao => {
+            botao.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remover classe ativa de todos os botões
+                botoesTipoDoacao.forEach(b => b.classList.remove('ativo'));
+                // Adicionar classe ativa ao botão clicado
+                this.classList.add('ativo');
+                
+                // Ocultar todas as seções
+                tiposDoacao.forEach(secao => secao.classList.remove('ativo'));
+                
+                // Mostrar a seção correspondente
+                const tipo = this.getAttribute('data-tipo');
+                const secaoAlvo = document.getElementById(`doacao-${tipo}`);
+                if (secaoAlvo) {
+                    secaoAlvo.classList.add('ativo');
+                    
+                    // Rolar suavemente para a seção
+                    secaoAlvo.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                }
+            });
+        });
+
+        // Formulário de Doação Financeira
+        const formDoacaoFinanceira = document.getElementById('formDoacaoFinanceira');
+        const opcoesValor = formDoacaoFinanceira.querySelectorAll('input[name="valor"]');
+        const valorCustomContainer = formDoacaoFinanceira.querySelector('.valor-custom-container');
+        const valorCustomInput = formDoacaoFinanceira.querySelector('#valorCustom');
+        const resumoDoacao = formDoacaoFinanceira.querySelector('.resumo-doacao');
+        const resumoValor = resumoDoacao.querySelector('.resumo-valor');
+        const resumoPagamento = resumoDoacao.querySelector('.resumo-pagamento');
+        const resumoTotal = resumoDoacao.querySelector('.resumo-total-valor');
+
+        // Mostrar/ocultar campo de valor customizado
+        opcoesValor.forEach(opcao => {
+            opcao.addEventListener('change', function() {
+                if (this.value === 'outro') {
+                    valorCustomContainer.classList.remove('hidden');
+                    valorCustomInput.focus();
+                } else {
+                    valorCustomContainer.classList.add('hidden');
+                    atualizarResumoDoacao();
+                }
+            });
+        });
+
+        // Atualizar valor customizado
+        valorCustomInput.addEventListener('input', function() {
+            if (this.value && parseFloat(this.value) >= 1) {
+                atualizarResumoDoacao();
+            }
+        });
+
+        // Atualizar resumo quando forma de pagamento for selecionada
+        formDoacaoFinanceira.querySelectorAll('input[name="pagamento"]').forEach(opcao => {
+            opcao.addEventListener('change', atualizarResumoDoacao);
+        });
+
+        // Função para atualizar o resumo da doação
+        function atualizarResumoDoacao() {
+            let valor = 0;
+            const opcaoValorSelecionada = formDoacaoFinanceira.querySelector('input[name="valor"]:checked');
+            
+            if (opcaoValorSelecionada) {
+                if (opcaoValorSelecionada.value === 'outro') {
+                    valor = parseFloat(valorCustomInput.value) || 0;
+                } else {
+                    valor = parseFloat(opcaoValorSelecionada.value);
+                }
+            }
+            
+            const opcaoPagamentoSelecionada = formDoacaoFinanceira.querySelector('input[name="pagamento"]:checked');
+            const pagamento = opcaoPagamentoSelecionada ? opcaoPagamentoSelecionada.value : '';
+            
+            if (valor > 0 && pagamento) {
+                resumoValor.textContent = `R$ ${valor.toFixed(2)}`;
+                
+                let pagamentoTexto = '';
+                switch(pagamento) {
+                    case 'pix': pagamentoTexto = 'PIX'; break;
+                    case 'cartao': pagamentoTexto = 'Cartão'; break;
+                    case 'boleto': pagamentoTexto = 'Boleto'; break;
+                }
+                resumoPagamento.textContent = pagamentoTexto;
+                resumoTotal.textContent = `R$ ${valor.toFixed(2)}`;
+                
+                resumoDoacao.classList.remove('hidden');
+            } else {
+                resumoDoacao.classList.add('hidden');
+            }
+        }
+
+        // Envio do formulário de doação financeira
+        formDoacaoFinanceira.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const valorSelecionado = formDoacaoFinanceira.querySelector('input[name="valor"]:checked');
+            const pagamentoSelecionado = formDoacaoFinanceira.querySelector('input[name="pagamento"]:checked');
+            
+            if (!valorSelecionado || !pagamentoSelecionado) {
+                alert('Por favor, selecione um valor e uma forma de pagamento.');
+                return;
+            }
+            
+            let valor = 0;
+            if (valorSelecionado.value === 'outro') {
+                valor = parseFloat(valorCustomInput.value) || 0;
+                if (valor < 1) {
+                    alert('O valor mínimo para doação é R$ 1,00.');
+                    return;
+                }
+            } else {
+                valor = parseFloat(valorSelecionado.value);
+            }
+            
+            const botaoSubmit = formDoacaoFinanceira.querySelector('.botao-submit');
+            const botaoLoader = formDoacaoFinanceira.querySelector('.botao-loader');
+            
+            // Simular envio do formulário
+            botaoSubmit.disabled = true;
+            botaoLoader.classList.remove('hidden');
+            
+            setTimeout(() => {
+                // Em uma implementação real, você enviaria os dados para o servidor
+                // e redirecionaria para a página de pagamento
+                
+                alert(`Doação de R$ ${valor.toFixed(2)} confirmada! Em breve você será redirecionado para a página de pagamento.`);
+                
+                botaoSubmit.disabled = false;
+                botaoLoader.classList.add('hidden');
+                
+                // Redirecionar para WhatsApp com informações da doação
+                const tipoPagamento = pagamentoSelecionado.value;
+                const mensagem = `Olá! Gostaria de fazer uma doação de R$ ${valor.toFixed(2)} via ${tipoPagamento === 'pix' ? 'PIX' : tipoPagamento === 'cartao' ? 'Cartão' : 'Boleto'}.`;
+                window.open(`https://wa.me/5511988234959?text=${encodeURIComponent(mensagem)}`, '_blank');
+            }, 2000);
+        });
+
+        // Formulário de Doação de Alimentos
+        const formDoacaoAlimentos = document.getElementById('formDoacaoAlimentos');
+        const checkboxesAlimentos = formDoacaoAlimentos.querySelectorAll('input[name="alimentos[]"]');
+        const resumoItensAlimentos = formDoacaoAlimentos.querySelector('.resumo-itens');
+        const itensSelecionadosListaAlimentos = formDoacaoAlimentos.querySelector('.itens-selecionados-lista');
+
+        // Atualizar resumo de itens selecionados
+        checkboxesAlimentos.forEach(checkbox => {
+            checkbox.addEventListener('change', atualizarResumoItensAlimentos);
+        });
+
+        function atualizarResumoItensAlimentos() {
+            const itensSelecionados = Array.from(checkboxesAlimentos)
+                .filter(cb => cb.checked)
+                .map(cb => {
+                    const itemCard = cb.closest('.item-doacao-card');
+                    const itemNome = itemCard.querySelector('.item-nome').textContent;
+                    return { value: cb.value, nome: itemNome };
+                });
+            
+            if (itensSelecionados.length > 0) {
+                itensSelecionadosListaAlimentos.innerHTML = '';
+                
+                itensSelecionados.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'item-selecionado';
+                    itemElement.innerHTML = `
+                        <span>${item.nome}</span>
+                        <button type="button" class="item-remover" data-value="${item.value}">×</button>
+                    `;
+                    itensSelecionadosListaAlimentos.appendChild(itemElement);
+                });
+                
+                resumoItensAlimentos.classList.remove('hidden');
+            } else {
+                resumoItensAlimentos.classList.add('hidden');
+            }
+        }
+
+        // Remover item do resumo
+        itensSelecionadosListaAlimentos.addEventListener('click', function(e) {
+            if (e.target.classList.contains('item-remover')) {
+                const value = e.target.getAttribute('data-value');
+                const checkbox = formDoacaoAlimentos.querySelector(`input[value="${value}"]`);
+                if (checkbox) {
+                    checkbox.checked = false;
+                    atualizarResumoItensAlimentos();
+                }
+            }
+        });
+
+        // Envio do formulário de alimentos
+        formDoacaoAlimentos.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const itensSelecionados = Array.from(checkboxesAlimentos).filter(cb => cb.checked);
+            const dataEntrega = formDoacaoAlimentos.querySelector('#dataEntrega').value;
+            const localEntrega = formDoacaoAlimentos.querySelector('#localEntrega').value;
+            
+            if (itensSelecionados.length === 0) {
+                alert('Por favor, selecione pelo menos um item para doação.');
+                return;
+            }
+            
+            if (!dataEntrega || !localEntrega) {
+                alert('Por favor, preencha a data e local de entrega.');
+                return;
+            }
+            
+            // Simular envio do formulário
+            const botaoSubmit = formDoacaoAlimentos.querySelector('.botao-primario');
+            const textoOriginal = botaoSubmit.innerHTML;
+            
+            botaoSubmit.disabled = true;
+            botaoSubmit.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            
+            setTimeout(() => {
+                alert('Doação de alimentos confirmada! Entraremos em contato em até 24h para combinar os detalhes da entrega.');
+                
+                botaoSubmit.disabled = false;
+                botaoSubmit.innerHTML = textoOriginal;
+                
+                // Redirecionar para WhatsApp com informações da doação
+                const itensTexto = itensSelecionados.map(cb => {
+                    const itemCard = cb.closest('.item-doacao-card');
+                    return itemCard.querySelector('.item-nome').textContent;
+                }).join(', ');
+                
+                const mensagem = `Olá! Gostaria de doar os seguintes itens: ${itensTexto}. Data preferida: ${dataEntrega}. Local: ${localEntrega}.`;
+                window.open(`https://wa.me/5511988234959?text=${encodeURIComponent(mensagem)}`, '_blank');
+            }, 2000);
+        });
+
+        // Formulários de Roupas e Oportunidades de Trabalho
+        // (Implementação similar aos formulários anteriores)
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            // Garantir que apenas a primeira seção esteja visível
+            tiposDoacao.forEach(secao => {
+                if (!secao.classList.contains('ativo')) {
+                    secao.style.display = 'none';
+                }
+            });
+            
+            // Adicionar ícones Font Awesome dinamicamente
+            const style = document.createElement('style');
+            style.textContent = `
+                .fa, .fas, .far, .fab {
+                    font-family: 'Font Awesome 6 Free' !important;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
 </body>
 </html>
