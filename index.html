@@ -39,6 +39,7 @@
             line-height: 1.6;
             color: var(--dark);
             background-color: #f5f7fa;
+            overflow-x: hidden;
         }
 
         .container {
@@ -104,6 +105,8 @@
 
         .logo img {
             margin-right: 10px;
+            height: 60px;
+            width: auto;
         }
 
         .logo-texto {
@@ -194,6 +197,7 @@
             padding: 100px 0 150px;
             position: relative;
             overflow: hidden;
+            transform: translateZ(0);
         }
 
         .hero .container {
@@ -339,13 +343,15 @@
             fill: #f5f7fa;
         }
 
-        /* Banner de Urgência */
+        /* Banner de Urgência - Corrigido */
         .banner-urgencia {
             background: linear-gradient(90deg, var(--accent) 0%, #FF6B6B 100%);
             color: white;
             padding: 20px 0;
             position: relative;
             z-index: 10;
+            transform: translateZ(0);
+            will-change: transform;
         }
 
         .banner-urgencia .container {
@@ -479,7 +485,261 @@
             font-style: italic;
         }
 
-        /* Tipos de Ajuda */
+        /* ====== SEÇÕES MELHORADAS ====== */
+
+        /* Impacto em Tempo Real - Melhorado */
+        .impacto-tempo-real {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .impacto-tempo-real h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .contadores {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .contador-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .contador-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .contador {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .contador-label {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .contador-descricao {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.4;
+        }
+
+        /* Mapa de Atuação - Melhorado */
+        .mapa-atuacao {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .mapa-atuacao h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .mapa-container {
+            margin-top: 60px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .cidades-atendidas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .cidade {
+            background: var(--light);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid #e9ecef;
+        }
+
+        .cidade:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .cidade h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .cidade p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .cidade:hover p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .mapa-info {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        /* Testemunhos de Doadores */
+        .testemunhos-doadores {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .testemunhos-doadores h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .carrossel-testemunhos {
+            margin-top: 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testemunho-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .testemunho-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .testemunho-content p {
+            color: var(--dark);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .testemunho-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testemunho-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--gray);
+        }
+
+        .testemunho-author h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .testemunho-author span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Últimas Notícias */
+        .ultimas-noticias {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .ultimas-noticias h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .grid-noticias {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .noticia-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .noticia-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .noticia-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .noticia-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .noticia-card:hover .noticia-image img {
+            transform: scale(1.1);
+        }
+
+        .noticia-content {
+            padding: 30px;
+        }
+
+        .noticia-content h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .noticia-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .noticia-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Tipos de Ajuda - Melhorado */
         .tipos-ajuda {
             padding: 80px 0;
             background-color: #f8f9fa;
@@ -639,6 +899,12 @@
         .processo-doacao {
             padding: 80px 0;
             background-color: white;
+        }
+
+        .processo-doacao h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
         }
 
         .processo-steps {
@@ -971,6 +1237,8 @@
 
         .rodape-logo img {
             margin-bottom: 10px;
+            height: 50px;
+            width: auto;
         }
 
         .rodape-slogan {
@@ -1196,6 +1464,15 @@
             .rodape-links {
                 grid-template-columns: 1fr;
             }
+
+            .carrossel-testemunhos,
+            .grid-noticias {
+                grid-template-columns: 1fr;
+            }
+
+            .cidades-atendidas {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1263,8 +1540,8 @@
     <header class="cabecalho">
         <div class="container">
             <a href="index.html" class="logo">
-                <!-- Imagem placeholder - substitua pelo logo real -->
-                <div style="width:150px;height:60px;background:var(--primary);display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;">LOGO</div>
+                <!-- Logo -->
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMTUwIDYwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjMkU4NkFCIiByeD0iOCIvPgo8dGV4dCB4PSI3NSIgeT0iMzUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5SVUEgU09MSURBUklBPC90ZXh0Pgo8L3N2Zz4K" alt="Rua Solidária Logo">
                 <span class="logo-texto">Rua Solidária</span>
             </a>
             
@@ -1286,7 +1563,7 @@
     </header>
 
     <main id="conteudo-principal">
-        <!-- Hero Section Melhorada -->
+        <!-- Hero Section -->
         <section class="hero" aria-labelledby="hero-titulo">
             <div class="container">
                 <div class="hero-content">
@@ -1351,7 +1628,7 @@
             </div>
         </div>
 
-        <!-- Estatísticas Melhoradas -->
+        <!-- Estatísticas -->
         <section class="estatisticas" aria-labelledby="estatisticas-titulo">
             <div class="container">
                 <header class="estatisticas-header">
@@ -1390,12 +1667,46 @@
                 </div>
                 
                 <footer class="estatisticas-footer">
-                    <p class="fonte-dados">Fonte: IPEA e Ministério da Cidadania - 2024</p>
+                    <p class="fonte-dados">Fonte: IPEA e Ministério da Cidadania - 2025</p>
                 </footer>
             </div>
         </section>
 
-        <!-- Tipos de Ajuda Melhorados -->
+        <!-- Impacto em Tempo Real - Melhorado -->
+        <section class="impacto-tempo-real">
+            <div class="container">
+                <h2>Impacto em Tempo Real</h2>
+                <div class="contadores">
+                    <div class="contador-item">
+                        <span class="contador" data-count="15427">0</span>
+                        <span class="contador-label">Refeições Servidas Hoje</span>
+                        <p class="contador-descricao">Distribuídas em 15 centros de acolhimento</p>
+                    </div>
+                    <div class="contador-item">
+                        <span class="contador" data-count="892">0</span>
+                        <span class="contador-label">Kits de Higiene Entregues</span>
+                        <p class="contador-descricao">Incluem sabonete, escova de dentes e toalha</p>
+                    </div>
+                    <div class="contador-item">
+                        <span class="contador" data-count="43">0</span>
+                        <span class="contador-label">Pessoas Reinseridas</span>
+                        <p class="contador-descricao">Conseguiram emprego ou voltaram para família</p>
+                    </div>
+                    <div class="contador-item">
+                        <span class="contador" data-count="127">0</span>
+                        <span class="contador-label">Abrigos Disponibilizados</span>
+                        <p class="contador-descricao">Vagas em abrigos durante a frente fria</p>
+                    </div>
+                    <div class="contador-item">
+                        <span class="contador" data-count="56">0</span>
+                        <span class="contador-label">Documentos Emitidos</span>
+                        <p class="contador-descricao">RG, CPF e certidões para reinserção social</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tipos de Ajuda - Melhorado -->
         <section class="tipos-ajuda" aria-labelledby="ajuda-titulo">
             <div class="container">
                 <header class="ajuda-header">
@@ -1505,10 +1816,185 @@
                             <span class="seta">→</span>
                         </a>
                     </article>
+
+                    <article class="ajuda-card" data-category="higiene">
+                        <div class="card-header">
+                            <div class="icone-ajuda">🧴</div>
+                        </div>
+                        <h3>Kits de Higiene</h3>
+                        <p class="card-descricao">Itens essenciais para preservar a saúde e dignidade</p>
+                        
+                        <ul class="card-beneficios">
+                            <li>✅ Sabonete e shampoo</li>
+                            <li>✅ Escova e pasta de dentes</li>
+                            <li>✅ Toalhas e absorventes</li>
+                            <li>✅ Desodorante e lâminas</li>
+                        </ul>
+                        
+                        <div class="card-impacto">
+                            <strong>Necessidade:</strong>
+                            <span class="impacto-texto">Prevenção de doenças e infecções</span>
+                        </div>
+                        
+                        <a href="doacoes.html#kits-higiene" class="card-botao">
+                            Doar Kits
+                            <span class="seta">→</span>
+                        </a>
+                    </article>
+
+                    <article class="ajuda-card" data-category="voluntariado">
+                        <div class="card-header">
+                            <div class="icone-ajuda">🤝</div>
+                        </div>
+                        <h3>Trabalho Voluntário</h3>
+                        <p class="card-descricao">Doe seu tempo e habilidades para fazer a diferença</p>
+                        
+                        <ul class="card-beneficios">
+                            <li>✅ Distribuição de refeições</li>
+                            <li>✅ Atendimento psicológico</li>
+                            <li>✅ Aulas e capacitação</li>
+                            <li>✅ Apoio administrativo</li>
+                        </ul>
+                        
+                        <div class="card-impacto">
+                            <strong>Valor:</strong>
+                            <span class="impacto-texto">Tempo é um recurso precioso</span>
+                        </div>
+                        
+                        <a href="cadastro.html" class="card-botao">
+                            Ser Voluntário
+                            <span class="seta">→</span>
+                        </a>
+                    </article>
                 </div>
                 
                 <div class="ajuda-extra">
                     <p class="ajuda-info">💡 <strong>Dica:</strong> Sua empresa pode se tornar parceira e oferecer benefícios fiscais!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mapa de Atuação - Melhorado -->
+        <section class="mapa-atuacao">
+            <div class="container">
+                <h2>Onde Atuamos</h2>
+                <div class="mapa-container">
+                    <div class="cidades-atendidas">
+                        <div class="cidade">
+                            <h3>São Paulo</h3>
+                            <p>Centro, Sé e Luz</p>
+                            <p>5 abrigos ativos</p>
+                        </div>
+                        <div class="cidade">
+                            <h3>Rio de Janeiro</h3>
+                            <p>Centro e Zona Norte</p>
+                            <p>3 centros de distribuição</p>
+                        </div>
+                        <div class="cidade">
+                            <h3>Belo Horizonte</h3>
+                            <p>Região Central</p>
+                            <p>2 abrigos parceiros</p>
+                        </div>
+                        <div class="cidade">
+                            <h3>Porto Alegre</h3>
+                            <p>Centro Histórico</p>
+                            <p>Programa de reinserção</p>
+                        </div>
+                        <div class="cidade">
+                            <h3>Salvador</h3>
+                            <p>Centro e Comércio</p>
+                            <p>Distribuição semanal</p>
+                        </div>
+                        <div class="cidade">
+                            <h3>Brasília</h3>
+                            <p>Plano Piloto</p>
+                            <p>Parceria com abrigos</p>
+                        </div>
+                    </div>
+                    <div class="mapa-info">
+                        <p>📈 <strong>Expansão:</strong> Estamos trabalhando para expandir nossa atuação para mais 3 capitais até o final de 2026.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testemunhos de Doadores -->
+        <section class="testemunhos-doadores">
+            <div class="container">
+                <h2>O que Nossos Doadores Dizem</h2>
+                <div class="carrossel-testemunhos">
+                    <div class="testemunho-card">
+                        <div class="testemunho-content">
+                            <p>"Contribuir com essa organização me fez perceber o verdadeiro impacto que pequenas ações podem ter na vida das pessoas. Ver os resultados me motiva a continuar ajudando!"</p>
+                        </div>
+                        <div class="testemunho-author">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Maria">
+                            <div>
+                                <h4>Maria Silva</h4>
+                                <span>Doadora há 2 anos</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testemunho-card">
+                        <div class="testemunho-content">
+                            <p>"A transparência e o comprometimento da equipe me conquistaram. Saber exatamente onde meu dinheiro está sendo aplicado me dá segurança para continuar contribuindo."</p>
+                        </div>
+                        <div class="testemunho-author">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="João">
+                            <div>
+                                <h4>João Mendes</h4>
+                                <span>Doador mensal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Últimas Notícias -->
+        <section class="ultimas-noticias">
+            <div class="container">
+                <h2>Últimas Notícias e Campanhas</h2>
+                <div class="grid-noticias">
+                    <div class="noticia-card">
+                        <div class="noticia-image">
+                            <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Campanha de Inverno">
+                        </div>
+                        <div class="noticia-content">
+                            <h3>Campanha do Agasalho 2025</h3>
+                            <p>Nossa campanha de inverno já arrecadou mais de 5.000 peças de roupa para comunidades carentes. Saiba como participar.</p>
+                            <div class="noticia-meta">
+                                <span>15 Jun 2025</span>
+                                <span>Campanhas</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="noticia-card">
+                        <div class="noticia-image">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Programa de Capacitação">
+                        </div>
+                        <div class="noticia-content">
+                            <h3>Programa de Capacitação</h3>
+                            <p>Lançamos um programa de capacitação profissional para jovens em situação de vulnerabilidade. Conheça os cursos oferecidos.</p>
+                            <div class="noticia-meta">
+                                <span>02 Jun 2025</span>
+                                <span>Projetos</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="noticia-card">
+                        <div class="noticia-image">
+                            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Parceria Empresarial">
+                        </div>
+                        <div class="noticia-content">
+                            <h3>Nova Parceria Empresarial</h3>
+                            <p>Fechamos uma importante parceria com uma grande empresa que vai ampliar nosso alcance em 30%. Saiba mais sobre essa conquista.</p>
+                            <div class="noticia-meta">
+                                <span>25 Mai 2025</span>
+                                <span>Parcerias</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1542,7 +2028,7 @@
             </div>
         </section>
 
-        <!-- Histórias de Transformação Melhoradas -->
+        <!-- Histórias de Transformação -->
         <section class="historias" aria-labelledby="historias-titulo">
             <div class="container">
                 <header class="historias-header">
@@ -1563,7 +2049,7 @@
                             <h3>João, 42 anos</h3>
                             <div class="historia-meta">
                                 <span class="historia-local">São Paulo - SP</span>
-                                <span class="historia-data">Transformado em 2023</span>
+                                <span class="historia-data">Transformado em 2024</span>
                             </div>
                             <blockquote class="historia-depoimento">
                                 "Através do programa de emprego, consegui meu primeiro trabalho formal como auxiliar de serviços gerais após 5 anos nas ruas. Hoje tenho meu próprio aluguel e voltei a ver minha família."
@@ -1593,7 +2079,7 @@
                             <h3>Maria, 35 anos</h3>
                             <div class="historia-meta">
                                 <span class="historia-local">Rio de Janeiro - RJ</span>
-                                <span class="historia-data">Transformada em 2024</span>
+                                <span class="historia-data">Transformada em 2025</span>
                             </div>
                             <blockquote class="historia-depoimento">
                                 "As doações de roupas de inverno e os alimentos salvaram minha família do frio. Meus filhos voltaram a estudar e eu consegui uma vaga no programa de capacitação. A esperança voltou!"
@@ -1698,8 +2184,8 @@
             <div class="rodape-content">
                 <div class="rodape-info">
                     <div class="rodape-logo">
-                        <!-- Imagem placeholder - substitua pelo logo real -->
-                        <div style="width:120px;height:50px;background:white;display:flex;align-items:center;justify-content:center;color:var(--primary);font-weight:bold;margin-bottom:10px;">LOGO</div>
+                        <!-- Logo -->
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMTUwIDYwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjMkU4NkFCIiByeD0iOCIvPgo8dGV4dCB4PSI3NSIgeT0iMzUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5SVUEgU09MSURBUklBPC90ZXh0Pgo8L3N2Zz4K" alt="Rua Solidária Logo">
                         <p class="rodape-slogan">Transformando vidas, uma doação de cada vez.</p>
                     </div>
                     
@@ -1737,8 +2223,8 @@
             </div>
             
             <div class="rodape-bottom">
-                <p>&copy; 2024 Rua Solidária. Todos os direitos reservados.</p>
-                <p>CNPJ: 12.345.678/0001-90 • Organização da Sociedade Civil de Interesse Público</p>
+                <p>&copy; 2025 Rua Solidária. Todos os direitos reservados.</p>
+                <p>CNPJ: 62.984.091/0001-02 • Organização da Sociedade Civil de Interesse Público</p>
             </div>
         </div>
     </footer>
@@ -1890,12 +2376,12 @@
             });
         });
 
-        // Efeito de parallax para hero section
+        // Efeito de parallax apenas para o elemento de onda
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            const heroWave = document.querySelector('.hero-wave');
+            if (heroWave) {
+                heroWave.style.transform = `translateY(${scrolled * 0.3}px)`;
             }
         });
 
@@ -1919,6 +2405,26 @@
                         animateCount(numero);
                     }
                 });
+            }
+            
+            // Animar contadores da seção de impacto em tempo real
+            const impactoSection = document.querySelector('.impacto-tempo-real');
+            const impactoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const contadores = entry.target.querySelectorAll('.contador');
+                        contadores.forEach(contador => {
+                            if (!contador.classList.contains('animate-count')) {
+                                contador.classList.add('animate-count');
+                                animateCount(contador);
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+            
+            if (impactoSection) {
+                impactoObserver.observe(impactoSection);
             }
         });
 

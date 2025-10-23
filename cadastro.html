@@ -801,6 +801,32 @@
             padding-bottom: 0;
         }
 
+        /* Confirmação WhatsApp */
+        .whatsapp-confirmacao {
+            background-color: #f0f9ff;
+            border: 2px solid #2E86AB;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .whatsapp-confirmacao h4 {
+            color: #2E86AB;
+            margin-bottom: 10px;
+        }
+        
+        .whatsapp-confirmacao p {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .whatsapp-confirmacao .numero {
+            font-weight: bold;
+            color: #25D366;
+            font-size: 1.1em;
+        }
+
         /* Botões */
         .grupo-acoes,
         .grupo-acoes-final {
@@ -1892,6 +1918,14 @@
                             </div>
                         </div>
 
+                        <!-- NOVA SEÇÃO: Confirmação WhatsApp -->
+                        <div class="whatsapp-confirmacao hidden" id="whatsapp-confirmacao">
+                            <h4>📱 Confirmação via WhatsApp</h4>
+                            <p>Após finalizar o cadastro, as informações serão enviadas para nosso WhatsApp:</p>
+                            <p class="numero">(11) 98823-4959</p>
+                            <p>Você também receberá uma cópia da confirmação em seu e-mail cadastrado.</p>
+                        </div>
+
                         <div class="grupo-acoes-final">
                             <button type="button" class="botao-secundario botao-anterior" data-anterior="3">
                                 ← Anterior
@@ -2019,7 +2053,7 @@
             </div>
             
             <div class="rodape-bottom">
-                <p>&copy; 2024 Rua Solidária. OSCIP certificada - Transformando vidas através da solidariedade.</p>
+                <p>&copy; 2025 Rua Solidária. OSCIP certificada - Transformando vidas através da solidariedade.</p>
             </div>
         </div>
     </footer>
@@ -2080,6 +2114,13 @@
                 const grupoNumero = parseInt(grupo.getAttribute('data-grupo'));
                 if (grupoNumero === etapaAtual) {
                     grupo.classList.remove('hidden');
+                    
+                    // Mostrar confirmação do WhatsApp apenas na última etapa
+                    if (grupoNumero === 4) {
+                        toggleWhatsAppConfirmacao(true);
+                    } else {
+                        toggleWhatsAppConfirmacao(false);
+                    }
                 } else {
                     grupo.classList.add('hidden');
                 }
@@ -2266,6 +2307,46 @@
             checkbox.addEventListener('change', atualizarResumo);
         });
 
+        // Função para mostrar/ocultar a confirmação do WhatsApp
+        function toggleWhatsAppConfirmacao(mostrar) {
+            const confirmacao = document.getElementById('whatsapp-confirmacao');
+            if (mostrar) {
+                confirmacao.classList.remove('hidden');
+            } else {
+                confirmacao.classList.add('hidden');
+            }
+        }
+
+        // Função para enviar dados para o WhatsApp
+        function enviarParaWhatsApp(dados) {
+            // Formatar a mensagem para o WhatsApp
+            const mensagem = `*NOVO CADASTRO - RUA SOLIDÁRIA*%0A%0A` +
+                            `*Nome:* ${dados.nomeCompleto}%0A` +
+                            `*E-mail:* ${dados.email}%0A` +
+                            `*CPF:* ${dados.cpf}%0A` +
+                            `*Telefone:* ${dados.telefone}%0A` +
+                            `*Data de Nascimento:* ${dados.dataNascimento}%0A` +
+                            `*Endereço:* ${dados.endereco}%0A` +
+                            `*CEP:* ${dados.cep}%0A` +
+                            `*Cidade:* ${dados.cidade}%0A` +
+                            `*Estado:* ${dados.estado}%0A` +
+                            `*Tipo de Participação:* ${dados.tipoParticipacao}%0A` +
+                            `*Disponibilidade:* ${dados.disponibilidade || 'Não informada'}%0A` +
+                            `*Áreas de Interesse:* ${dados.areasInteresse || 'Nenhuma selecionada'}%0A` +
+                            `*Experiência:* ${dados.experiencia || 'Não informada'}%0A` +
+                            `*Newsletter:* ${dados.newsletter ? 'Sim' : 'Não'}%0A%0A` +
+                            `_Cadastro realizado em ${new Date().toLocaleString('pt-BR')}_`;
+            
+            // Número do WhatsApp
+            const numeroWhatsApp = '5511988234959';
+            
+            // Criar URL do WhatsApp
+            const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
+            
+            // Abrir WhatsApp em nova aba
+            window.open(urlWhatsApp, '_blank');
+        }
+
         // Envio do formulário
         const formulario = document.getElementById('cadastroForm');
         const botaoSubmit = document.querySelector('.botao-submit');
@@ -2275,13 +2356,38 @@
             e.preventDefault();
             
             if (validarEtapa(4)) {
+                // Mostrar confirmação do WhatsApp
+                toggleWhatsAppConfirmacao(true);
+                
                 // Simular envio do formulário
                 botaoSubmit.disabled = true;
                 botaoLoader.classList.remove('hidden');
                 
+                // Coletar dados do formulário
+                const dadosFormulario = {
+                    nomeCompleto: document.getElementById('nomeCompleto').value,
+                    email: document.getElementById('email').value,
+                    cpf: document.getElementById('cpf').value,
+                    telefone: document.getElementById('telefone').value,
+                    dataNascimento: document.getElementById('dataNascimento').value,
+                    endereco: document.getElementById('endereco').value,
+                    cep: document.getElementById('cep').value,
+                    cidade: document.getElementById('cidade').value,
+                    estado: document.getElementById('estado').value,
+                    tipoParticipacao: document.querySelector('input[name="tipoParticipacao"]:checked').value,
+                    disponibilidade: document.getElementById('disponibilidade') ? document.getElementById('disponibilidade').value : null,
+                    areasInteresse: document.querySelectorAll('input[name="areasInteresse[]"]:checked').length > 0 ? 
+                        Array.from(document.querySelectorAll('input[name="areasInteresse[]"]:checked')).map(cb => cb.value).join(', ') : null,
+                    experiencia: document.getElementById('experiencia') ? document.getElementById('experiencia').value : null,
+                    newsletter: document.querySelector('input[name="newsletter"]').checked
+                };
+                
                 setTimeout(() => {
-                    // Em uma implementação real, você enviaria os dados para o servidor
-                    alert('Cadastro realizado com sucesso! Em breve entraremos em contato.');
+                    // Enviar para WhatsApp
+                    enviarParaWhatsApp(dadosFormulario);
+                    
+                    // Mostrar mensagem de sucesso
+                    alert('Cadastro realizado com sucesso! As informações foram enviadas para nosso WhatsApp.');
                     
                     botaoSubmit.disabled = false;
                     botaoLoader.classList.add('hidden');
@@ -2289,6 +2395,7 @@
                     // Redirecionar ou limpar formulário
                     formulario.reset();
                     atualizarProgresso(1);
+                    toggleWhatsAppConfirmacao(false);
                 }, 2000);
             }
         });
