@@ -28,17 +28,77 @@
             --warning: #F8961E;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
+            
+            /* Variáveis para acessibilidade */
+            --font-size-base: 1rem;
+            --font-size-scale: 1;
+            --contrast-mode: normal;
+            --focus-outline: 2px solid var(--primary);
+            --focus-outline-offset: 2px;
+        }
+
+        /* Modo Alto Contraste */
+        :root[data-contrast="high"] {
+            --primary: #000000;
+            --primary-dark: #000000;
+            --secondary: #FFFF00;
+            --accent: #FF0000;
+            --light: #FFFFFF;
+            --dark: #000000;
+            --gray: #333333;
+            --success: #008000;
+            --warning: #FFA500;
+            --shadow: 0 0 0 2px #000000;
+            --focus-outline: 3px dashed #000000;
+        }
+
+        /* Modo Escuro */
+        :root[data-theme="dark"] {
+            --primary: #4A90E2;
+            --primary-dark: #2E5F8A;
+            --secondary: #FFD166;
+            --accent: #EF476F;
+            --light: #121212;
+            --dark: #E0E0E0;
+            --gray: #B0B0B0;
+            --success: #06D6A0;
+            --warning: #FFD166;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modo Escuro + Alto Contraste */
+        :root[data-theme="dark"][data-contrast="high"] {
+            --primary: #FFFFFF;
+            --primary-dark: #FFFFFF;
+            --secondary: #FFFF00;
+            --accent: #FF0000;
+            --light: #000000;
+            --dark: #FFFFFF;
+            --gray: #CCCCCC;
+            --success: #00FF00;
+            --warning: #FFFF00;
+            --shadow: 0 0 0 2px #FFFFFF;
+            --focus-outline: 3px dashed #FFFFFF;
+        }
+
+        /* Modo de Leitura (Alto Contraste + Fonte Maior) */
+        :root[data-contrast="high"][data-reading="true"] {
+            --font-size-scale: 1.2;
+            --line-height: 1.8;
         }
 
         html {
             scroll-behavior: smooth;
+            font-size: calc(var(--font-size-base) * var(--font-size-scale));
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            line-height: var(--line-height, 1.6);
             color: var(--dark);
-            background-color: #f5f7fa;
+            background-color: var(--light);
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
@@ -48,21 +108,36 @@
             padding: 0 20px;
         }
 
-        /* Acessibilidade */
+        /* ===== SISTEMA DE ACESSIBILIDADE ===== */
+        
+        /* Skip links aprimorados */
+        .skip-links {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10000;
+        }
+
         .skip-link {
             position: absolute;
-            top: -40px;
-            left: 0;
+            top: -60px;
+            left: 10px;
             background: var(--primary);
             color: white;
-            padding: 8px;
-            z-index: 100;
+            padding: 12px 20px;
             text-decoration: none;
-            border-radius: 0 0 4px 0;
+            border-radius: 0 0 8px 8px;
+            font-weight: 600;
+            transition: var(--transition);
+            z-index: 10001;
+            border: 2px solid transparent;
         }
 
         .skip-link:focus {
             top: 0;
+            outline: var(--focus-outline);
+            outline-offset: var(--focus-outline-offset);
         }
 
         .sr-only {
@@ -77,13 +152,197 @@
             border: 0;
         }
 
+        /* Painel de Controles de Acessibilidade */
+        .accessibility-panel {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 9999;
+            background: var(--light);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 20px;
+            min-width: 280px;
+            transform: translateX(calc(100% + 20px));
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--primary);
+        }
+
+        .accessibility-panel.open {
+            transform: translateX(0);
+        }
+
+        .accessibility-toggle {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 10000;
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+            font-size: 1.5rem;
+        }
+
+        .accessibility-toggle:hover,
+        .accessibility-toggle:focus {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+            outline: var(--focus-outline);
+            outline-offset: var(--focus-outline-offset);
+        }
+
+        .accessibility-toggle.open {
+            transform: rotate(45deg) scale(1.1);
+        }
+
+        .accessibility-section {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .accessibility-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .accessibility-section h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .accessibility-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .accessibility-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .accessibility-btn:hover,
+        .accessibility-btn:focus {
+            background: var(--primary-dark);
+            outline: var(--focus-outline);
+            outline-offset: var(--focus-outline-offset);
+        }
+
+        .accessibility-btn[aria-pressed="true"] {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+
+        .font-controls {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .font-btn {
+            background: var(--gray);
+            color: white;
+            border: none;
+            height: 40px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .font-btn:hover,
+        .font-btn:focus {
+            outline: var(--focus-outline);
+            outline-offset: var(--focus-outline-offset);
+        }
+
+        .font-btn.active {
+            background: var(--primary);
+        }
+
+        .accessibility-info {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 15px;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* Indicador de modo ativo */
+        .mode-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            z-index: 9998;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .mode-indicator.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== ESTILOS GERAIS ===== */
+
+        /* Focus styles aprimorados para acessibilidade */
+        *:focus {
+            outline: var(--focus-outline);
+            outline-offset: var(--focus-outline-offset);
+        }
+
+        button:focus,
+        a:focus,
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: var(--focus-outline);
+            outline-offset: var(--focus-outline-offset);
+        }
+
         /* Cabeçalho */
         .cabecalho {
-            background-color: white;
+            background-color: var(--light);
             box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
+            transition: background-color 0.3s ease;
         }
 
         .cabecalho .container {
@@ -104,6 +363,8 @@
 
         .logo img {
             margin-right: 10px;
+            height: 60px;
+            width: auto;
         }
 
         .logo-texto {
@@ -124,25 +385,29 @@
             color: var(--dark);
             font-weight: 500;
             transition: var(--transition);
-            padding: 5px 0;
+            padding: 8px 12px;
+            border-radius: 6px;
             position: relative;
         }
 
-        .navegacao a:hover {
+        .navegacao a:hover,
+        .navegacao a:focus {
             color: var(--primary);
+            background-color: rgba(0,0,0,0.05);
         }
 
         .navegacao a[aria-current="page"] {
             color: var(--primary);
             font-weight: 600;
+            background-color: rgba(0,0,0,0.05);
         }
 
         .navegacao a[aria-current="page"]::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
-            width: 100%;
+            left: 12px;
+            right: 12px;
             height: 2px;
             background-color: var(--primary);
         }
@@ -152,9 +417,15 @@
             background: none;
             border: none;
             cursor: pointer;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             position: relative;
+            border-radius: 6px;
+        }
+
+        .menu-toggle:hover,
+        .menu-toggle:focus {
+            background-color: rgba(0,0,0,0.05);
         }
 
         .hamburger {
@@ -265,12 +536,12 @@
         }
 
         .header-wave .shape-fill {
-            fill: #f5f7fa;
+            fill: var(--light);
         }
 
         /* Navegação Interna */
         .navegacao-interna {
-            background-color: white;
+            background-color: var(--light);
             padding: 20px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
@@ -300,7 +571,8 @@
             position: relative;
         }
 
-        .nav-interna-item a:hover {
+        .nav-interna-item a:hover,
+        .nav-interna-item a:focus {
             color: var(--primary);
         }
 
@@ -325,7 +597,7 @@
         }
 
         .secao-sobre:nth-child(even) {
-            background-color: white;
+            background-color: var(--light);
         }
 
         .secao-sobre:nth-child(odd) {
@@ -417,7 +689,7 @@
         }
 
         .timeline-content {
-            background: white;
+            background: var(--light);
             padding: 25px;
             border-radius: 15px;
             box-shadow: var(--shadow);
@@ -431,7 +703,7 @@
             top: 20px;
             width: 0;
             height: 0;
-            border-left: 10px solid white;
+            border-left: 10px solid var(--light);
             border-top: 10px solid transparent;
             border-bottom: 10px solid transparent;
         }
@@ -443,7 +715,7 @@
             top: 20px;
             width: 0;
             height: 0;
-            border-right: 10px solid white;
+            border-right: 10px solid var(--light);
             border-top: 10px solid transparent;
             border-bottom: 10px solid transparent;
         }
@@ -480,7 +752,7 @@
         }
 
         .mvv-card {
-            background: white;
+            background: var(--light);
             padding: 40px 30px;
             border-radius: 15px;
             box-shadow: var(--shadow);
@@ -517,7 +789,7 @@
         }
 
         .membro-equipe {
-            background: white;
+            background: var(--light);
             border-radius: 15px;
             overflow: hidden;
             box-shadow: var(--shadow);
@@ -637,7 +909,7 @@
         }
 
         .documento-card {
-            background: white;
+            background: var(--light);
             padding: 25px 20px;
             border-radius: 10px;
             box-shadow: var(--shadow);
@@ -683,7 +955,7 @@
         }
 
         .parceiro-item {
-            background: white;
+            background: var(--light);
             padding: 25px;
             border-radius: 10px;
             box-shadow: var(--shadow);
@@ -717,7 +989,7 @@
         }
 
         .reconhecimento-card {
-            background: white;
+            background: var(--light);
             padding: 30px;
             border-radius: 15px;
             box-shadow: var(--shadow);
@@ -796,9 +1068,11 @@
             color: var(--dark);
         }
 
-        .botao-primario:hover {
+        .botao-primario:hover,
+        .botao-primario:focus {
             background-color: #FFD166;
             transform: translateY(-3px);
+            outline: none;
         }
 
         .botao-secundario {
@@ -807,10 +1081,12 @@
             border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
-        .botao-secundario:hover {
+        .botao-secundario:hover,
+        .botao-secundario:focus {
             background-color: rgba(255, 255, 255, 0.1);
             border-color: white;
             transform: translateY(-3px);
+            outline: none;
         }
 
         .icone-botao {
@@ -917,11 +1193,13 @@
             overflow: hidden;
         }
 
-        .whatsapp-float:hover {
+        .whatsapp-float:hover,
+        .whatsapp-float:focus {
             width: 180px;
             border-radius: 30px;
             flex-direction: row;
             gap: 10px;
+            outline: none;
         }
 
         .whatsapp-icon {
@@ -934,7 +1212,8 @@
             display: none;
         }
 
-        .whatsapp-float:hover .whatsapp-text {
+        .whatsapp-float:hover .whatsapp-text,
+        .whatsapp-float:focus .whatsapp-text {
             display: block;
         }
 
@@ -967,7 +1246,7 @@
             .timeline-item:nth-child(even) .timeline-content::after {
                 left: -10px;
                 right: auto;
-                border-right: 10px solid white;
+                border-right: 10px solid var(--light);
                 border-left: none;
             }
 
@@ -978,6 +1257,19 @@
             .rodape-info {
                 flex-direction: row;
                 justify-content: space-between;
+            }
+
+            .accessibility-panel {
+                top: 80px;
+                right: 10px;
+                min-width: 260px;
+            }
+
+            .accessibility-toggle {
+                top: 80px;
+                right: 10px;
+                width: 50px;
+                height: 50px;
             }
         }
 
@@ -991,7 +1283,7 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background-color: white;
+                background-color: var(--light);
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
                 padding: 20px;
                 transform: translateY(-10px);
@@ -1053,6 +1345,33 @@
             .rodape-links {
                 grid-template-columns: 1fr;
             }
+
+            .accessibility-panel {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                transform: translateY(-100%);
+                border-radius: 0;
+                min-width: auto;
+                padding: 80px 20px 20px;
+                overflow-y: auto;
+            }
+
+            .accessibility-panel.open {
+                transform: translateY(0);
+            }
+
+            .accessibility-toggle {
+                top: 20px;
+                right: 20px;
+            }
+
+            .mode-indicator {
+                bottom: 80px;
+                left: 20px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1077,12 +1396,78 @@
             .cta-sobre h2 {
                 font-size: 2rem;
             }
+
+            .font-controls {
+                grid-template-columns: 1fr;
+            }
+
+            .accessibility-btn {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Skip link para acessibilidade -->
-    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+    <!-- Sistema de Skip Links Aprimorado -->
+    <nav class="skip-links" aria-label="Links de navegação rápida">
+        <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+        <a href="#navegacao-principal" class="skip-link">Pular para a navegação</a>
+        <a href="#acessibilidade" class="skip-link">Pular para controles de acessibilidade</a>
+        <a href="#rodape" class="skip-link">Pular para o rodapé</a>
+    </nav>
+
+    <!-- Painel de Acessibilidade -->
+    <div class="accessibility-panel" id="acessibilidade" aria-labelledby="acessibilidade-titulo">
+        <div class="accessibility-section">
+            <h3 id="acessibilidade-titulo">🎨 Aparência</h3>
+            <div class="accessibility-controls">
+                <button class="accessibility-btn" id="toggle-theme" aria-pressed="false">
+                    <span class="theme-icon">🌙</span> 
+                    <span>Modo Escuro</span>
+                </button>
+                <button class="accessibility-btn" id="toggle-contrast" aria-pressed="false">
+                    <span class="contrast-icon">⚫</span> 
+                    <span>Alto Contraste</span>
+                </button>
+                <button class="accessibility-btn" id="toggle-reading" aria-pressed="false">
+                    <span class="reading-icon">📖</span> 
+                    <span>Modo Leitura</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="accessibility-section">
+            <h3>🔠 Tamanho do Texto</h3>
+            <div class="font-controls">
+                <button class="font-btn" id="font-decrease" aria-label="Diminuir tamanho da fonte">A-</button>
+                <button class="font-btn active" id="font-normal" aria-label="Tamanho normal da fonte">A</button>
+                <button class="font-btn" id="font-increase" aria-label="Aumentar tamanho da fonte">A+</button>
+            </div>
+        </div>
+
+        <div class="accessibility-section">
+            <h3>⚙️ Configurações</h3>
+            <div class="accessibility-controls">
+                <button class="accessibility-btn" id="reset-settings">
+                    <span class="reset-icon">🔄</span> 
+                    <span>Redefinir Configurações</span>
+                </button>
+            </div>
+        </div>
+
+        <p class="accessibility-info">
+            Suas preferências são salvas automaticamente
+        </p>
+    </div>
+
+    <!-- Botão para abrir/fechar painel de acessibilidade -->
+    <button class="accessibility-toggle" id="accessibility-toggle" aria-label="Abrir painel de acessibilidade" aria-expanded="false" aria-controls="acessibilidade">
+        ♿
+    </button>
+
+    <!-- Indicador de modo ativo -->
+    <div class="mode-indicator" id="mode-indicator"></div>
 
     <header class="cabecalho">
         <div class="container">
@@ -1103,7 +1488,7 @@
                     <li><a href="doacoes.html">Fazer Doação</a></li>
                     <li><a href="cadastro.html">Cadastrar</a></li>
                     <li><a href="sobre.html" aria-current="page">Sobre</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
                 </ul>
             </nav>
         </div>
@@ -1365,7 +1750,7 @@
                     </div>
                     
                     <div>
-                        <div style="background:white;padding:30px;border-radius:15px;box-shadow:var(--shadow);">
+                        <div style="background:var(--light);padding:30px;border-radius:15px;box-shadow:var(--shadow);">
                             <h3 style="margin-bottom:20px;text-align:center;">Destinação dos Recursos (2023)</h3>
                             <!-- Gráfico placeholder - substitua por gráfico real -->
                             <div style="width:100%;height:200px;background:linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);display:flex;align-items:center;justify-content:center;color:var(--gray);font-weight:bold;border-radius:10px;">
@@ -1503,7 +1888,7 @@
         </section>
     </main>
 
-    <footer class="rodape" id="contato">
+    <footer class="rodape" id="rodape">
         <div class="container">
             <div class="rodape-content">
                 <div class="rodape-info">
@@ -1560,6 +1945,199 @@
     </a>
 
     <script>
+        // ===== SISTEMA DE ACESSIBILIDADE =====
+        
+        // Elementos do painel de acessibilidade
+        const accessibilityPanel = document.getElementById('acessibilidade');
+        const accessibilityToggle = document.getElementById('accessibility-toggle');
+        const modeIndicator = document.getElementById('mode-indicator');
+
+        // Controles
+        const toggleThemeBtn = document.getElementById('toggle-theme');
+        const toggleContrastBtn = document.getElementById('toggle-contrast');
+        const toggleReadingBtn = document.getElementById('toggle-reading');
+        const fontDecreaseBtn = document.getElementById('font-decrease');
+        const fontNormalBtn = document.getElementById('font-normal');
+        const fontIncreaseBtn = document.getElementById('font-increase');
+        const resetSettingsBtn = document.getElementById('reset-settings');
+
+        // Abrir/fechar painel de acessibilidade
+        accessibilityToggle.addEventListener('click', toggleAccessibilityPanel);
+        accessibilityToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleAccessibilityPanel();
+            }
+        });
+
+        function toggleAccessibilityPanel() {
+            const isOpen = accessibilityPanel.classList.contains('open');
+            accessibilityPanel.classList.toggle('open');
+            accessibilityToggle.classList.toggle('open');
+            accessibilityToggle.setAttribute('aria-expanded', !isOpen);
+            
+            if (!isOpen) {
+                // Focar no primeiro botão quando abrir
+                setTimeout(() => toggleThemeBtn.focus(), 100);
+            }
+        }
+
+        // Fechar painel ao pressionar Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && accessibilityPanel.classList.contains('open')) {
+                toggleAccessibilityPanel();
+                accessibilityToggle.focus();
+            }
+        });
+
+        // Controle de tema
+        toggleThemeBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            toggleThemeBtn.setAttribute('aria-pressed', !isDark);
+            toggleThemeBtn.innerHTML = isDark ? 
+                '<span class="theme-icon">🌙</span> <span>Modo Escuro</span>' : 
+                '<span class="theme-icon">☀️</span> <span>Modo Claro</span>';
+            
+            savePreference('theme', isDark ? 'light' : 'dark');
+            showModeIndicator(isDark ? 'Modo Claro Ativado' : 'Modo Escuro Ativado');
+        });
+
+        // Controle de alto contraste
+        toggleContrastBtn.addEventListener('click', () => {
+            const isHighContrast = document.documentElement.getAttribute('data-contrast') === 'high';
+            document.documentElement.setAttribute('data-contrast', isHighContrast ? 'normal' : 'high');
+            toggleContrastBtn.setAttribute('aria-pressed', !isHighContrast);
+            
+            savePreference('contrast', isHighContrast ? 'normal' : 'high');
+            showModeIndicator(isHighContrast ? 'Contraste Normal' : 'Alto Contraste Ativado');
+        });
+
+        // Controle de modo leitura
+        toggleReadingBtn.addEventListener('click', () => {
+            const isReadingMode = document.documentElement.getAttribute('data-reading') === 'true';
+            document.documentElement.setAttribute('data-reading', !isReadingMode);
+            toggleReadingBtn.setAttribute('aria-pressed', !isReadingMode);
+            
+            // Aplicar configurações do modo leitura
+            if (!isReadingMode) {
+                document.documentElement.setAttribute('data-contrast', 'high');
+                document.documentElement.style.setProperty('--font-size-scale', '1.2');
+                document.documentElement.style.setProperty('--line-height', '1.8');
+                toggleContrastBtn.setAttribute('aria-pressed', true);
+                updateFontButtons(fontIncreaseBtn);
+            } else {
+                // Restaurar configurações anteriores
+                loadPreferences();
+            }
+            
+            savePreference('reading', !isReadingMode);
+            showModeIndicator(isReadingMode ? 'Modo Leitura Desativado' : 'Modo Leitura Ativado');
+        });
+
+        // Controles de tamanho de fonte
+        fontDecreaseBtn.addEventListener('click', () => {
+            document.documentElement.style.setProperty('--font-size-scale', '0.875');
+            updateFontButtons(fontDecreaseBtn);
+            savePreference('fontSize', '0.875');
+            showModeIndicator('Fonte Pequena');
+        });
+
+        fontNormalBtn.addEventListener('click', () => {
+            document.documentElement.style.setProperty('--font-size-scale', '1');
+            updateFontButtons(fontNormalBtn);
+            savePreference('fontSize', '1');
+            showModeIndicator('Fonte Normal');
+        });
+
+        fontIncreaseBtn.addEventListener('click', () => {
+            document.documentElement.style.setProperty('--font-size-scale', '1.25');
+            updateFontButtons(fontIncreaseBtn);
+            savePreference('fontSize', '1.25');
+            showModeIndicator('Fonte Grande');
+        });
+
+        function updateFontButtons(activeBtn) {
+            [fontDecreaseBtn, fontNormalBtn, fontIncreaseBtn].forEach(btn => {
+                btn.classList.remove('active');
+            });
+            activeBtn.classList.add('active');
+        }
+
+        // Redefinir configurações
+        resetSettingsBtn.addEventListener('click', () => {
+            document.documentElement.removeAttribute('data-theme');
+            document.documentElement.removeAttribute('data-contrast');
+            document.documentElement.removeAttribute('data-reading');
+            document.documentElement.style.setProperty('--font-size-scale', '1');
+            document.documentElement.style.setProperty('--line-height', '1.6');
+            
+            // Resetar estados dos botões
+            toggleThemeBtn.setAttribute('aria-pressed', 'false');
+            toggleThemeBtn.innerHTML = '<span class="theme-icon">🌙</span> <span>Modo Escuro</span>';
+            toggleContrastBtn.setAttribute('aria-pressed', 'false');
+            toggleReadingBtn.setAttribute('aria-pressed', 'false');
+            updateFontButtons(fontNormalBtn);
+            
+            // Limpar localStorage
+            localStorage.removeItem('theme');
+            localStorage.removeItem('contrast');
+            localStorage.removeItem('fontSize');
+            localStorage.removeItem('reading');
+            
+            showModeIndicator('Configurações Restauradas');
+        });
+
+        // Salvar preferências
+        function savePreference(key, value) {
+            localStorage.setItem(key, value);
+        }
+
+        // Carregar preferências salvas
+        function loadPreferences() {
+            const savedTheme = localStorage.getItem('theme');
+            const savedContrast = localStorage.getItem('contrast');
+            const savedFontSize = localStorage.getItem('fontSize');
+            const savedReading = localStorage.getItem('reading');
+            
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                toggleThemeBtn.setAttribute('aria-pressed', savedTheme === 'dark');
+                toggleThemeBtn.innerHTML = savedTheme === 'dark' ? 
+                    '<span class="theme-icon">☀️</span> <span>Modo Claro</span>' : 
+                    '<span class="theme-icon">🌙</span> <span>Modo Escuro</span>';
+            }
+            
+            if (savedContrast) {
+                document.documentElement.setAttribute('data-contrast', savedContrast);
+                toggleContrastBtn.setAttribute('aria-pressed', savedContrast === 'high');
+            }
+            
+            if (savedFontSize) {
+                document.documentElement.style.setProperty('--font-size-scale', savedFontSize);
+                const activeBtn = savedFontSize === '0.875' ? fontDecreaseBtn : 
+                                savedFontSize === '1' ? fontNormalBtn : fontIncreaseBtn;
+                updateFontButtons(activeBtn);
+            }
+            
+            if (savedReading === 'true') {
+                document.documentElement.setAttribute('data-reading', 'true');
+                toggleReadingBtn.setAttribute('aria-pressed', 'true');
+            }
+        }
+
+        // Mostrar indicador de modo
+        function showModeIndicator(message) {
+            modeIndicator.textContent = message;
+            modeIndicator.classList.add('show');
+            
+            setTimeout(() => {
+                modeIndicator.classList.remove('show');
+            }, 3000);
+        }
+
+        // ===== FUNCIONALIDADES DA PÁGINA SOBRE =====
+
         // Menu Mobile
         const menuToggle = document.querySelector('.menu-toggle');
         const navegacao = document.querySelector('.navegacao');
@@ -1695,6 +2273,9 @@
 
         // Inicializar
         document.addEventListener('DOMContentLoaded', function() {
+            // Carregar preferências de acessibilidade
+            loadPreferences();
+            
             // Adicionar ícones Font Awesome dinamicamente
             const style = document.createElement('style');
             style.textContent = `
