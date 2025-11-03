@@ -110,7 +110,7 @@
 
         /* ===== SISTEMA DE ACESSIBILIDADE ===== */
         
-        /* Skip links aprimorados */
+        /* Skip links */
         .skip-links {
             position: absolute;
             top: 0;
@@ -363,7 +363,7 @@
 
         .logo img {
             margin-right: 10px;
-            height: 60px;
+            height: 150px;
             width: auto;
         }
 
@@ -1606,7 +1606,7 @@
     </style>
 </head>
 <body>
-    <!-- Sistema de Skip Links Aprimorado -->
+    <!-- Sistema de Skip Links  -->
     <nav class="skip-links" aria-label="Links de navegação rápida">
         <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
         <a href="#navegacao-principal" class="skip-link">Pular para a navegação</a>
@@ -1668,9 +1668,8 @@
 
     <header class="cabecalho">
         <div class="container">
-            <a href="index.html" class="logo">
-                <!-- Imagem placeholder - substitua pelo logo real -->
-                <div style="width:150px;height:60px;background:var(--primary);display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;">LOGO</div>
+           <a href="index.html" class="logo">
+                <img src="/images/Gemini_Generated_Image_juizoljuizoljuiz.png" alt="Rua Solidária Logo">
                 <span class="logo-texto">Rua Solidária</span>
             </a>
             
@@ -1692,7 +1691,7 @@
     </header>
 
     <main id="conteudo-principal">
-        <!-- Cabeçalho da Página Melhorado -->
+        <!-- Cabeçalho da Página -->
         <header class="cabecalho-pagina cadastro-header">
             <div class="container">
                 <div class="header-content">
@@ -1786,7 +1785,7 @@
                 </div>
                 
                 <form id="cadastroForm" class="formulario" novalidate>
-                    <!-- Grupo: Dados Pessoais MELHORADO -->
+                    <!-- Grupo: Dados Pessoais  -->
                     <fieldset class="grupo-formulario-estilizado" data-grupo="1">
                         <legend class="legend-estilizado">
                             <span class="legend-icone">👤</span>
@@ -1928,7 +1927,7 @@
                         </div>
                     </fieldset>
 
-                    <!-- Grupo: Endereço MELHORADO -->
+                    <!-- Grupo: Endereço  -->
                     <fieldset class="grupo-formulario-estilizado hidden" data-grupo="2">
                         <legend class="legend-estilizado">
                             <span class="legend-icone">🏠</span>
@@ -2055,7 +2054,7 @@
                         </div>
                     </fieldset>
 
-                    <!-- Grupo: Tipo de Participação MELHORADO -->
+                    <!-- Grupo: Tipo de Participação  -->
                     <fieldset class="grupo-formulario-estilizado hidden" data-grupo="3">
                         <legend class="legend-estilizado">
                             <span class="legend-icone">🎯</span>
@@ -2216,7 +2215,7 @@
                         </div>
                     </fieldset>
 
-                    <!-- Grupo: Termos e Condições MELHORADO -->
+                    <!-- Grupo: Termos e Condições -->
                     <fieldset class="grupo-formulario-estilizado hidden" data-grupo="4">
                         <legend class="legend-estilizado">
                             <span class="legend-icone">📄</span>
@@ -2391,13 +2390,7 @@
     <footer class="rodape" id="rodape">
         <div class="container">
             <div class="rodape-content">
-                <div class="rodape-info">
-                    <div class="rodape-logo">
-                        <!-- Imagem placeholder - substitua pelo logo real -->
-                        <div style="width:120px;height:50px;background:white;display:flex;align-items:center;justify-content:center;color:var(--primary);font-weight:bold;margin-bottom:10px;">LOGO</div>
-                        <p class="rodape-slogan">Juntos transformamos vidas.</p>
-                    </div>
-                    
+                <div class="rodape-info">           
                     <div class="rodape-contato">
                         <h3>Dúvidas sobre Cadastro?</h3>
                         <address>
@@ -2432,16 +2425,16 @@
             </div>
             
             <div class="rodape-bottom">
-                <p>&copy; 2025 Rua Solidária. OSCIP certificada - Transformando vidas através da solidariedade.</p>
+                <p>&copy; 2025 Rua Solidária. Todos os direitos reservados.</p>
+                <p>CNPJ: 62.984.091/0001-02 • Organização da Sociedade Civil de Interesse Público</p>
             </div>
         </div>
     </footer>
 
     <!-- Botão flutuante do WhatsApp -->
-    <a href="https://wa.me/5511988234959?text=Olá! Gostaria de tirar dúvidas sobre o cadastro." 
-       class="whatsapp-float" aria-label="Tirar dúvidas sobre cadastro no WhatsApp" target="_blank">
-        <span class="whatsapp-icon"><i class="fab fa-whatsapp"></i></span>
-        <span class="whatsapp-text">Dúvidas?</span>
+    <a href="https://wa.me/5511988234959" class="whatsapp-float" aria-label="Fale conosco no WhatsApp" target="_blank">
+        <span class="whatsapp-icon">💬</span>
+        <span class="whatsapp-text">Precisa de ajuda?</span>
     </a>
 
     <script>
@@ -2477,12 +2470,12 @@
             accessibilityToggle.setAttribute('aria-expanded', !isOpen);
             
             if (!isOpen) {
-                // Focar no primeiro botão quando abrir
+                // Foca no primeiro botão quando abrir
                 setTimeout(() => toggleThemeBtn.focus(), 100);
             }
         }
 
-        // Fechar painel ao pressionar Escape
+        // Fecha painel ao pressionar Escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && accessibilityPanel.classList.contains('open')) {
                 toggleAccessibilityPanel();
@@ -2801,7 +2794,7 @@
             buscarCepBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
             
             setTimeout(() => {
-                // Em uma implementação real, você faria uma requisição para uma API de CEP
+                // Em uma implementação real, eu faria uma requisição para uma API de CEP
                 // Aqui estamos apenas simulando uma resposta
                 document.getElementById('endereco').value = 'Rua das Flores, 123 - Centro';
                 document.getElementById('cidade').value = 'São Paulo';

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Faça doações de dinheiro, alimentos, roupas ou ofereça oportunidades de trabalho para moradores em situação de rua">
-    <meta name="keywords" content="doação financeira, doação alimentos, doação roupas, oportunidades trabalho, ajudar moradores rua">
+    <meta name="description"
+        content="Faça doações de dinheiro, alimentos, roupas ou ofereça oportunidades de trabalho para moradores em situação de rua">
+    <meta name="keywords"
+        content="doação financeira, doação alimentos, doação roupas, oportunidades trabalho, ajudar moradores rua">
     <meta name="author" content="Rua Solidária">
     <title>Fazer Doação - Rua Solidária | Ajude com Dinheiro, Alimentos, Roupas ou Oportunidades</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         /* Reset e configurações básicas */
         * {
@@ -29,7 +32,7 @@
             --warning: #F8961E;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
-            
+
             /* Variáveis para acessibilidade */
             --font-size-base: 1rem;
             --font-size-scale: 1;
@@ -110,7 +113,7 @@
         }
 
         /* ===== SISTEMA DE ACESSIBILIDADE ===== */
-        
+
         /* Skip links aprimorados */
         .skip-links {
             position: absolute;
@@ -364,7 +367,7 @@
 
         .logo img {
             margin-right: 10px;
-            height: 60px;
+            height: 150px;
             width: auto;
         }
 
@@ -394,13 +397,13 @@
         .navegacao a:hover,
         .navegacao a:focus {
             color: var(--primary);
-            background-color: rgba(0,0,0,0.05);
+            background-color: rgba(0, 0, 0, 0.05);
         }
 
         .navegacao a[aria-current="page"] {
             color: var(--primary);
             font-weight: 600;
-            background-color: rgba(0,0,0,0.05);
+            background-color: rgba(0, 0, 0, 0.05);
         }
 
         .navegacao a[aria-current="page"]::after {
@@ -426,7 +429,7 @@
 
         .menu-toggle:hover,
         .menu-toggle:focus {
-            background-color: rgba(0,0,0,0.05);
+            background-color: rgba(0, 0, 0, 0.05);
         }
 
         .hamburger {
@@ -636,7 +639,7 @@
             text-align: center;
             padding: 30px 20px;
             background: var(--light);
-            border: 2px solid rgba(0,0,0,0.1);
+            border: 2px solid rgba(0, 0, 0, 0.1);
             border-radius: 15px;
             text-decoration: none;
             color: var(--dark);
@@ -692,7 +695,7 @@
 
         /* Progresso de Meta */
         .meta-doacao {
-            background: linear-gradient(135deg, var(--light) 0%, rgba(0,0,0,0.05) 100%);
+            background: linear-gradient(135deg, var(--light) 0%, rgba(0, 0, 0, 0.05) 100%);
             padding: 30px 0;
             margin-bottom: 40px;
         }
@@ -728,7 +731,7 @@
         .progresso-bar {
             width: 100%;
             height: 12px;
-            background-color: rgba(0,0,0,0.1);
+            background-color: rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             overflow: hidden;
             margin-bottom: 10px;
@@ -826,7 +829,7 @@
             gap: 15px;
             margin-bottom: 20px;
             padding-bottom: 20px;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .beneficio-item:last-child {
@@ -860,7 +863,7 @@
             align-items: center;
             gap: 10px;
             padding: 15px;
-            background: rgba(0,0,0,0.05);
+            background: rgba(0, 0, 0, 0.05);
             border-radius: 10px;
         }
 
@@ -884,7 +887,7 @@
             border: none;
             margin-bottom: 30px;
             padding-bottom: 30px;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .fieldset-estilizado:last-child {
@@ -920,7 +923,7 @@
         }
 
         .valor-card {
-            border: 2px solid rgba(0,0,0,0.1);
+            border: 2px solid rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             padding: 20px 15px;
             text-align: center;
@@ -928,7 +931,7 @@
             position: relative;
         }
 
-        .opcao-valor-card input:checked + .valor-card {
+        .opcao-valor-card input:checked+.valor-card {
             border-color: var(--primary);
             background-color: rgba(46, 134, 171, 0.05);
         }
@@ -983,7 +986,7 @@
         .textarea-estilizado {
             width: 100%;
             padding: 12px 15px;
-            border: 2px solid rgba(0,0,0,0.1);
+            border: 2px solid rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             font-size: 1rem;
             transition: var(--transition);
@@ -1022,7 +1025,7 @@
         }
 
         .pagamento-card {
-            border: 2px solid rgba(0,0,0,0.1);
+            border: 2px solid rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             padding: 20px 15px;
             text-align: center;
@@ -1030,7 +1033,7 @@
             position: relative;
         }
 
-        .opcao-pagamento-card input:checked + .pagamento-card {
+        .opcao-pagamento-card input:checked+.pagamento-card {
             border-color: var(--primary);
             background-color: rgba(46, 134, 171, 0.05);
         }
@@ -1067,7 +1070,7 @@
 
         /* Resumo */
         .resumo-doacao {
-            background: rgba(0,0,0,0.05);
+            background: rgba(0, 0, 0, 0.05);
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 30px;
@@ -1084,7 +1087,7 @@
             justify-content: space-between;
             margin-bottom: 10px;
             padding-bottom: 10px;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .resumo-item:last-child {
@@ -1098,7 +1101,7 @@
             justify-content: space-between;
             margin-top: 15px;
             padding-top: 15px;
-            border-top: 2px solid rgba(0,0,0,0.1);
+            border-top: 2px solid rgba(0, 0, 0, 0.1);
             font-size: 1.1rem;
         }
 
@@ -1154,8 +1157,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .garantias {
@@ -1209,7 +1217,7 @@
         }
 
         .categoria-alimentos {
-            border: 1px solid rgba(0,0,0,0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             padding: 20px;
         }
@@ -1237,7 +1245,7 @@
         }
 
         .item-card {
-            border: 2px solid rgba(0,0,0,0.1);
+            border: 2px solid rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             padding: 15px 10px;
             text-align: center;
@@ -1245,7 +1253,7 @@
             position: relative;
         }
 
-        .item-doacao-card input:checked + .item-card {
+        .item-doacao-card input:checked+.item-card {
             border-color: var(--primary);
             background-color: rgba(46, 134, 171, 0.05);
         }
@@ -1274,7 +1282,7 @@
         }
 
         .resumo-itens {
-            background: rgba(0,0,0,0.05);
+            background: rgba(0, 0, 0, 0.05);
             border-radius: 10px;
             padding: 15px;
             margin-top: 20px;
@@ -1293,7 +1301,7 @@
 
         .item-selecionado {
             background: var(--light);
-            border: 1px solid rgba(0,0,0,0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 20px;
             padding: 5px 12px;
             font-size: 0.85rem;
@@ -1369,7 +1377,7 @@
 
         .faq-item {
             margin-bottom: 15px;
-            border: 1px solid rgba(0,0,0,0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             overflow: hidden;
             background-color: var(--light);
@@ -1406,7 +1414,7 @@
 
         .faq-resposta {
             padding: 0 20px 20px;
-            border-top: 1px solid rgba(0,0,0,0.1);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         /* Rodapé */
@@ -1570,13 +1578,20 @@
         }
 
         @keyframes modalFadeIn {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .modal-header {
             padding: 20px 25px;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -1617,7 +1632,7 @@
 
         .modal-footer {
             padding: 20px 25px;
-            border-top: 1px solid rgba(0,0,0,0.1);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: flex-end;
             gap: 15px;
@@ -1638,7 +1653,7 @@
             left: 0;
             right: 0;
             height: 2px;
-            background-color: rgba(0,0,0,0.1);
+            background-color: rgba(0, 0, 0, 0.1);
             z-index: 1;
         }
 
@@ -1664,7 +1679,7 @@
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            background-color: rgba(0,0,0,0.1);
+            background-color: rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1699,8 +1714,13 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         /* Opções de seleção */
@@ -1715,13 +1735,13 @@
             cursor: pointer;
         }
 
-        .opcao-card input:checked + .card {
+        .opcao-card input:checked+.card {
             border-color: var(--primary);
             background-color: rgba(46, 134, 171, 0.05);
         }
 
         .card {
-            border: 2px solid rgba(0,0,0,0.1);
+            border: 2px solid rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             padding: 15px;
             text-align: center;
@@ -1776,7 +1796,7 @@
         .botao-secundario {
             background-color: var(--light);
             color: var(--dark);
-            border: 2px solid rgba(0,0,0,0.1);
+            border: 2px solid rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             padding: 12px 25px;
             font-weight: 600;
@@ -1815,7 +1835,7 @@
 
         /* Itens selecionados */
         .itens-selecionados {
-            background-color: rgba(0,0,0,0.05);
+            background-color: rgba(0, 0, 0, 0.05);
             border-radius: 10px;
             padding: 15px;
             margin-bottom: 20px;
@@ -1834,7 +1854,7 @@
 
         .item-tag {
             background-color: var(--light);
-            border: 1px solid rgba(0,0,0,0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 20px;
             padding: 5px 12px;
             font-size: 0.85rem;
@@ -1995,11 +2015,11 @@
                 width: 95%;
                 margin: 5% auto;
             }
-            
+
             .campos-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .opcoes-grid {
                 grid-template-columns: 1fr 1fr;
             }
@@ -2067,16 +2087,16 @@
             .modal-header {
                 padding: 15px 20px;
             }
-            
+
             .modal-body {
                 padding: 20px;
             }
-            
+
             .modal-footer {
                 padding: 15px 20px;
                 flex-direction: column;
             }
-            
+
             .opcoes-grid {
                 grid-template-columns: 1fr;
             }
@@ -2092,6 +2112,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Sistema de Skip Links Aprimorado -->
     <nav class="skip-links" aria-label="Links de navegação rápida">
@@ -2107,15 +2128,15 @@
             <h3 id="acessibilidade-titulo">🎨 Aparência</h3>
             <div class="accessibility-controls">
                 <button class="accessibility-btn" id="toggle-theme" aria-pressed="false">
-                    <span class="theme-icon">🌙</span> 
+                    <span class="theme-icon">🌙</span>
                     <span>Modo Escuro</span>
                 </button>
                 <button class="accessibility-btn" id="toggle-contrast" aria-pressed="false">
-                    <span class="contrast-icon">⚫</span> 
+                    <span class="contrast-icon">⚫</span>
                     <span>Alto Contraste</span>
                 </button>
                 <button class="accessibility-btn" id="toggle-reading" aria-pressed="false">
-                    <span class="reading-icon">📖</span> 
+                    <span class="reading-icon">📖</span>
                     <span>Modo Leitura</span>
                 </button>
             </div>
@@ -2134,7 +2155,7 @@
             <h3>⚙️ Configurações</h3>
             <div class="accessibility-controls">
                 <button class="accessibility-btn" id="reset-settings">
-                    <span class="reset-icon">🔄</span> 
+                    <span class="reset-icon">🔄</span>
                     <span>Redefinir Configurações</span>
                 </button>
             </div>
@@ -2146,7 +2167,8 @@
     </div>
 
     <!-- Botão para abrir/fechar painel de acessibilidade -->
-    <button class="accessibility-toggle" id="accessibility-toggle" aria-label="Abrir painel de acessibilidade" aria-expanded="false" aria-controls="acessibilidade">
+    <button class="accessibility-toggle" id="accessibility-toggle" aria-label="Abrir painel de acessibilidade"
+        aria-expanded="false" aria-controls="acessibilidade">
         ♿
     </button>
 
@@ -2159,9 +2181,10 @@
                 <img src="/images/Gemini_Generated_Image_juizoljuizoljuiz.png" alt="Rua Solidária Logo">
                 <span class="logo-texto">Rua Solidária</span>
             </a>
-            
+
             <!-- Menu mobile -->
-            <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navegacao-principal">
+            <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"
+                aria-controls="navegacao-principal">
                 <span class="hamburger"></span>
             </button>
 
@@ -2183,8 +2206,9 @@
             <div class="container">
                 <div class="header-content">
                     <h1>Escolha Como <span class="destaque">Transformar</span> Vidas</h1>
-                    <p class="page-subtitle">Sua doação, seja qual for o tipo, restaura dignidade e abre portas para um futuro melhor</p>
-                    
+                    <p class="page-subtitle">Sua doação, seja qual for o tipo, restaura dignidade e abre portas para um
+                        futuro melhor</p>
+
                     <div class="doacao-stats">
                         <div class="doacao-stat">
                             <span class="stat-number">R$ 287.450</span>
@@ -2200,17 +2224,19 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="header-badge">
                     <span class="badge-icon">🏆</span>
                     <span class="badge-text">Organização Certificada - Transparência 100%</span>
                 </div>
             </div>
-            
+
             <!-- Elemento decorativo -->
             <div class="header-wave" aria-hidden="true">
                 <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                    <path
+                        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                        opacity=".25" class="shape-fill"></path>
                 </svg>
             </div>
         </header>
@@ -2220,7 +2246,8 @@
             <div class="container">
                 <div class="transparencia-content">
                     <span id="transparencia-titulo" class="transparencia-titulo">🔍 Transparência Total</span>
-                    <p class="transparencia-texto">Publicamos relatórios detalhados mostrando exatamente como cada doação é utilizada</p>
+                    <p class="transparencia-texto">Publicamos relatórios detalhados mostrando exatamente como cada
+                        doação é utilizada</p>
                     <a href="#" class="transparencia-link">Ver Prestação de Contas →</a>
                 </div>
             </div>
@@ -2233,7 +2260,7 @@
                     <h2 class="navegacao-titulo">Selecione o Tipo de Doação</h2>
                     <p class="navegacao-descricao">Escolha a forma de ajuda que faz mais sentido para você</p>
                 </div>
-                
+
                 <ul class="navegacao-lista">
                     <li class="navegacao-item">
                         <a href="#doacao-financeira" class="botao-tipo-doacao ativo" data-tipo="financeira">
@@ -2297,7 +2324,8 @@
             <div class="container">
                 <div class="doacao-header-section">
                     <h2 id="financeira-titulo">Doação <span class="destaque">Financeira</span></h2>
-                    <p class="doacao-subtitulo">Recursos diretos que nos dão flexibilidade para atender necessidades urgentes</p>
+                    <p class="doacao-subtitulo">Recursos diretos que nos dão flexibilidade para atender necessidades
+                        urgentes</p>
                 </div>
 
                 <div class="doacao-content">
@@ -2334,7 +2362,7 @@
                                     </div>
                                 </li>
                             </ul>
-                            
+
                             <div class="transparencia-info">
                                 <span class="transparencia-icone">📊</span>
                                 <span class="transparencia-texto">Relatório detalhado enviado por email</span>
@@ -2349,7 +2377,7 @@
                                     <span class="legend-icone">💎</span>
                                     Valor da Doação
                                 </legend>
-                                
+
                                 <div class="opcoes-valor-grid">
                                     <label class="opcao-valor-card">
                                         <input type="radio" name="valor" value="25" required class="sr-only">
@@ -2359,7 +2387,7 @@
                                             <span class="valor-badge">Popular</span>
                                         </div>
                                     </label>
-                                    
+
                                     <label class="opcao-valor-card">
                                         <input type="radio" name="valor" value="50" class="sr-only">
                                         <div class="valor-card">
@@ -2367,7 +2395,7 @@
                                             <span class="valor-impacto">Kits higiene para 10</span>
                                         </div>
                                     </label>
-                                    
+
                                     <label class="opcao-valor-card">
                                         <input type="radio" name="valor" value="100" class="sr-only">
                                         <div class="valor-card">
@@ -2375,7 +2403,7 @@
                                             <span class="valor-impacto">Ajuda com documentação</span>
                                         </div>
                                     </label>
-                                    
+
                                     <label class="opcao-valor-card">
                                         <input type="radio" name="valor" value="outro" class="sr-only">
                                         <div class="valor-card personalizado">
@@ -2392,8 +2420,8 @@
                                     </label>
                                     <div class="input-com-icone">
                                         <span class="input-prefix">R$</span>
-                                        <input type="number" id="valorCustom" name="valorCustom" min="1" step="0.01" 
-                                               placeholder="0,00" class="input-estilizado with-prefix">
+                                        <input type="number" id="valorCustom" name="valorCustom" min="1" step="0.01"
+                                            placeholder="0,00" class="input-estilizado with-prefix">
                                     </div>
                                     <small class="texto-ajuda">Valor mínimo: R$ 1,00</small>
                                 </div>
@@ -2404,7 +2432,7 @@
                                     <span class="legend-icone">💳</span>
                                     Forma de Pagamento
                                 </legend>
-                                
+
                                 <div class="opcoes-pagamento-grid">
                                     <label class="opcao-pagamento-card">
                                         <input type="radio" name="pagamento" value="pix" required class="sr-only">
@@ -2415,7 +2443,7 @@
                                             <span class="pagamento-badge recomendado">Recomendado</span>
                                         </div>
                                     </label>
-                                    
+
                                     <label class="opcao-pagamento-card">
                                         <input type="radio" name="pagamento" value="cartao" class="sr-only">
                                         <div class="pagamento-card">
@@ -2424,7 +2452,7 @@
                                             <span class="pagamento-desc">Crédito ou débito</span>
                                         </div>
                                     </label>
-                                    
+
                                     <label class="opcao-pagamento-card">
                                         <input type="radio" name="pagamento" value="boleto" class="sr-only">
                                         <div class="pagamento-card">
@@ -2460,7 +2488,7 @@
                                     Confirmar Doação
                                     <span class="botao-loader hidden"></span>
                                 </button>
-                                
+
                                 <div class="garantias">
                                     <p class="garantia-texto">
                                         <span class="garantia-icone">🔒</span>
@@ -2484,16 +2512,20 @@
                             Como é feita a distribuição das doações?
                         </summary>
                         <div class="faq-resposta">
-                            <p>Trabalhamos com uma rede de organizações parceiras e equipes próprias que fazem a distribuição direta nas ruas, abrigos e centros de acolhimento. Todas as distribuições são documentadas com fotos e relatórios.</p>
+                            <p>Trabalhamos com uma rede de organizações parceiras e equipes próprias que fazem a
+                                distribuição direta nas ruas, abrigos e centros de acolhimento. Todas as distribuições
+                                são documentadas com fotos e relatórios.</p>
                         </div>
                     </details>
-                    
+
                     <details class="faq-item">
                         <summary class="faq-pergunta">
                             Posso receber um recibo para dedução no imposto de renda?
                         </summary>
                         <div class="faq-resposta">
-                            <p>Sim! Para doações financeiras acima de R$ 50,00 emitimos recibo válido para dedução no IRPF (até 6% do imposto devido) e para empresas no IRPJ (até 2% do lucro operacional).</p>
+                            <p>Sim! Para doações financeiras acima de R$ 50,00 emitimos recibo válido para dedução no
+                                IRPF (até 6% do imposto devido) e para empresas no IRPJ (até 2% do lucro operacional).
+                            </p>
                         </div>
                     </details>
                 </div>
@@ -2529,8 +2561,9 @@
                     <!-- Passo 1: Seleção de Itens -->
                     <div class="form-step active" data-step="1">
                         <h3>O que você gostaria de doar?</h3>
-                        <p class="texto-ajuda">Selecione os itens que estão em boas condições e dentro do prazo de validade</p>
-                        
+                        <p class="texto-ajuda">Selecione os itens que estão em boas condições e dentro do prazo de
+                            validade</p>
+
                         <div class="categorias-alimentos">
                             <div class="categoria-alimentos">
                                 <h4 class="categoria-titulo">
@@ -2545,7 +2578,7 @@
                                             <span class="item-nome">Arroz</span>
                                         </div>
                                     </label>
-                                    
+
                                     <label class="item-doacao-card">
                                         <input type="checkbox" name="alimentos[]" value="feijao" class="sr-only">
                                         <div class="item-card">
@@ -2553,7 +2586,7 @@
                                             <span class="item-nome">Feijão</span>
                                         </div>
                                     </label>
-                                    
+
                                     <label class="item-doacao-card">
                                         <input type="checkbox" name="alimentos[]" value="oleo" class="sr-only">
                                         <div class="item-card">
@@ -2561,7 +2594,7 @@
                                             <span class="item-nome">Óleo</span>
                                         </div>
                                     </label>
-                                    
+
                                     <label class="item-doacao-card">
                                         <input type="checkbox" name="alimentos[]" value="acucar" class="sr-only">
                                         <div class="item-card">
@@ -2569,7 +2602,7 @@
                                             <span class="item-nome">Açúcar</span>
                                         </div>
                                     </label>
-                                    
+
                                     <label class="item-doacao-card">
                                         <input type="checkbox" name="alimentos[]" value="cafe" class="sr-only">
                                         <div class="item-card">
@@ -2593,7 +2626,7 @@
                                             <span class="item-nome">Leite</span>
                                         </div>
                                     </label>
-                                    
+
                                     <label class="item-doacao-card">
                                         <input type="checkbox" name="alimentos[]" value="extrato" class="sr-only">
                                         <div class="item-card">
@@ -2601,7 +2634,7 @@
                                             <span class="item-nome">Extrato</span>
                                         </div>
                                     </label>
-                                    
+
                                     <label class="item-doacao-card">
                                         <input type="checkbox" name="alimentos[]" value="sardinha" class="sr-only">
                                         <div class="item-card">
@@ -2609,7 +2642,7 @@
                                             <span class="item-nome">Sardinha</span>
                                         </div>
                                     </label>
-                                    
+
                                     <label class="item-doacao-card">
                                         <input type="checkbox" name="alimentos[]" value="milho" class="sr-only">
                                         <div class="item-card">
@@ -2626,9 +2659,8 @@
                                 <span class="rotulo-icone">📦</span>
                                 Quantidade aproximada
                             </label>
-                            <input type="text" id="quantidadeAlimentos" name="quantidade" 
-                                   placeholder="Ex: 5 pacotes de arroz, 3 latas de leite..." 
-                                   class="input-estilizado">
+                            <input type="text" id="quantidadeAlimentos" name="quantidade"
+                                placeholder="Ex: 5 pacotes de arroz, 3 latas de leite..." class="input-estilizado">
                         </div>
 
                         <div class="campo-grupo">
@@ -2661,7 +2693,7 @@
                     <!-- Passo 2: Método de Entrega -->
                     <div class="form-step" data-step="2">
                         <h3>Como prefere entregar sua doação?</h3>
-                        
+
                         <div class="opcoes-grid">
                             <label class="opcao-card">
                                 <input type="radio" name="entrega" value="retirada" class="sr-only" required>
@@ -2670,7 +2702,7 @@
                                     <span class="card-titulo">Retirada em Casa</span>
                                 </div>
                             </label>
-                            
+
                             <label class="opcao-card">
                                 <input type="radio" name="entrega" value="entrega-ponto" class="sr-only">
                                 <div class="card">
@@ -2678,7 +2710,7 @@
                                     <span class="card-titulo">Levar ao Ponto</span>
                                 </div>
                             </label>
-                            
+
                             <label class="opcao-card">
                                 <input type="radio" name="entrega" value="entrega-app" class="sr-only">
                                 <div class="card">
@@ -2693,20 +2725,18 @@
                                 <span class="rotulo-icone">🏠</span>
                                 Endereço para retirada
                             </label>
-                            <textarea id="enderecoRetirada" name="endereco_retirada" 
-                                      placeholder="Digite seu endereço completo..." 
-                                      class="textarea-estilizado"></textarea>
-                            
+                            <textarea id="enderecoRetirada" name="endereco_retirada"
+                                placeholder="Digite seu endereço completo..." class="textarea-estilizado"></textarea>
+
                             <div class="campos-grid">
                                 <div class="campo-grupo">
                                     <label for="dataRetirada" class="rotulo-estilizado">
                                         <span class="rotulo-icone">📅</span>
                                         Data preferida
                                     </label>
-                                    <input type="date" id="dataRetirada" name="data_retirada" 
-                                           class="input-estilizado">
+                                    <input type="date" id="dataRetirada" name="data_retirada" class="input-estilizado">
                                 </div>
-                                
+
                                 <div class="campo-grupo">
                                     <label for="horarioRetirada" class="rotulo-estilizado">
                                         <span class="rotulo-icone">⏰</span>
@@ -2735,14 +2765,14 @@
                                 <option value="zona-leste">Posto Zona Leste</option>
                                 <option value="zona-oeste">Posto Zona Oeste</option>
                             </select>
-                            
+
                             <div class="campo-grupo">
                                 <label for="dataEntregaPonto" class="rotulo-estilizado">
                                     <span class="rotulo-icone">📅</span>
                                     Data prevista para entrega
                                 </label>
-                                <input type="date" id="dataEntregaPonto" name="data_entrega_ponto" 
-                                       class="input-estilizado">
+                                <input type="date" id="dataEntregaPonto" name="data_entrega_ponto"
+                                    class="input-estilizado">
                             </div>
                         </div>
 
@@ -2759,14 +2789,13 @@
                                 <option value="rapp">Rappi</option>
                                 <option value="outro">Outro</option>
                             </select>
-                            
+
                             <div class="campo-grupo">
                                 <label for="dataApp" class="rotulo-estilizado">
                                     <span class="rotulo-icone">📅</span>
                                     Data prevista para envio
                                 </label>
-                                <input type="date" id="dataApp" name="data_app" 
-                                       class="input-estilizado">
+                                <input type="date" id="dataApp" name="data_app" class="input-estilizado">
                             </div>
                         </div>
                     </div>
@@ -2774,25 +2803,23 @@
                     <!-- Passo 3: Informações de Contato -->
                     <div class="form-step" data-step="3">
                         <h3>Seus dados para contato</h3>
-                        
+
                         <div class="campos-grid">
                             <div class="campo-grupo">
                                 <label for="nomeAlimentos" class="rotulo-estilizado">
                                     <span class="rotulo-icone">👤</span>
                                     Seu nome
                                 </label>
-                                <input type="text" id="nomeAlimentos" name="nome" 
-                                       required class="input-estilizado">
+                                <input type="text" id="nomeAlimentos" name="nome" required class="input-estilizado">
                             </div>
-                            
+
                             <div class="campo-grupo">
                                 <label for="telefoneAlimentos" class="rotulo-estilizado">
                                     <span class="rotulo-icone">📞</span>
                                     Telefone/WhatsApp
                                 </label>
-                                <input type="tel" id="telefoneAlimentos" name="telefone" 
-                                       required placeholder="(11) 99999-9999" 
-                                       class="input-estilizado">
+                                <input type="tel" id="telefoneAlimentos" name="telefone" required
+                                    placeholder="(11) 99999-9999" class="input-estilizado">
                             </div>
                         </div>
 
@@ -2801,8 +2828,8 @@
                                 <span class="rotulo-icone">📧</span>
                                 E-mail (opcional)
                             </label>
-                            <input type="email" id="emailAlimentos" name="email" 
-                                   placeholder="seu@email.com" class="input-estilizado">
+                            <input type="email" id="emailAlimentos" name="email" placeholder="seu@email.com"
+                                class="input-estilizado">
                         </div>
 
                         <div class="campo-grupo">
@@ -2810,15 +2837,16 @@
                                 <span class="rotulo-icone">📝</span>
                                 Observações adicionais
                             </label>
-                            <textarea id="observacoesAlimentos" name="observacoes" 
-                                      placeholder="Alguma informação importante sobre os itens, horários especiais, etc..."
-                                      class="textarea-estilizado"></textarea>
+                            <textarea id="observacoesAlimentos" name="observacoes"
+                                placeholder="Alguma informação importante sobre os itens, horários especiais, etc..."
+                                class="textarea-estilizado"></textarea>
                         </div>
 
                         <div class="confirmacao hidden" id="confirmacaoAlimentos">
                             <div class="confirmacao-icone">✅</div>
                             <h3 class="confirmacao-titulo">Doação Registrada!</h3>
-                            <p class="confirmacao-texto">Enviaremos os detalhes através de seu número de contato em até 24 horas.</p>
+                            <p class="confirmacao-texto">Enviaremos os detalhes através de seu número de contato em até
+                                24 horas.</p>
                             <p class="confirmacao-texto">Obrigado por fazer a diferença! ❤️</p>
                         </div>
                     </div>
@@ -2859,8 +2887,9 @@
                     <!-- Passo 1: Seleção de Itens -->
                     <div class="form-step active" data-step="1">
                         <h3>Que tipo de roupas você gostaria de doar?</h3>
-                        <p class="texto-ajuda">Selecione os itens que estão em boas condições, limpos e prontos para uso</p>
-                        
+                        <p class="texto-ajuda">Selecione os itens que estão em boas condições, limpos e prontos para uso
+                        </p>
+
                         <div class="categorias-alimentos">
                             <div class="categoria-alimentos">
                                 <h4 class="categoria-titulo">
@@ -2876,7 +2905,7 @@
                                             <span class="item-status urgente">Urgente</span>
                                         </div>
                                     </label>
-                                    
+
                                     <label class="item-doacao-card">
                                         <input type="checkbox" name="roupas[]" value="blusa" class="sr-only">
                                         <div class="item-card">
@@ -2884,7 +2913,7 @@
                                             <span class="item-nome">Blusas</span>
                                         </div>
                                     </label>
-                                    
+
                                     <label class="item-doacao-card">
                                         <input type="checkbox" name="roupas[]" value="cobertor" class="sr-only">
                                         <div class="item-card">
@@ -2909,7 +2938,7 @@
                                             <span class="item-nome">Calças</span>
                                         </div>
                                     </label>
-                                    
+
                                     <label class="item-doacao-card">
                                         <input type="checkbox" name="roupas[]" value="camiseta" class="sr-only">
                                         <div class="item-card">
@@ -2917,7 +2946,7 @@
                                             <span class="item-nome">Camisetas</span>
                                         </div>
                                     </label>
-                                    
+
                                     <label class="item-doacao-card">
                                         <input type="checkbox" name="roupas[]" value="calcado" class="sr-only">
                                         <div class="item-card">
@@ -2934,9 +2963,8 @@
                                 <span class="rotulo-icone">📦</span>
                                 Quantidade aproximada
                             </label>
-                            <input type="text" id="quantidadeRoupas" name="quantidade" 
-                                   placeholder="Ex: 5 camisetas, 2 pares de calças..." 
-                                   class="input-estilizado">
+                            <input type="text" id="quantidadeRoupas" name="quantidade"
+                                placeholder="Ex: 5 camisetas, 2 pares de calças..." class="input-estilizado">
                         </div>
 
                         <div class="campo-grupo">
@@ -2969,7 +2997,7 @@
                     <!-- Passo 2: Método de Entrega -->
                     <div class="form-step" data-step="2">
                         <h3>Como prefere entregar sua doação?</h3>
-                        
+
                         <div class="opcoes-grid">
                             <label class="opcao-card">
                                 <input type="radio" name="entrega" value="retirada" class="sr-only" required>
@@ -2978,7 +3006,7 @@
                                     <span class="card-titulo">Retirada em Casa</span>
                                 </div>
                             </label>
-                            
+
                             <label class="opcao-card">
                                 <input type="radio" name="entrega" value="entrega-ponto" class="sr-only">
                                 <div class="card">
@@ -2986,7 +3014,7 @@
                                     <span class="card-titulo">Levar ao Ponto</span>
                                 </div>
                             </label>
-                            
+
                             <label class="opcao-card">
                                 <input type="radio" name="entrega" value="entrega-app" class="sr-only">
                                 <div class="card">
@@ -3001,26 +3029,26 @@
                                 <span class="rotulo-icone">🏠</span>
                                 Endereço para retirada
                             </label>
-                            <textarea id="enderecoRetiradaRoupas" name="endereco_retirada" 
-                                      placeholder="Digite seu endereço completo..." 
-                                      class="textarea-estilizado"></textarea>
-                            
+                            <textarea id="enderecoRetiradaRoupas" name="endereco_retirada"
+                                placeholder="Digite seu endereço completo..." class="textarea-estilizado"></textarea>
+
                             <div class="campos-grid">
                                 <div class="campo-grupo">
                                     <label for="dataRetiradaRoupas" class="rotulo-estilizado">
                                         <span class="rotulo-icone">📅</span>
                                         Data preferida
                                     </label>
-                                    <input type="date" id="dataRetiradaRoupas" name="data_retirada" 
-                                           class="input-estilizado">
+                                    <input type="date" id="dataRetiradaRoupas" name="data_retirada"
+                                        class="input-estilizado">
                                 </div>
-                                
+
                                 <div class="campo-grupo">
                                     <label for="horarioRetiradaRoupas" class="rotulo-estilizado">
                                         <span class="rotulo-icone">⏰</span>
                                         Horário preferido
                                     </label>
-                                    <select id="horarioRetiradaRoupas" name="horario_retirada" class="select-estilizado">
+                                    <select id="horarioRetiradaRoupas" name="horario_retirada"
+                                        class="select-estilizado">
                                         <option value="">Selecione</option>
                                         <option value="manha">Manhã (8h-12h)</option>
                                         <option value="tarde">Tarde (13h-18h)</option>
@@ -3043,14 +3071,14 @@
                                 <option value="zona-leste">Posto Zona Leste</option>
                                 <option value="zona-oeste">Posto Zona Oeste</option>
                             </select>
-                            
+
                             <div class="campo-grupo">
                                 <label for="dataEntregaPontoRoupas" class="rotulo-estilizado">
                                     <span class="rotulo-icone">📅</span>
                                     Data prevista para entrega
                                 </label>
-                                <input type="date" id="dataEntregaPontoRoupas" name="data_entrega_ponto" 
-                                       class="input-estilizado">
+                                <input type="date" id="dataEntregaPontoRoupas" name="data_entrega_ponto"
+                                    class="input-estilizado">
                             </div>
                         </div>
 
@@ -3067,14 +3095,13 @@
                                 <option value="rapp">Rappi</option>
                                 <option value="outro">Outro</option>
                             </select>
-                            
+
                             <div class="campo-grupo">
                                 <label for="dataAppRoupas" class="rotulo-estilizado">
                                     <span class="rotulo-icone">📅</span>
                                     Data prevista para envio
                                 </label>
-                                <input type="date" id="dataAppRoupas" name="data_app" 
-                                       class="input-estilizado">
+                                <input type="date" id="dataAppRoupas" name="data_app" class="input-estilizado">
                             </div>
                         </div>
                     </div>
@@ -3082,25 +3109,23 @@
                     <!-- Passo 3: Informações de Contato -->
                     <div class="form-step" data-step="3">
                         <h3>Seus dados para contato</h3>
-                        
+
                         <div class="campos-grid">
                             <div class="campo-grupo">
                                 <label for="nomeRoupas" class="rotulo-estilizado">
                                     <span class="rotulo-icone">👤</span>
                                     Seu nome
                                 </label>
-                                <input type="text" id="nomeRoupas" name="nome" 
-                                       required class="input-estilizado">
+                                <input type="text" id="nomeRoupas" name="nome" required class="input-estilizado">
                             </div>
-                            
+
                             <div class="campo-grupo">
                                 <label for="telefoneRoupas" class="rotulo-estilizado">
                                     <span class="rotulo-icone">📞</span>
                                     Telefone/WhatsApp
                                 </label>
-                                <input type="tel" id="telefoneRoupas" name="telefone" 
-                                       required placeholder="(11) 99999-9999" 
-                                       class="input-estilizado">
+                                <input type="tel" id="telefoneRoupas" name="telefone" required
+                                    placeholder="(11) 99999-9999" class="input-estilizado">
                             </div>
                         </div>
 
@@ -3109,8 +3134,8 @@
                                 <span class="rotulo-icone">📧</span>
                                 E-mail (opcional)
                             </label>
-                            <input type="email" id="emailRoupas" name="email" 
-                                   placeholder="seu@email.com" class="input-estilizado">
+                            <input type="email" id="emailRoupas" name="email" placeholder="seu@email.com"
+                                class="input-estilizado">
                         </div>
 
                         <div class="campo-grupo">
@@ -3118,15 +3143,16 @@
                                 <span class="rotulo-icone">📝</span>
                                 Observações adicionais
                             </label>
-                            <textarea id="observacoesRoupas" name="observacoes" 
-                                      placeholder="Informações sobre tamanhos, gênero, quantidade, etc..."
-                                      class="textarea-estilizado"></textarea>
+                            <textarea id="observacoesRoupas" name="observacoes"
+                                placeholder="Informações sobre tamanhos, gênero, quantidade, etc..."
+                                class="textarea-estilizado"></textarea>
                         </div>
 
                         <div class="confirmacao hidden" id="confirmacaoRoupas">
                             <div class="confirmacao-icone">✅</div>
                             <h3 class="confirmacao-titulo">Doação Registrada!</h3>
-                            <p class="confirmacao-texto">Enviaremos os detalhes através de seu número de contato em até 24 horas.</p>
+                            <p class="confirmacao-texto">Enviaremos os detalhes através de seu número de contato em até
+                                24 horas.</p>
                             <p class="confirmacao-texto">Obrigado por fazer a diferença! ❤️</p>
                         </div>
                     </div>
@@ -3167,17 +3193,17 @@
                     <!-- Passo 1: Informações da Vaga -->
                     <div class="form-step active" data-step="1">
                         <h3>Informações da Vaga</h3>
-                        
+
                         <div class="campos-grid">
                             <div class="campo-grupo">
                                 <label for="cargo" class="rotulo-estilizado">
                                     <span class="rotulo-icone">👔</span>
                                     Cargo Ofertado
                                 </label>
-                                <input type="text" id="cargo" name="cargo" required 
-                                       placeholder="Ex: Auxiliar Administrativo" class="input-estilizado">
+                                <input type="text" id="cargo" name="cargo" required
+                                    placeholder="Ex: Auxiliar Administrativo" class="input-estilizado">
                             </div>
-                            
+
                             <div class="campo-grupo">
                                 <label for="tipoVaga" class="rotulo-estilizado">
                                     <span class="rotulo-icone">⏰</span>
@@ -3199,8 +3225,8 @@
                                 <span class="rotulo-icone">💰</span>
                                 Faixa Salarial (opcional)
                             </label>
-                            <input type="text" id="salario" name="salario" 
-                                   placeholder="Ex: R$ 1.500 - R$ 2.000" class="input-estilizado">
+                            <input type="text" id="salario" name="salario" placeholder="Ex: R$ 1.500 - R$ 2.000"
+                                class="input-estilizado">
                         </div>
 
                         <div class="campo-grupo">
@@ -3208,9 +3234,9 @@
                                 <span class="rotulo-icone">📋</span>
                                 Requisitos da Vaga
                             </label>
-                            <textarea id="requisitos" name="requisitos" 
-                                      placeholder="Descreva os requisitos necessários (escolaridade, experiência, etc.)"
-                                      class="textarea-estilizado"></textarea>
+                            <textarea id="requisitos" name="requisitos"
+                                placeholder="Descreva os requisitos necessários (escolaridade, experiência, etc.)"
+                                class="textarea-estilizado"></textarea>
                         </div>
 
                         <div class="campo-grupo">
@@ -3218,34 +3244,32 @@
                                 <span class="rotulo-icone">🎁</span>
                                 Benefícios Oferecidos
                             </label>
-                            <textarea id="beneficios" name="beneficios" 
-                                      placeholder="VT, VR, plano de saúde, etc."
-                                      class="textarea-estilizado"></textarea>
+                            <textarea id="beneficios" name="beneficios" placeholder="VT, VR, plano de saúde, etc."
+                                class="textarea-estilizado"></textarea>
                         </div>
                     </div>
 
                     <!-- Passo 2: Informações da Empresa -->
                     <div class="form-step" data-step="2">
                         <h3>Informações da Empresa</h3>
-                        
+
                         <div class="campos-grid">
                             <div class="campo-grupo">
                                 <label for="nomeEmpresa" class="rotulo-estilizado">
                                     <span class="rotulo-icone">🏢</span>
                                     Nome da Empresa
                                 </label>
-                                <input type="text" id="nomeEmpresa" name="nomeEmpresa" required 
-                                       class="input-estilizado">
+                                <input type="text" id="nomeEmpresa" name="nomeEmpresa" required
+                                    class="input-estilizado">
                             </div>
-                            
+
                             <div class="campo-grupo">
                                 <label for="ramo" class="rotulo-estilizado">
                                     <span class="rotulo-icone">📊</span>
                                     Ramo de Atividade
                                 </label>
-                                <input type="text" id="ramo" name="ramo" 
-                                       placeholder="Ex: Comércio, Serviços, Indústria" 
-                                       class="input-estilizado">
+                                <input type="text" id="ramo" name="ramo" placeholder="Ex: Comércio, Serviços, Indústria"
+                                    class="input-estilizado">
                             </div>
                         </div>
 
@@ -3254,9 +3278,8 @@
                                 <span class="rotulo-icone">📍</span>
                                 Local de Trabalho
                             </label>
-                            <input type="text" id="localTrabalho" name="localTrabalho" 
-                                   placeholder="Endereço ou região" 
-                                   class="input-estilizado">
+                            <input type="text" id="localTrabalho" name="localTrabalho" placeholder="Endereço ou região"
+                                class="input-estilizado">
                         </div>
 
                         <div class="campo-grupo">
@@ -3264,34 +3287,33 @@
                                 <span class="rotulo-icone">ℹ️</span>
                                 Sobre a Empresa
                             </label>
-                            <textarea id="sobreEmpresa" name="sobreEmpresa" 
-                                      placeholder="Breve descrição da empresa e sua cultura"
-                                      class="textarea-estilizado"></textarea>
+                            <textarea id="sobreEmpresa" name="sobreEmpresa"
+                                placeholder="Breve descrição da empresa e sua cultura"
+                                class="textarea-estilizado"></textarea>
                         </div>
                     </div>
 
                     <!-- Passo 3: Informações de Contato -->
                     <div class="form-step" data-step="3">
                         <h3>Seus dados para contato</h3>
-                        
+
                         <div class="campos-grid">
                             <div class="campo-grupo">
                                 <label for="nomeContato" class="rotulo-estilizado">
                                     <span class="rotulo-icone">👤</span>
                                     Nome do Contato
                                 </label>
-                                <input type="text" id="nomeContato" name="nomeContato" required 
-                                       class="input-estilizado">
+                                <input type="text" id="nomeContato" name="nomeContato" required
+                                    class="input-estilizado">
                             </div>
-                            
+
                             <div class="campo-grupo">
                                 <label for="cargoContato" class="rotulo-estilizado">
                                     <span class="rotulo-icone">💼</span>
                                     Cargo do Contato
                                 </label>
-                                <input type="text" id="cargoContato" name="cargoContato" 
-                                       placeholder="Ex: Recrutador, Gerente" 
-                                       class="input-estilizado">
+                                <input type="text" id="cargoContato" name="cargoContato"
+                                    placeholder="Ex: Recrutador, Gerente" class="input-estilizado">
                             </div>
                         </div>
 
@@ -3301,19 +3323,17 @@
                                     <span class="rotulo-icone">📞</span>
                                     Telefone/WhatsApp
                                 </label>
-                                <input type="tel" id="telefoneTrabalho" name="telefone" 
-                                       required placeholder="(11) 99999-9999" 
-                                       class="input-estilizado">
+                                <input type="tel" id="telefoneTrabalho" name="telefone" required
+                                    placeholder="(11) 99999-9999" class="input-estilizado">
                             </div>
-                            
+
                             <div class="campo-grupo">
                                 <label for="emailTrabalho" class="rotulo-estilizado">
                                     <span class="rotulo-icone">📧</span>
                                     E-mail
                                 </label>
-                                <input type="email" id="emailTrabalho" name="email" 
-                                       required placeholder="contato@empresa.com" 
-                                       class="input-estilizado">
+                                <input type="email" id="emailTrabalho" name="email" required
+                                    placeholder="contato@empresa.com" class="input-estilizado">
                             </div>
                         </div>
 
@@ -3322,15 +3342,16 @@
                                 <span class="rotulo-icone">📝</span>
                                 Observações adicionais
                             </label>
-                            <textarea id="observacoesTrabalho" name="observacoes" 
-                                      placeholder="Informações adicionais sobre o processo seletivo, horários para contato, etc."
-                                      class="textarea-estilizado"></textarea>
+                            <textarea id="observacoesTrabalho" name="observacoes"
+                                placeholder="Informações adicionais sobre o processo seletivo, horários para contato, etc."
+                                class="textarea-estilizado"></textarea>
                         </div>
 
                         <div class="confirmacao hidden" id="confirmacaoTrabalho">
                             <div class="confirmacao-icone">✅</div>
                             <h3 class="confirmacao-titulo">Oportunidade Registrada!</h3>
-                            <p class="confirmacao-texto">Enviaremos os detalhes através de seu número de contato em até 24 horas.</p>
+                            <p class="confirmacao-texto">Enviaremos os detalhes através de seu número de contato em até
+                                24 horas.</p>
                             <p class="confirmacao-texto">Obrigado por oferecer oportunidades! 💼</p>
                         </div>
                     </div>
@@ -3347,11 +3368,6 @@
         <div class="container">
             <div class="rodape-content">
                 <div class="rodape-info">
-                    <div class="rodape-logo">
-                        <img src="/images/Gemini_Generated_Image_juizoljuizoljuiz.png" alt="Rua Solidária Logo">
-                        <p class="rodape-slogan">Transformando vidas, uma doação de cada vez.</p>
-                    </div>
-                    
                     <div class="rodape-contato">
                         <h3>Dúvidas sobre Doações?</h3>
                         <address>
@@ -3361,7 +3377,7 @@
                         </address>
                     </div>
                 </div>
-                
+
                 <div class="rodape-links">
                     <div class="rodape-coluna">
                         <h3>Tipos de Doação</h3>
@@ -3372,7 +3388,7 @@
                             <li><a href="#oportunidade-trabalho">Oportunidades</a></li>
                         </ul>
                     </div>
-                    
+
                     <div class="rodape-coluna">
                         <h3>Transparência</h3>
                         <ul>
@@ -3384,23 +3400,23 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="rodape-bottom">
-                <p>&copy; 2025 Rua Solidária. CNPJ: 62.984.091/0001-02 • OSCIP certificada</p>
+                <p>&copy; 2025 Rua Solidária. Todos os direitos reservados.</p>
+                <p>CNPJ: 62.984.091/0001-02 • Organização da Sociedade Civil de Interesse Público</p>
             </div>
         </div>
     </footer>
 
     <!-- Botão flutuante do WhatsApp -->
-    <a href="https://wa.me/5511988234959?text=Olá! Gostaria de tirar dúvidas sobre doações." 
-       class="whatsapp-float" aria-label="Tirar dúvidas sobre doações no WhatsApp" target="_blank">
-        <span class="whatsapp-icon"><i class="fab fa-whatsapp"></i></span>
-        <span class="whatsapp-text">Dúvidas?</span>
+    <a href="https://wa.me/5511988234959" class="whatsapp-float" aria-label="Fale conosco no WhatsApp" target="_blank">
+        <span class="whatsapp-icon">💬</span>
+        <span class="whatsapp-text">Precisa de ajuda?</span>
     </a>
 
     <script>
         // ===== SISTEMA DE ACESSIBILIDADE =====
-        
+
         // Elementos do painel de acessibilidade
         const accessibilityPanel = document.getElementById('acessibilidade');
         const accessibilityToggle = document.getElementById('accessibility-toggle');
@@ -3429,7 +3445,7 @@
             accessibilityPanel.classList.toggle('open');
             accessibilityToggle.classList.toggle('open');
             accessibilityToggle.setAttribute('aria-expanded', !isOpen);
-            
+
             if (!isOpen) {
                 // Focar no primeiro botão quando abrir
                 setTimeout(() => toggleThemeBtn.focus(), 100);
@@ -3449,10 +3465,10 @@
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
             document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
             toggleThemeBtn.setAttribute('aria-pressed', !isDark);
-            toggleThemeBtn.innerHTML = isDark ? 
-                '<span class="theme-icon">🌙</span> <span>Modo Escuro</span>' : 
+            toggleThemeBtn.innerHTML = isDark ?
+                '<span class="theme-icon">🌙</span> <span>Modo Escuro</span>' :
                 '<span class="theme-icon">☀️</span> <span>Modo Claro</span>';
-            
+
             savePreference('theme', isDark ? 'light' : 'dark');
             showModeIndicator(isDark ? 'Modo Claro Ativado' : 'Modo Escuro Ativado');
         });
@@ -3462,7 +3478,7 @@
             const isHighContrast = document.documentElement.getAttribute('data-contrast') === 'high';
             document.documentElement.setAttribute('data-contrast', isHighContrast ? 'normal' : 'high');
             toggleContrastBtn.setAttribute('aria-pressed', !isHighContrast);
-            
+
             savePreference('contrast', isHighContrast ? 'normal' : 'high');
             showModeIndicator(isHighContrast ? 'Contraste Normal' : 'Alto Contraste Ativado');
         });
@@ -3472,7 +3488,7 @@
             const isReadingMode = document.documentElement.getAttribute('data-reading') === 'true';
             document.documentElement.setAttribute('data-reading', !isReadingMode);
             toggleReadingBtn.setAttribute('aria-pressed', !isReadingMode);
-            
+
             // Aplicar configurações do modo leitura
             if (!isReadingMode) {
                 document.documentElement.setAttribute('data-contrast', 'high');
@@ -3484,7 +3500,7 @@
                 // Restaurar configurações anteriores
                 loadPreferences();
             }
-            
+
             savePreference('reading', !isReadingMode);
             showModeIndicator(isReadingMode ? 'Modo Leitura Desativado' : 'Modo Leitura Ativado');
         });
@@ -3525,20 +3541,20 @@
             document.documentElement.removeAttribute('data-reading');
             document.documentElement.style.setProperty('--font-size-scale', '1');
             document.documentElement.style.setProperty('--line-height', '1.6');
-            
+
             // Resetar estados dos botões
             toggleThemeBtn.setAttribute('aria-pressed', 'false');
             toggleThemeBtn.innerHTML = '<span class="theme-icon">🌙</span> <span>Modo Escuro</span>';
             toggleContrastBtn.setAttribute('aria-pressed', 'false');
             toggleReadingBtn.setAttribute('aria-pressed', 'false');
             updateFontButtons(fontNormalBtn);
-            
+
             // Limpar localStorage
             localStorage.removeItem('theme');
             localStorage.removeItem('contrast');
             localStorage.removeItem('fontSize');
             localStorage.removeItem('reading');
-            
+
             showModeIndicator('Configurações Restauradas');
         });
 
@@ -3553,27 +3569,27 @@
             const savedContrast = localStorage.getItem('contrast');
             const savedFontSize = localStorage.getItem('fontSize');
             const savedReading = localStorage.getItem('reading');
-            
+
             if (savedTheme) {
                 document.documentElement.setAttribute('data-theme', savedTheme);
                 toggleThemeBtn.setAttribute('aria-pressed', savedTheme === 'dark');
-                toggleThemeBtn.innerHTML = savedTheme === 'dark' ? 
-                    '<span class="theme-icon">☀️</span> <span>Modo Claro</span>' : 
+                toggleThemeBtn.innerHTML = savedTheme === 'dark' ?
+                    '<span class="theme-icon">☀️</span> <span>Modo Claro</span>' :
                     '<span class="theme-icon">🌙</span> <span>Modo Escuro</span>';
             }
-            
+
             if (savedContrast) {
                 document.documentElement.setAttribute('data-contrast', savedContrast);
                 toggleContrastBtn.setAttribute('aria-pressed', savedContrast === 'high');
             }
-            
+
             if (savedFontSize) {
                 document.documentElement.style.setProperty('--font-size-scale', savedFontSize);
-                const activeBtn = savedFontSize === '0.875' ? fontDecreaseBtn : 
-                                savedFontSize === '1' ? fontNormalBtn : fontIncreaseBtn;
+                const activeBtn = savedFontSize === '0.875' ? fontDecreaseBtn :
+                    savedFontSize === '1' ? fontNormalBtn : fontIncreaseBtn;
                 updateFontButtons(activeBtn);
             }
-            
+
             if (savedReading === 'true') {
                 document.documentElement.setAttribute('data-reading', 'true');
                 toggleReadingBtn.setAttribute('aria-pressed', 'true');
@@ -3584,7 +3600,7 @@
         function showModeIndicator(message) {
             modeIndicator.textContent = message;
             modeIndicator.classList.add('show');
-            
+
             setTimeout(() => {
                 modeIndicator.classList.remove('show');
             }, 3000);
@@ -3615,27 +3631,27 @@
         const tiposDoacao = document.querySelectorAll('.tipo-doacao');
 
         botoesTipoDoacao.forEach(botao => {
-            botao.addEventListener('click', function(e) {
+            botao.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 // Remover classe ativa de todos os botões
                 botoesTipoDoacao.forEach(b => b.classList.remove('ativo'));
                 // Adicionar classe ativa ao botão clicado
                 this.classList.add('ativo');
-                
+
                 // Ocultar todas as seções
                 tiposDoacao.forEach(secao => secao.classList.remove('ativo'));
-                
+
                 // Mostrar a seção correspondente
                 const tipo = this.getAttribute('data-tipo');
                 const secaoAlvo = document.getElementById(`doacao-${tipo}`);
                 if (secaoAlvo) {
                     secaoAlvo.classList.add('ativo');
-                    
+
                     // Rolar suavemente para a seção
-                    secaoAlvo.scrollIntoView({ 
-                        behavior: 'smooth', 
-                        block: 'start' 
+                    secaoAlvo.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             });
@@ -3653,7 +3669,7 @@
 
         // Mostrar/ocultar campo de valor customizado
         opcoesValor.forEach(opcao => {
-            opcao.addEventListener('change', function() {
+            opcao.addEventListener('change', function () {
                 if (this.value === 'outro') {
                     valorCustomContainer.classList.remove('hidden');
                     valorCustomInput.focus();
@@ -3665,7 +3681,7 @@
         });
 
         // Atualizar valor customizado
-        valorCustomInput.addEventListener('input', function() {
+        valorCustomInput.addEventListener('input', function () {
             if (this.value && parseFloat(this.value) >= 1) {
                 atualizarResumoDoacao();
             }
@@ -3680,7 +3696,7 @@
         function atualizarResumoDoacao() {
             let valor = 0;
             const opcaoValorSelecionada = formDoacaoFinanceira.querySelector('input[name="valor"]:checked');
-            
+
             if (opcaoValorSelecionada) {
                 if (opcaoValorSelecionada.value === 'outro') {
                     valor = parseFloat(valorCustomInput.value) || 0;
@@ -3688,22 +3704,22 @@
                     valor = parseFloat(opcaoValorSelecionada.value);
                 }
             }
-            
+
             const opcaoPagamentoSelecionada = formDoacaoFinanceira.querySelector('input[name="pagamento"]:checked');
             const pagamento = opcaoPagamentoSelecionada ? opcaoPagamentoSelecionada.value : '';
-            
+
             if (valor > 0 && pagamento) {
                 resumoValor.textContent = `R$ ${valor.toFixed(2)}`;
-                
+
                 let pagamentoTexto = '';
-                switch(pagamento) {
+                switch (pagamento) {
                     case 'pix': pagamentoTexto = 'PIX'; break;
                     case 'cartao': pagamentoTexto = 'Cartão'; break;
                     case 'boleto': pagamentoTexto = 'Boleto'; break;
                 }
                 resumoPagamento.textContent = pagamentoTexto;
                 resumoTotal.textContent = `R$ ${valor.toFixed(2)}`;
-                
+
                 resumoDoacao.classList.remove('hidden');
             } else {
                 resumoDoacao.classList.add('hidden');
@@ -3711,17 +3727,17 @@
         }
 
         // Envio do formulário de doação financeira
-        formDoacaoFinanceira.addEventListener('submit', function(e) {
+        formDoacaoFinanceira.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const valorSelecionado = formDoacaoFinanceira.querySelector('input[name="valor"]:checked');
             const pagamentoSelecionado = formDoacaoFinanceira.querySelector('input[name="pagamento"]:checked');
-            
+
             if (!valorSelecionado || !pagamentoSelecionado) {
                 alert('Por favor, selecione um valor e uma forma de pagamento.');
                 return;
             }
-            
+
             let valor = 0;
             if (valorSelecionado.value === 'outro') {
                 valor = parseFloat(valorCustomInput.value) || 0;
@@ -3732,23 +3748,23 @@
             } else {
                 valor = parseFloat(valorSelecionado.value);
             }
-            
+
             const botaoSubmit = formDoacaoFinanceira.querySelector('.botao-submit');
             const botaoLoader = formDoacaoFinanceira.querySelector('.botao-loader');
-            
+
             // Simular envio do formulário
             botaoSubmit.disabled = true;
             botaoLoader.classList.remove('hidden');
-            
+
             setTimeout(() => {
                 // Em uma implementação real, você enviaria os dados para o servidor
                 // e redirecionaria para a página de pagamento
-                
+
                 alert(`Doação de R$ ${valor.toFixed(2)} confirmada! Em breve você será redirecionado para a página de pagamento.`);
-                
+
                 botaoSubmit.disabled = false;
                 botaoLoader.classList.add('hidden');
-                
+
                 // Redirecionar para WhatsApp com informações da doação
                 const tipoPagamento = pagamentoSelecionado.value;
                 const mensagem = `Olá! Gostaria de fazer uma doação de R$ ${valor.toFixed(2)} via ${tipoPagamento === 'pix' ? 'PIX' : tipoPagamento === 'cartao' ? 'Cartão' : 'Boleto'}.`;
@@ -3893,23 +3909,23 @@
 
         function mostrarPasso(tipo, passo) {
             const tipoCapitalizado = tipo.charAt(0).toUpperCase() + tipo.slice(1);
-            
+
             // Atualizar botões
             const btnAvancar = document.getElementById(`btnAvancar${tipoCapitalizado}`);
             const btnVoltar = document.getElementById(`btnVoltar${tipoCapitalizado}`);
-            
+
             if (passo === 1) {
                 btnVoltar.style.display = 'none';
             } else {
                 btnVoltar.style.display = 'block';
             }
-            
+
             if (passo === 3) {
                 btnAvancar.textContent = 'Finalizar';
             } else {
                 btnAvancar.textContent = 'Avançar';
             }
-            
+
             // Atualizar progresso
             document.querySelectorAll(`#modal${tipoCapitalizado} .step`).forEach((step, index) => {
                 step.classList.remove('active', 'completed');
@@ -3919,11 +3935,11 @@
                     step.classList.add('completed');
                 }
             });
-            
+
             // Atualizar barra de progresso
             const progresso = (passo - 1) / 2 * 100;
             document.querySelector(`#modal${tipoCapitalizado} .progress-bar`).style.width = `${progresso}%`;
-            
+
             // Mostrar passo atual
             document.querySelectorAll(`#modal${tipoCapitalizado} .form-step`).forEach(step => {
                 step.classList.remove('active');
@@ -3934,8 +3950,8 @@
         function validarPasso(tipo, passo) {
             const tipoCapitalizado = tipo.charAt(0).toUpperCase() + tipo.slice(1);
             const form = document.getElementById(`form${tipoCapitalizado}`);
-            
-            switch(passo) {
+
+            switch (passo) {
                 case 1:
                     // Validar seleção de itens
                     if (tipo === 'alimentos' || tipo === 'roupas') {
@@ -3962,14 +3978,14 @@
 
         function finalizarDoacao(tipo) {
             const tipoCapitalizado = tipo.charAt(0).toUpperCase() + tipo.slice(1);
-            
+
             // Mostrar confirmação
             document.getElementById(`confirmacao${tipoCapitalizado}`).classList.remove('hidden');
-            
+
             // Ocultar botões
             document.getElementById(`btnAvancar${tipoCapitalizado}`).style.display = 'none';
             document.getElementById(`btnVoltar${tipoCapitalizado}`).style.display = 'none';
-            
+
             // Fechar modal após 3 segundos
             setTimeout(() => {
                 fecharModal();
@@ -3978,15 +3994,15 @@
 
         // Mostrar/ocultar campos baseado no método de entrega selecionado
         document.querySelectorAll('input[name="entrega"]').forEach(radio => {
-            radio.addEventListener('change', function() {
+            radio.addEventListener('change', function () {
                 const modal = this.closest('.modal');
                 const tipo = modal.id.replace('modal', '').toLowerCase();
-                
+
                 // Ocultar todos os detalhes
                 modal.querySelectorAll('[id^="detalhes"]').forEach(detalhe => {
                     detalhe.classList.add('hidden');
                 });
-                
+
                 // Mostrar detalhes correspondentes
                 if (this.value === 'retirada') {
                     modal.querySelector(`#detalhesRetirada${tipo !== 'alimentos' ? tipo.charAt(0).toUpperCase() + tipo.slice(1) : ''}`).classList.remove('hidden');
@@ -4025,7 +4041,7 @@
                     toggleAccessibilityPanel();
                 }
             }
-            
+
             // Navegação entre seções principais com Tab
             if (e.key === 'Tab' && !e.shiftKey) {
                 const focusableElements = document.querySelectorAll(
@@ -4033,7 +4049,7 @@
                 );
                 const firstElement = focusableElements[0];
                 const lastElement = focusableElements[focusableElements.length - 1];
-                
+
                 if (e.target === lastElement) {
                     e.preventDefault();
                     firstElement.focus();
@@ -4042,25 +4058,25 @@
         });
 
         // Inicializar
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Carregar preferências de acessibilidade
             loadPreferences();
-            
+
             // Iniciar lazy loading
             lazyLoadImages();
-            
+
             // Garantir que apenas a primeira seção esteja visível
             tiposDoacao.forEach(secao => {
                 if (!secao.classList.contains('ativo')) {
                     secao.style.display = 'none';
                 }
             });
-            
+
             // Garantir que os modais estejam ocultos inicialmente
             Object.values(modals).forEach(modal => {
                 modal.style.display = 'none';
             });
-            
+
             // Adicionar ícones Font Awesome dinamicamente
             const style = document.createElement('style');
             style.textContent = `
@@ -4072,4 +4088,5 @@
         });
     </script>
 </body>
+
 </html>
