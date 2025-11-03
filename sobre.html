@@ -623,7 +623,7 @@
             margin: 0 auto;
         }
 
-         /* Seção Sobre */
+        /* Seção Sobre */
         .secao-sobre {
             padding: 80px 0;
             background-color: var(--light);
@@ -772,11 +772,25 @@
             animation: fadeInUp 0.6s ease forwards;
         }
 
-        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
-        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
-        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
-        .timeline-item:nth-child(4) { animation-delay: 0.8s; }
-        .timeline-item:nth-child(5) { animation-delay: 1s; }
+        .timeline-item:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .timeline-item:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .timeline-item:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .timeline-item:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .timeline-item:nth-child(5) {
+            animation-delay: 1s;
+        }
 
         @keyframes fadeInUp {
             to {
@@ -877,7 +891,7 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-            
+
             .historia-imagem {
                 height: 350px;
                 order: -1;
@@ -913,7 +927,7 @@
             .estatisticas {
                 grid-template-columns: 1fr;
             }
-            
+
             .timeline-content {
                 padding: 20px;
             }
@@ -1650,7 +1664,7 @@
     <header class="cabecalho">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="/images/Gemini_Generated_Image_juizoljuizoljuiz.png" alt="Rua Solidária Logo">
+                <img src="/images/logo01.jpg" alt="Rua Solidária Logo">
                 <span class="logo-texto">Rua Solidária</span>
             </a>
 
@@ -1665,8 +1679,9 @@
                     <li><a href="index.html">Início</a></li>
                     <li><a href="doacoes.html">Fazer Doação</a></li>
                     <li><a href="cadastro.html">Cadastrar</a></li>
+                    <li><a href="acompanhe.html">Acompanhe</a></li>
                     <li><a href="sobre.html" aria-current="page">Sobre</a></li>
-                    <li><a href="index.html#contato">Contato</a></li>
+                    <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
         </div>
@@ -1723,112 +1738,123 @@
         </nav>
 
         <!-- Nossa História -->
-    <section id="nossa-historia" class="secao-sobre">
-        <div class="container">
-            <header class="secao-header">
-                <h2>Nossa <span class="destaque">História</span></h2>
-                <p class="secao-descricao">Uma jornada de transformação que começou com um simples gesto de solidariedade</p>
-            </header>
+        <section id="nossa-historia" class="secao-sobre">
+            <div class="container">
+                <header class="secao-header">
+                    <h2>Nossa <span class="destaque">História</span></h2>
+                    <p class="secao-descricao">Uma jornada de transformação que começou com um simples gesto de
+                        solidariedade</p>
+                </header>
 
-            <div class="historia-content">
-                <div class="historia-texto">
-                    <p>Fundada em 2010 por um grupo de amigos sensibilizados com a crescente população em situação de rua na cidade de São Paulo, a Rua Solidária nasceu de um gesto simples: distribuir marmitas em um ponto específico da cidade aos domingos.</p>
+                <div class="historia-content">
+                    <div class="historia-texto">
+                        <p>Fundada em 2010 por um grupo de amigos sensibilizados com a crescente população em situação
+                            de rua na cidade de São Paulo, a Rua Solidária nasceu de um gesto simples: distribuir
+                            marmitas em um ponto específico da cidade aos domingos.</p>
 
-                    <p>O que começou como uma ação pontual rapidamente se transformou em um movimento organizado. Percebemos que além da fome, essas pessoas precisavam de dignidade, oportunidades e, acima de tudo, esperança.</p>
+                        <p>O que começou como uma ação pontual rapidamente se transformou em um movimento organizado.
+                            Percebemos que além da fome, essas pessoas precisavam de dignidade, oportunidades e, acima
+                            de tudo, esperança.</p>
 
-                    <p>Hoje, após 14 anos de atuação, somos uma organização certificada que já impactou mais de 25 mil vidas através de programas estruturados de alimentação, higiene, capacitação profissional e reinserção social.</p>
-                    
-                    <!-- Estatísticas -->
-                    <div class="estatisticas">
-                        <div class="estatistica">
-                            <span class="estatistica-valor">25K+</span>
-                            <span class="estatistica-descricao">Vidas Impactadas</span>
+                        <p>Hoje, após 14 anos de atuação, somos uma organização certificada que já impactou mais de 25
+                            mil vidas através de programas estruturados de alimentação, higiene, capacitação
+                            profissional e reinserção social.</p>
+
+                        <!-- Estatísticas -->
+                        <div class="estatisticas">
+                            <div class="estatistica">
+                                <span class="estatistica-valor">25K+</span>
+                                <span class="estatistica-descricao">Vidas Impactadas</span>
+                            </div>
+                            <div class="estatistica">
+                                <span class="estatistica-valor">500+</span>
+                                <span class="estatistica-descricao">Voluntários</span>
+                            </div>
+                            <div class="estatistica">
+                                <span class="estatistica-valor">14</span>
+                                <span class="estatistica-descricao">Anos de Atuação</span>
+                            </div>
+                            <div class="estatistica">
+                                <span class="estatistica-valor">6</span>
+                                <span class="estatistica-descricao">Cidades Atendidas</span>
+                            </div>
                         </div>
-                        <div class="estatistica">
-                            <span class="estatistica-valor">500+</span>
-                            <span class="estatistica-descricao">Voluntários</span>
-                        </div>
-                        <div class="estatistica">
-                            <span class="estatistica-valor">14</span>
-                            <span class="estatistica-descricao">Anos de Atuação</span>
-                        </div>
-                        <div class="estatistica">
-                            <span class="estatistica-valor">6</span>
-                            <span class="estatistica-descricao">Cidades Atendidas</span>
-                        </div>
+                    </div>
+
+                    <div class="historia-imagem">
+                        <img src="/images/ruasolidaria.jpg" alt="Voluntários da Rua Solidária em ação comunitária">
                     </div>
                 </div>
 
-                <div class="historia-imagem">                
-                    <img src="/images/ruasolidaria.jpg" 
-                         alt="Voluntários da Rua Solidária em ação comunitária">
+                <!-- Linha do Tempo -->
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-ano">2010</div>
+                        <div class="timeline-content">
+                            <h3>Fundação</h3>
+                            <p>Primeira distribuição de marmitas no centro de São Paulo. 15 voluntários atendendo 50
+                                pessoas por semana.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-ano">2013</div>
+                        <div class="timeline-content">
+                            <h3>Primeira Sede</h3>
+                            <p>Aquisição do primeiro espaço físico, permitindo expandir os serviços para higiene e
+                                atendimento social.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-ano">2016</div>
+                        <div class="timeline-content">
+                            <h3>Certificação OSCIP</h3>
+                            <p>Reconhecimento como Organização da Sociedade Civil de Interesse Público, ampliando nossa
+                                credibilidade.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-ano">2020</div>
+                        <div class="timeline-content">
+                            <h3>Programa de Empregabilidade</h3>
+                            <p>Lançamento do programa que já inseriu mais de 500 pessoas no mercado de trabalho formal.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-ano">2025</div>
+                        <div class="timeline-content">
+                            <h3>Expansão Nacional</h3>
+                            <p>Início das operações em outras 3 capitais brasileiras, multiplicando nosso impacto
+                                social.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Linha do Tempo -->
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-ano">2010</div>
-                    <div class="timeline-content">
-                        <h3>Fundação</h3>
-                        <p>Primeira distribuição de marmitas no centro de São Paulo. 15 voluntários atendendo 50 pessoas por semana.</p>
-                    </div>
-                </div>
+        <script>
+            // Adicionando interatividade à linha do tempo
+            document.addEventListener('DOMContentLoaded', function () {
+                const timelineItems = document.querySelectorAll('.timeline-item');
 
-                <div class="timeline-item">
-                    <div class="timeline-ano">2013</div>
-                    <div class="timeline-content">
-                        <h3>Primeira Sede</h3>
-                        <p>Aquisição do primeiro espaço físico, permitindo expandir os serviços para higiene e atendimento social.</p>
-                    </div>
-                </div>
+                // Observador de interseção para animação
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.animationPlayState = 'running';
+                        }
+                    });
+                }, { threshold: 0.3 });
 
-                <div class="timeline-item">
-                    <div class="timeline-ano">2016</div>
-                    <div class="timeline-content">
-                        <h3>Certificação OSCIP</h3>
-                        <p>Reconhecimento como Organização da Sociedade Civil de Interesse Público, ampliando nossa credibilidade.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-ano">2020</div>
-                    <div class="timeline-content">
-                        <h3>Programa de Empregabilidade</h3>
-                        <p>Lançamento do programa que já inseriu mais de 500 pessoas no mercado de trabalho formal.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-ano">2025</div>
-                    <div class="timeline-content">
-                        <h3>Expansão Nacional</h3>
-                        <p>Início das operações em outras 3 capitais brasileiras, multiplicando nosso impacto social.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Adicionando interatividade à linha do tempo
-        document.addEventListener('DOMContentLoaded', function() {
-            const timelineItems = document.querySelectorAll('.timeline-item');
-            
-            // Observador de interseção para animação
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animationPlayState = 'running';
-                    }
+                timelineItems.forEach(item => {
+                    observer.observe(item);
                 });
-            }, { threshold: 0.3 });
-            
-            timelineItems.forEach(item => {
-                observer.observe(item);
             });
-        });
-    </script>
+        </script>
 
         <!-- Missão, Visão e Valores -->
         <section id="missao-visao-valores" class="secao-sobre">
@@ -1877,7 +1903,7 @@
                 <div class="equipe-grid">
                     <article class="membro-equipe">
                         <div class="membro-foto">
-                            
+
                             <div
                                 style="width:100%;height:100%;background:linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;">
                                 FOTO</div>
@@ -1896,7 +1922,7 @@
 
                     <article class="membro-equipe">
                         <div class="membro-foto">
-                            
+
                             <div
                                 style="width:100%;height:100%;background:linear-gradient(135deg, #43AA8B 0%, #90BE6D 100%);display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;">
                                 FOTO</div>
@@ -1915,7 +1941,7 @@
 
                     <article class="membro-equipe">
                         <div class="membro-foto">
-                            
+
                             <div
                                 style="width:100%;height:100%;background:linear-gradient(135deg, #F8961E 0%, #F9C74F 100%);display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;">
                                 FOTO</div>
@@ -1934,7 +1960,7 @@
 
                     <article class="membro-equipe">
                         <div class="membro-foto">
-                            
+
                             <div
                                 style="width:100%;height:100%;background:linear-gradient(135deg, #F94144 0%, #F8961E 100%);display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;">
                                 FOTO</div>
@@ -2137,7 +2163,7 @@
     <footer class="rodape" id="rodape">
         <div class="container">
             <div class="rodape-content">
-                <div class="rodape-info">                 
+                <div class="rodape-info">
                     <div class="rodape-contato">
                         <h3>Contato</h3>
                         <address>

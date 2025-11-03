@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria Interativa e Metas - Rua Solidária</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset e configurações básicas */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2E86AB;
+            --primary-dark: #1A5A7A;
+            --secondary: #F9C74F;
+            --accent: #F94144;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --gray: #6C757D;
+            --success: #43AA8B;
+            --warning: #F8961E;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+
+        /* Galeria Interativa */
+        .galeria-interativa {
+            background-color: var(--light);
+        }
+
+        .filtros-galeria {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .filtros-galeria button {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .filtros-galeria button:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .filtros-galeria .filtro-ativo {
+            background: var(--primary);
+            color: white;
+        }
+
+        .grid-galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .item-galeria {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            height: 250px;
+        }
+
+        .item-galeria:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .item-galeria img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .item-galeria:hover img {
+            transform: scale(1.05);
+        }
+
+        .overlay-galeria {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .item-galeria:hover .overlay-galeria {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .overlay-galeria .data {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            opacity: 0.9;
+        }
+
+        .overlay-galeria .local {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Metas e Progresso */
+        .metas-progresso {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        .metas-progresso h2 {
+            color: white;
+        }
+
+        .grid-metas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .meta-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .meta-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .meta-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .meta-header h3 {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+
+        .meta-status {
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .meta-status.concluido {
+            background: var(--success);
+            color: white;
+        }
+
+        .meta-status.urgente {
+            background: var(--accent);
+            color: white;
+        }
+
+        .barra-progresso {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .progresso {
+            height: 100%;
+            border-radius: 10px;
+            background: var(--secondary);
+            transition: width 1.5s ease-in-out;
+            position: relative;
+        }
+
+        .progresso::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-image: linear-gradient(
+                -45deg,
+                rgba(255, 255, 255, 0.2) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.2) 75%,
+                transparent 75%,
+                transparent
+            );
+            background-size: 20px 20px;
+            animation: move 1s linear infinite;
+        }
+
+        @keyframes move {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 20px 0;
+            }
+        }
+
+        .meta-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Modal para galeria */
+        .modal-galeria {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-galeria.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-conteudo {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-galeria.active .modal-conteudo {
+            transform: scale(1);
+        }
+
+        .modal-conteudo img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .modal-fechar {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .modal-fechar:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .grid-galeria {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .grid-metas {
+                grid-template-columns: 1fr;
+            }
+            
+            .meta-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .filtros-galeria {
+                gap: 10px;
+            }
+            
+            .filtros-galeria button {
+                padding: 10px 18px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .grid-galeria {
+                grid-template-columns: 1fr;
+            }
+            
+            .item-galeria {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+
+    <!-- Metas e Progresso -->
+    <section class="metas-progresso">
+        <div class="container">
+            <h2>Nossas Metas do Mês</h2>
+            <div class="grid-metas">
+                <div class="meta-item">
+                    <div class="meta-header">
+                        <h3>Campanha do Agasalho</h3>
+                        <span class="meta-status urgente">Urgente</span>
+                    </div>
+                    <div class="barra-progresso">
+                        <div class="progresso" style="width: 65%"></div>
+                    </div>
+                    <div class="meta-stats">
+                        <span>2.540 / 4.000 agasalhos</span>
+                        <span>65% concluído</span>
+                    </div>
+                </div>
+                
+                <div class="meta-item">
+                    <div class="meta-header">
+                        <h3>Distribuição de Alimentos</h3>
+                        <span class="meta-status">Em andamento</span>
+                    </div>
+                    <div class="barra-progresso">
+                        <div class="progresso" style="width: 82%"></div>
+                    </div>
+                    <div class="meta-stats">
+                        <span>12.300 / 15.000 refeições</span>
+                        <span>82% concluído</span>
+                    </div>
+                </div>
+                
+                <div class="meta-item">
+                    <div class="meta-header">
+                        <h3>Kits de Higiene</h3>
+                        <span class="meta-status concluido">Concluído</span>
+                    </div>
+                    <div class="barra-progresso">
+                        <div class="progresso" style="width: 100%"></div>
+                    </div>
+                    <div class="meta-stats">
+                        <span>1.000 / 1.000 kits</span>
+                        <span>100% concluído</span>
+                    </div>
+                </div>
+                
+                <div class="meta-item">
+                    <div class="meta-header">
+                        <h3>Voluntários Cadastrados</h3>
+                        <span class="meta-status">Em andamento</span>
+                    </div>
+                    <div class="barra-progresso">
+                        <div class="progresso" style="width: 45%"></div>
+                    </div>
+                    <div class="meta-stats">
+                        <span>90 / 200 voluntários</span>
+                        <span>45% concluído</span>
+                    </div>
+                </div>
+                
+                <div class="meta-item">
+                    <div class="meta-header">
+                        <h3>Abrigos Temporários</h3>
+                        <span class="meta-status">Em andamento</span>
+                    </div>
+                    <div class="barra-progresso">
+                        <div class="progresso" style="width: 75%"></div>
+                    </div>
+                    <div class="meta-stats">
+                        <span>75 / 100 vagas</span>
+                        <span>75% concluído</span>
+                    </div>
+                </div>
+                
+                <div class="meta-item">
+                    <div class="meta-header">
+                        <h3>Doações Financeiras</h3>
+                        <span class="meta-status urgente">Precisamos de ajuda</span>
+                    </div>
+                    <div class="barra-progresso">
+                        <div class="progresso" style="width: 30%"></div>
+                    </div>
+                    <div class="meta-stats">
+                        <span>R$ 15.000 / R$ 50.000</span>
+                        <span>30% concluído</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para Galeria -->
+    <div class="modal-galeria">
+        <div class="modal-conteudo">
+            <span class="modal-fechar">&times;</span>
+            <img src="" alt="">
+            <div class="modal-info">
+                <span class="data-modal"></span>
+                <span class="local-modal"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Filtros da galeria
+        document.addEventListener('DOMContentLoaded', function() {
+            const filtros = document.querySelectorAll('.filtros-galeria button');
+            const itensGaleria = document.querySelectorAll('.item-galeria');
+            const modal = document.querySelector('.modal-galeria');
+            const modalImg = modal.querySelector('img');
+            const modalData = modal.querySelector('.data-modal');
+            const modalLocal = modal.querySelector('.local-modal');
+            const modalFechar = modal.querySelector('.modal-fechar');
+            
+            // Filtragem da galeria
+            filtros.forEach(filtro => {
+                filtro.addEventListener('click', function() {
+                    const categoria = this.getAttribute('data-categoria');
+                    
+                    // Atualizar botão ativo
+                    filtros.forEach(f => f.classList.remove('filtro-ativo'));
+                    this.classList.add('filtro-ativo');
+                    
+                    // Filtrar itens
+                    itensGaleria.forEach(item => {
+                        if (categoria === 'todas' || item.getAttribute('data-categoria') === categoria) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Modal da galeria
+            itensGaleria.forEach(item => {
+                item.addEventListener('click', function() {
+                    const imgSrc = this.querySelector('img').getAttribute('src');
+                    const data = this.querySelector('.data').textContent;
+                    const local = this.querySelector('.local').textContent;
+                    
+                    modalImg.setAttribute('src', imgSrc);
+                    modalData.textContent = data;
+                    modalLocal.textContent = local;
+                    
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Fechar modal
+            modalFechar.addEventListener('click', function() {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Fechar modal com tecla ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Animar barras de progresso quando a seção estiver visível
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progressos = entry.target.querySelectorAll('.progresso');
+                        progressos.forEach(progresso => {
+                            // Forçar reflow para reiniciar a animação
+                            progresso.style.width = '0';
+                            setTimeout(() => {
+                                progresso.style.width = progresso.getAttribute('style').split('width: ')[1];
+                            }, 100);
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            observer.observe(document.querySelector('.metas-progresso'));
+        });
+    </script>
+</body>
+</html>
